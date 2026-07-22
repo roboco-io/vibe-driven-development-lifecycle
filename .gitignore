@@ -1,3 +1,5 @@
 node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+slides/node_modules/
+slides/dist/
