@@ -1,8 +1,7 @@
 {
   "name": "vibe-driven-development-lifecycle",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "VDLC: Vibe-Driven Development Lifecycle — vdlc.roboco.io",
   "directories": {
     "doc": "docs"
   },
@@ -11,9 +10,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "mermaid": "^11.16.0",
