@@ -6,7 +6,13 @@ export default withMermaid(
     lang: "ko-KR",
     title: "VDLC",
     description: "Vibe-Driven Development Lifecycle — 바이브코딩을 전제로 재설계한 소프트웨어 개발 생명주기",
+    head: [
+      ["link", { rel: "icon", href: "/favicon.ico", sizes: "48x48" }],
+      ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
+      ["link", { rel: "apple-touch-icon", href: "/apple-touch-icon.png" }],
+    ],
     themeConfig: {
+      logo: "/logo.svg",
       nav: [
         { text: "매니페스토", link: "/manifesto" },
         { text: "가이드", link: "/guide/intent" },
