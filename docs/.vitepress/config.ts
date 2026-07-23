@@ -17,7 +17,6 @@ export default withMermaid(
         { text: "매니페스토", link: "/manifesto" },
         { text: "가이드", link: "/guide/intent" },
         { text: "템플릿", link: "/templates/" },
-        { text: "사례", link: "/cases/" },
         { text: "도입", link: "/adoption/" },
         { text: "슬라이드", link: "/slides/", target: "_blank" },
       ],
@@ -45,16 +44,6 @@ export default withMermaid(
               { text: "리스크 등급표", link: "/templates/risk-matrix" },
               { text: "리뷰 체크리스트", link: "/templates/review-checklist" },
               { text: "CLAUDE.md 예시", link: "/templates/claude-md" },
-            ],
-          },
-        ],
-        "/cases/": [
-          {
-            text: "도입 사례",
-            items: [
-              { text: "소개", link: "/cases/" },
-              { text: "중견기업 레거시 팀", link: "/cases/enterprise" },
-              { text: "소규모 팀 신규 서비스", link: "/cases/startup" },
             ],
           },
         ],
