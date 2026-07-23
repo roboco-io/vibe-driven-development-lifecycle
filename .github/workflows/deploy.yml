@@ -23,8 +23,16 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            slides/package-lock.json
       - run: npm ci
       - run: npm run docs:build
+      - run: npm ci
+        working-directory: slides
+      - run: npm run build
+        working-directory: slides
+      - run: cp -r slides/dist docs/.vitepress/dist/slides
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:

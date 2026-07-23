@@ -19,6 +19,7 @@ export default withMermaid(
         { text: "템플릿", link: "/templates/" },
         { text: "사례", link: "/cases/" },
         { text: "도입", link: "/adoption/" },
+        { text: "슬라이드", link: "/slides/", target: "_blank" },
       ],
       sidebar: {
         "/guide/": [
