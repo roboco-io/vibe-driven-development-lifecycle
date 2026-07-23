@@ -3,6 +3,7 @@ theme: seriph
 title: "VDLC — Vibe-Driven Development Lifecycle"
 titleTemplate: "%s"
 lang: ko
+routerMode: hash
 colorSchema: dark
 fonts:
   sans: Noto Sans KR
