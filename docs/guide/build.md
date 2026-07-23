@@ -1,48 +1,48 @@
 ---
-title: "3단계 — 공동 구현 (Co-Construction)"
+title: "Stage 3 — Co-Construction"
 ---
 
-# 3단계 — 공동 구현 (Co-Construction)
+# Stage 3 — Co-Construction
 
-> 계획을 승인하는 것으로 통제력을 유지하고, 구현은 에이전트에게 온전히 맡긴다.
+> Keep control by approving the plan, and leave implementation entirely to the agent.
 
-## 이 단계의 목적
+## Purpose of This Stage
 
-의도와 컨텍스트가 준비됐다면, 이 단계의 역할은 그것을 실제 산출물로 옮기는 것이다. 여기서 인간이 할 일은 코드를 직접 쓰는 것이 아니라 방향을 통제하는 것이다. 에이전트가 제안한 계획을 승인하는 관문 하나로 결과를 예측 가능한 범위 안에 묶어두고, 구현이라는 반복 작업 자체는 에이전트에게 전적으로 맡긴다. 이 경계가 무너지면 인간은 코드 한 줄씩 검토하느라 속도를 잃거나, 계획 없이 구현을 맡겨 통제를 잃는다.
+Once intent and context are ready, this stage's role is to move them into an actual artifact. Here the human's job is not to write code but to control direction. A single gate—approving the plan the agent proposed—keeps the result within a predictable range, while the repetitive work of implementation is left entirely to the agent. When this boundary breaks, the human either loses speed by reviewing code line by line, or loses control by handing off implementation without a plan.
 
-## 실행 순서
+## How to Execute
 
-1. **작업을 독립적으로 검증 가능한 단위로 분해한다.** 하나의 단위는 그 자체로 완료 여부를 판단할 수 있어야 한다. 여러 파일에 걸쳐 있어도 "이 단위가 끝났다"를 독립적으로 확인할 수 없다면 더 쪼갠다.
-2. **에이전트에게 계획을 제안하게 한다.** 의도 문서와 컨텍스트 자산을 근거로, 무엇을 어떤 순서로 어떻게 구현할지 에이전트가 먼저 계획을 세우게 한다.
-3. **인간이 계획을 승인한다 — 이 단계가 관문이다.** 코드가 아니라 계획을 읽고 방향이 맞는지, 빠진 단위는 없는지, 리스크가 큰 영역을 건드리는지 확인한다. 승인이 형식적인 클릭이 되지 않으려면, 계획을 자기 언어로 요약해 에이전트에게 되물어 확인한다. 요약이 어긋난다면 계획의 문제이기 이전에 이해의 문제이고, 이해하지 못한 계획은 승인하지 않는다. 승인 없이 구현으로 넘어가지 않는다.
-4. **에이전트가 구현한다.** 승인된 계획의 범위 안에서 에이전트가 코드를 작성한다. 계획에 없던 변경이 필요하면 별도로 승인받는다.
-5. **단위별로 자가 점검한다.** 구현이 끝난 단위마다 에이전트 스스로 테스트를 돌리거나 산출물을 재확인해, 다음 단위로 넘어가기 전 최소한의 신뢰를 확보한다.
+1. **Decompose the work into independently verifiable units.** A single unit must let you judge on its own whether it's done. Even if it spans several files, split it further if you can't independently confirm "this unit is finished."
+2. **Have the agent propose a plan.** Based on the intent document and context assets, let the agent build the plan first—what to implement, in what order, and how.
+3. **The human approves the plan — this is the gate.** Read the plan, not the code, and check whether the direction is right, whether any unit is missing, whether it touches high-risk areas. So approval doesn't become a rote click, summarize the plan in your own words and check it back with the agent. If the summary is off, that is a problem of understanding before it is a problem of the plan, and you don't approve a plan you don't understand. Don't move to implementation without approval.
+4. **The agent implements.** Within the scope of the approved plan, the agent writes the code. If a change not in the plan becomes necessary, get separate approval.
+5. **Self-check per unit.** For each finished unit, have the agent run tests or re-verify the output itself, to secure a minimum of trust before moving to the next unit.
 
-## 산출물
+## Artifacts
 
-- 승인된 구현 계획 — 세션 로그나 계획 문서로 남긴다
-- 구현된 코드와 단위별 자가 점검 기록
+- The approved implementation plan — leave it as a session log or plan document
+- Implemented code and per-unit self-check records
 
-계획 자체를 별도 파일로 남기지 않더라도, 무엇이 승인됐는지는 커밋 메시지나 PR 설명에서 추적 가능해야 한다.
+Even if you don't leave the plan itself as a separate file, what was approved must be traceable from the commit message or PR description.
 
-## 완료 기준 체크리스트
+## Completion Checklist
 
-- [ ] 모든 작업 단위가 독립적으로 검증 가능한 크기로 쪼개져 있다
-- [ ] 구현 전에 계획이 제안되고, 인간이 명시적으로 승인한 기록이 있다
-- [ ] 승인되지 않은 범위의 변경이 섞여 있지 않다
-- [ ] 병렬로 진행한 단위 간 충돌이 worktree나 브랜치 분리로 격리돼 있다
-- [ ] 각 단위마다 최소한의 자가 점검(테스트 실행 등)이 이루어졌다
+- [ ] Every work unit is split to an independently verifiable size
+- [ ] A plan was proposed before implementation, and there's a record of the human explicitly approving it
+- [ ] No out-of-scope, unapproved changes are mixed in
+- [ ] Conflicts between units run in parallel are isolated via worktree or branch separation
+- [ ] A minimum self-check (running tests, etc.) was done for each unit
 
-## 흔한 실수
+## Common Mistakes
 
-- **계획 없이 바로 구현을 지시한다.** "이거 만들어줘"로 시작하면 에이전트는 빈틈을 임의로 채우고, 결과를 검토할 때가 돼서야 방향이 틀렸음을 알게 된다.
-- **거대한 단일 작업 단위로 진행한다.** 하나의 승인으로 수십 개 파일이 한꺼번에 바뀌면, 계획 승인이 사실상 무의미한 형식적 절차로 전락한다.
-- **에이전트 출력을 읽지 않고 승인한다.** 계획이든 구현 결과든 훑어보지 않고 "네, 좋습니다"로 넘기면, 관문은 존재하되 기능하지 않는다.
+- **Instructing implementation directly, without a plan.** Start with "just build this" and the agent fills the gaps arbitrarily; you only learn the direction was wrong when you go to review the result.
+- **Proceeding with one giant work unit.** When a single approval changes dozens of files at once, plan approval degenerates into a virtually meaningless formality.
+- **Approving agent output without reading it.** Wave through plan or implementation with "yes, looks good" without skimming, and the gate exists but doesn't function.
 
-## Claude Code로 하면
+## With Claude Code
 
 ::: tip
-plan mode로 시작하면 에이전트가 코드를 쓰기 전에 계획부터 제시하고, 사람이 그 계획을 승인해야 다음 단계로 넘어간다. 이 흐름 자체가 3단계의 관문을 도구 차원에서 강제한다.
+Start in plan mode and the agent presents a plan before writing code, requiring a person to approve that plan before moving on. This flow enforces the stage 3 gate at the tool level.
 
-독립적인 단위가 여러 개면 서브에이전트를 병렬로 실행해 동시에 진행할 수 있다. 이때 같은 워킹 디렉터리를 공유하면 충돌이 나므로, git worktree로 각 에이전트의 작업 공간을 격리한 뒤 완료된 단위부터 순서대로 병합한다.
+If there are several independent units, run subagents in parallel to progress them at once. Since sharing the same working directory causes conflicts, isolate each agent's workspace with a git worktree and merge finished units in order.
 :::

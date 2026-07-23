@@ -1,64 +1,64 @@
 ---
-title: "템플릿 — 의도 문서 (6-pager 축약형)"
+title: "Template — Intent Document (Condensed 6-pager)"
 ---
 
-# 템플릿 — 의도 문서 (6-pager 축약형)
+# Template — Intent Document (Condensed 6-pager)
 
-## 언제 쓰나
+## When to Use
 
-[1단계 — 의도 정의](/guide/intent)에서 "무엇을, 왜 만드는지"를 사람들 사이에서 합의하고 문서로 남길 때 쓴다. 아마존의 6-pager를 축약한 형식으로, 배경·문제·목표·제약·트레이드오프를 서사로 담아 에이전트가 행간을 추측하지 않고 읽을 수 있게 만드는 것이 목적이다. 새 기능이나 프로젝트를 시작하기 전, 3단계(공동 구현)로 넘어가기 전에 작성한다.
+Use it in [Stage 1 — Intent](/guide/intent) when agreeing among people on "what to build and why" and leaving it as a document. In a condensed form of Amazon's 6-pager, the purpose is to carry background, problem, goals, constraints, and trade-offs as narrative so the agent can read without guessing between the lines. Write it before starting a new feature or project, before moving to stage 3 (Co-Construction).
 
-## 사용법
+## How to Use
 
-아래 템플릿을 그대로 복사해 `specs/` 또는 `docs/`에 파일로 만든다. 각 섹션 아래 주석(`<!-- -->`)은 무엇을 써야 하는지 안내하는 지침이므로 실제 내용을 채운 뒤 지운다. "예:"로 시작하는 문장은 채우는 방식을 보여주는 예시 조각이며, 실제 프로젝트의 사실로 교체한다. 문서가 완성되면 이해관계자 리뷰를 거쳐 승인 기록(리뷰 코멘트나 커밋 로그)을 남기고 리포에 커밋한다 — 합의 없는 의도 문서는 다음 세션에서 같은 논쟁을 반복시킨다.
+Copy the template below as-is into a file under `specs/` or `docs/`. The comments (`<!-- -->`) under each section are guidance on what to write, so delete them after filling in the actual content. Sentences beginning with "e.g.:" are example fragments showing how to fill in, and should be replaced with facts from your actual project. Once the document is done, run it through stakeholder review, leave an approval record (review comments or commit log), and commit it to the repo—an intent document without agreement makes the next session repeat the same debate.
 
-## 템플릿
+## Template
 
 ````markdown
-# 의도 문서: [프로젝트/기능명]
+# Intent Document: [Project/Feature Name]
 
-## 배경
+## Background
 
-<!-- 작성 안내: 지금 상황과 이 문서가 필요해진 계기를 데이터나 구체 사례로 뒷받침해 3~5문장으로 쓴다. -->
+<!-- Guidance: In 3-5 sentences, describe the current situation and what prompted the need for this document, backed by data or concrete cases. -->
 
-예: 지난 분기 신규 가입자의 온보딩 이탈률이 42%로 집계됐다. 사용자 인터뷰에서 "설정 화면 중간에 포기했다"는 응답이 반복적으로 나왔다.
+e.g.: Last quarter, the onboarding drop-off rate for new sign-ups came to 42%. In user interviews, "I gave up midway through the settings screen" came up repeatedly.
 
-## 문제
+## Problem
 
-<!-- 작성 안내: 지금 무엇이 고통스러운지 한 문단으로 서술한다. "더 좋으면 좋겠다" 수준의 서술은 반려 대상이다. -->
+<!-- Guidance: Describe what hurts now in one paragraph. Descriptions at the level of "it would be nice if it were better" are subject to rejection. -->
 
-예: 신규 사용자가 첫 세션에서 핵심 기능에 도달하기까지 평균 12단계를 거친다. 이 중 7단계는 현재 사업 로직상 반드시 필요하지 않다.
+e.g.: A new user goes through an average of 12 steps to reach the core feature in their first session. Seven of those steps are not strictly required by the current business logic.
 
-## 목표 (성공 기준)
+## Goals (Success Criteria)
 
-<!-- 작성 안내: "~하면 성공"처럼 참/거짓을 판정할 수 있는 문장으로 쓴다. "사용성이 좋아진다" 같은 형용사 표현은 금지. -->
+<!-- Guidance: Write sentences you can judge true or false, like "success if …". Adjective expressions like "usability improves" are prohibited. -->
 
-- 예: 신규 사용자의 온보딩 완료 시간이 30분 이내면 성공
-- 예: 첫 세션 이탈률이 20% 이하로 떨어지면 성공
+- e.g.: Success if new users complete onboarding within 30 minutes
+- e.g.: Success if the first-session drop-off rate falls to 20% or below
 
-## 비목표 (버린 것)
+## Non-goals (What Was Discarded)
 
-<!-- 작성 안내: 고려했지만 이번 범위에서 의도적으로 뺀 것과 그 이유를 남긴다. 적지 않으면 같은 대안이 검토 없이 반복 제안된다. -->
+<!-- Guidance: Leave what you considered but deliberately excluded from this scope, and why. If you don't write it down, the same alternative gets proposed again without review. -->
 
-- 예: 소셜 로그인 연동 — 이번 이탈률 문제와 직접 관련이 없어 다음 사이클로 미룬다.
-- 예: 기존 사용자 대상 온보딩 재설계 — 이번 범위는 신규 가입자로 한정한다.
+- e.g.: Social login integration — not directly related to this drop-off problem, so deferred to the next cycle.
+- e.g.: Redesigning onboarding for existing users — this scope is limited to new sign-ups.
 
-## 제약
+## Constraints
 
-<!-- 작성 안내: 예산, 일정, 기술 스택, 조직 정책 등 주어진 경계 조건을 나열한다. -->
+<!-- Guidance: List the given boundary conditions—budget, schedule, tech stack, org policy, etc. -->
 
-예: 기존 인증 시스템은 교체할 수 없다. 배포는 2주 안에 끝나야 한다.
+e.g.: The existing authentication system cannot be replaced. Deployment must finish within 2 weeks.
 
-## 트레이드오프와 근거
+## Trade-offs and Rationale
 
-<!-- 작성 안내: 검토한 대안, 선택하지 않은 이유, 선택한 안이 치르는 비용을 명시한다. -->
+<!-- Guidance: State the alternatives you examined, the reason for not choosing them, and the cost the chosen option pays. -->
 
-예: 온보딩 단계를 12단계에서 5단계로 줄이는 대신 일부 고급 설정 항목을 온보딩 이후로 미룬다. 초기 이탈을 막는 것이 고급 사용자의 초기 편의보다 우선한다고 판단했다.
+e.g.: We cut onboarding from 12 steps to 5, deferring some advanced settings items to after onboarding. We judged that preventing early drop-off takes priority over early convenience for advanced users.
 
-## 열린 질문
+## Open Questions
 
-<!-- 작성 안내: 아직 답을 내지 못한 질문을 남긴다. 이해관계자 리뷰에서 다뤄야 할 항목이다. -->
+<!-- Guidance: Leave questions you haven't answered yet. These are items to address in stakeholder review. -->
 
-- 예: 기존 사용자에게도 새 온보딩 흐름을 적용할 것인가, 신규 가입자에게만 적용할 것인가?
-- 예: 성공 기준 측정 시점은 가입 직후인가, 7일 리텐션 시점인가?
+- e.g.: Do we apply the new onboarding flow to existing users too, or only to new sign-ups?
+- e.g.: Is the success-criteria measurement point right after sign-up, or at the 7-day retention mark?
 ````

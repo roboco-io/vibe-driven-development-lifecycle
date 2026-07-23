@@ -1,47 +1,47 @@
 ---
-title: "5단계 — 배포와 관찰 (Ship & Observe)"
+title: "Stage 5 — Ship & Observe"
 ---
 
-# 5단계 — 배포와 관찰 (Ship & Observe)
+# Stage 5 — Ship & Observe
 
-> 배포는 끝이 아니라 다음 사이클의 입력을 모으는 시작이다.
+> Shipping is not the end but the start of gathering input for the next cycle.
 
-## 이 단계의 목적
+## Purpose of This Stage
 
-4단계를 통과한 산출물은 이제 실제 환경에서 검증받을 차례다. 이 단계의 역할은 배포 실행 자체가 아니라, 운영 환경에서 벌어지는 일을 다음 사이클이 소비할 수 있는 형태로 되돌려 놓는 것이다. CI/CD 파이프라인과 관측 도구는 이 단계의 전제 조건이다. 자동 배포가 없으면 검증 통과와 배포 사이에 수작업이 끼어들어 속도를 갉아먹고, 관측이 없으면 운영 문제를 아무도 알아채지 못한 채 다음 사이클로 넘어간다. 둘 중 하나라도 없으면 VDLC는 여기서 멈춘다.
+The output that passed stage 4 is now up for verification in the real environment. This stage's role is not the act of deploying itself but returning what happens in the operating environment into a form the next cycle can consume. A CI/CD pipeline and observability tools are preconditions for this stage. Without automated deployment, manual work wedges between verification-pass and deploy and eats away speed; without observability, operational problems slip by unnoticed into the next cycle. If either one is missing, VDLC stops here.
 
-## 실행 순서
+## How to Execute
 
-1. **검증을 통과한 산출물을 자동으로 배포한다.** 배포 여부의 판단은 4단계 관문(리스크에 비례한 인간 리뷰 포함)에서 이미 끝났으므로, 배포 실행은 별도 승인 없이 파이프라인이 그대로 처리한다. 여기서 실행까지 사람이 다시 개입하면 검증 단계에서 확보한 속도가 무의미해진다.
-2. **운영 데이터를 관찰한다.** 로그, 에러율, 지연 시간, 사용자 행동 지표 등 미리 정해둔 관측 대상을 지속적으로 확인한다. 관찰은 사고가 터진 뒤가 아니라 평상시에 이루어져야 한다.
-3. **이슈를 재현 가능한 컨텍스트로 정리한다.** 문제를 발견하면 로그, 재현 절차, 기대 동작 세 가지를 갖춘 형태로 기록한다. 이 세 가지가 빠지면 다음 사이클에서 조사를 처음부터 반복해야 한다.
-4. **정리된 컨텍스트를 다음 사이클의 입력으로 전달한다.** 이슈는 1단계(의도 정의)나 2단계(컨텍스트 설계)로 되돌아가는 재료가 된다. 여기서 끊기면 관찰이 그저 기록으로만 끝난다.
+1. **Automatically deploy the verified output.** The decision of whether to deploy was already made at the stage 4 gate (including risk-proportional human review), so deploy execution is handled by the pipeline as-is, without separate approval. If a person intervenes again at execution here, the speed secured at the verification stage is wasted.
+2. **Observe operational data.** Continuously check predefined observation targets—logs, error rate, latency, user-behavior metrics. Observation must happen in normal times, not after an incident breaks out.
+3. **Organize issues into reproducible context.** When you find a problem, record it in a form with three things: logs, reproduction steps, and expected behavior. Miss these three and the next cycle has to repeat the investigation from scratch.
+4. **Pass the organized context as input to the next cycle.** The issue becomes material that loops back to stage 1 (Intent) or stage 2 (Context). Break it off here and observation ends as mere record.
 
-## 산출물
+## Artifacts
 
-- 자동 배포 이력 — 파이프라인 실행 로그로 남긴다
-- 재현 가능한 이슈 컨텍스트 — 로그·재현 절차·기대 동작을 갖춘 기록
+- Automated deploy history — leave it as pipeline run logs
+- Reproducible issue context — records complete with logs, reproduction steps, and expected behavior
 
-이슈 컨텍스트는 다음 사이클의 1단계 의도 문서나 2단계 컨텍스트 자산에 입력으로 연결돼야 한다.
+Issue context must connect as input to the next cycle's stage 1 intent document or stage 2 context assets.
 
-## 완료 기준 체크리스트
+## Completion Checklist
 
-- [ ] 검증 통과 산출물이 사람의 수동 승인 없이 자동 배포된다
-- [ ] 배포 후 운영 데이터를 관찰하는 도구와 대상이 정해져 있다
-- [ ] 발견된 이슈마다 로그·재현 절차·기대 동작이 함께 기록돼 있다
-- [ ] 정리된 이슈가 다음 사이클의 입력(의도 문서 또는 컨텍스트 자산)으로 연결돼 있다
-- [ ] CI/CD 파이프라인과 관측 도구가 실제로 갖춰져 있다
+- [ ] Verified output is automatically deployed without a person's manual approval
+- [ ] The tools and targets for observing operational data after deploy are defined
+- [ ] Each found issue is recorded together with logs, reproduction steps, and expected behavior
+- [ ] Organized issues connect to the next cycle's input (intent document or context assets)
+- [ ] A CI/CD pipeline and observability tools are actually in place
 
-## 흔한 실수
+## Common Mistakes
 
-- **이슈를 대화로만 전달한다.** "이거 이상해요" 한마디로 넘기면 재현 컨텍스트가 없어, 다음 사이클의 에이전트나 사람이 처음부터 원인을 다시 찾아야 한다.
-- **배포 승인 관문까지 자동화한다.** 자동화할 것은 승인된 산출물의 배포 실행이지, 배포 여부의 판단이 아니다. 리스크가 높은 변경까지 4단계 인간 리뷰 없이 곧장 통과시키면, 요구사항 해석·아키텍처 선택과 마찬가지로 판단 지점의 인간 관문이 사라져 잘못된 방향으로 멀리 가게 된다.
-- **관찰을 사고 대응 시점으로 미룬다.** 평상시 관측 없이 장애가 나서야 로그를 뒤지면, 재현 가능한 컨텍스트를 만들 시간과 정보가 이미 사라진 뒤다.
+- **Passing issues along only in conversation.** Wave it off with "this seems weird" and there's no reproduction context, so the next cycle's agent or person has to find the cause from scratch.
+- **Automating even the deploy-approval gate.** What you automate is deploy execution of approved output, not the judgment of whether to deploy. Wave even high-risk changes straight through without stage 4 human review, and—just as with requirements interpretation and architecture choice—the human gate at the judgment point disappears and you go far in the wrong direction.
+- **Deferring observation to incident-response time.** Dig through logs only when an outage hits, without normal-time observability, and the time and information to build reproducible context are already gone.
 
-## Claude Code로 하면
+## With Claude Code
 
 ::: tip
-운영 이슈를 트리거로 에이전트를 투입하는 파이프라인을 구성하면, 이슈 등록부터 재현·수정 제안까지 사람 개입 없이 1차 처리가 가능하다. 이슈 템플릿에 로그·재현 절차·기대 동작 세 항목을 강제하면 에이전트가 바로 착수할 수 있는 입력이 확보된다.
+Set up a pipeline that deploys an agent triggered by an operational issue, and first-pass handling—from issue registration through reproduction and fix proposal—becomes possible without a person. Force the three items of logs, reproduction steps, and expected behavior in the issue template, and you secure input the agent can start on right away.
 
-CI 파이프라인 안에서 헤드리스로 `claude`를 실행하면, 배포 후 발견된 실패를 감지해 원인 분석이나 수정 커밋 제안까지 자동화할 수 있다. 사람은 이 제안을 검증 단계(4단계)로 다시 흘려보내 관문을 거치게 하면 된다.
+Run `claude` headless inside the CI pipeline and you can detect failures found after deploy and automate cause analysis or a fix-commit proposal. The person just channels this proposal back into the verification stage (stage 4) to pass through the gate.
 :::

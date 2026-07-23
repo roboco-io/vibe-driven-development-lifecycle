@@ -1,161 +1,161 @@
 ---
-title: VDLC 매니페스토
-description: 바이브코딩을 전제로 재설계한 소프트웨어 개발 생명주기
+title: VDLC Manifesto
+description: A software development lifecycle redesigned around vibe coding
 ---
 
 # VDLC: Vibe-Driven Development Lifecycle
 
-**바이브코딩을 전제로 재설계한 소프트웨어 개발 생명주기**
+**A software development lifecycle redesigned around vibe coding**
 
 ---
 
-## 1. 정의
+## 1. Definition
 
-VDLC(Vibe-Driven Development Lifecycle)는 AI 에이전트가 코드 구현의 주체가 되는 시대에 맞춰 소프트웨어 개발의 전 과정을 재구성한 개발 생명주기다. 인간은 의도를 정의하고 컨텍스트를 설계하며 결과를 검증하고, AI 에이전트는 계획을 제안하고 코드를 생성하며 스스로 점검한다.
+VDLC (Vibe-Driven Development Lifecycle) is a development lifecycle that reconstructs the entire software development process for an era in which AI agents are the ones implementing code. Humans define intent, design context, and verify results; AI agents propose plans, generate code, and check their own work.
 
-전통적인 SDLC는 "인간이 코드를 작성한다"는 가정 위에 세워졌다. 요구분석–설계–구현–테스트–배포로 이어지는 단계 구분도, 스프린트라는 시간 단위도, 코드 리뷰라는 품질 장치도 모두 이 가정에서 출발한다. 바이브코딩은 이 가정을 무너뜨렸다. VDLC는 무너진 가정을 새 가정으로 교체한 뒤, 그 위에서 개발 프로세스를 처음부터 다시 세운 결과물이다.
+The traditional SDLC was built on the assumption that "humans write the code." Its stage divisions—requirements, design, implementation, test, deployment—its time unit of the sprint, and its quality mechanism of code review all start from that assumption. Vibe coding toppled it. VDLC replaces the fallen assumption with a new one and rebuilds the development process from the ground up on top of it.
 
-VDLC의 핵심 명제는 하나다. **의도와 컨텍스트가 1차 산출물이고, 코드는 그로부터 재생성 가능한 2차 산출물이다.**
+VDLC's core proposition is a single one: **intent and context are the primary artifacts, and code is a secondary artifact regenerable from them.**
 
-## 2. 배경: 왜 지금 VDLC인가
+## 2. Background: Why VDLC Now
 
-2025년 초 안드레이 카파시(Andrej Karpathy)가 '바이브코딩'이라는 이름을 붙인 이후, 자연어로 의도를 전달하면 AI가 동작하는 코드를 만들어내는 개발 방식은 실험을 넘어 실무로 들어왔다. 코드 한 줄을 작성하는 비용은 사실상 0에 수렴하고 있다.
+Since Andrej Karpathy coined the term "vibe coding" in early 2025, the practice of conveying intent in natural language and having AI produce working code has moved beyond experiment and into real work. The cost of writing a single line of code is effectively converging to zero.
 
-문제는 생명주기의 나머지 구간이 그대로라는 점이다. 구현이 분 단위로 끝나는데 요구 정의는 여전히 회의 몇 번을 거치고, 리뷰는 사람 손을 며칠씩 기다린다. 병목이 '코드를 쓰는 일'에서 '무엇을 만들지 정하는 일'과 '만들어진 것을 믿을 수 있는지 확인하는 일'로 이동한 것이다. 기존 SDLC를 그대로 두고 구현 단계에만 AI를 끼워 넣으면 네 가지 문제가 반복된다.
+The problem is that the rest of the lifecycle stays the same. Implementation finishes in minutes, yet requirements still take several meetings, and reviews still wait days for a human's hands. The bottleneck has moved from "writing code" to "deciding what to build" and "confirming whether what was built can be trusted." If you leave the existing SDLC in place and slot AI only into the implementation stage, four problems recur.
 
-첫째, **속도 불균형**이다. 구현만 빨라지고 앞뒤 구간이 그대로면 전체 리드타임은 거의 줄지 않고, 조직은 "AI를 도입했는데 왜 빨라지지 않느냐"는 질문에 부딪힌다. 둘째, **품질 리스크**다. 검증 체계 없이 생성 속도만 누리는 개발은 데모에서는 화려하지만 프로덕션에서는 유지보수 불가능한 코드, 이른바 AI 슬롭을 양산한다. 셋째, **지식의 휘발**이다. 프롬프트와 대화 속에 흩어진 의사결정과 도메인 지식은 세션이 끝나면 사라지고, 다음 작업은 다시 맨바닥에서 시작한다. 넷째, **역량 침식**이다. 이해하지 못한 코드를 승인하는 일이 반복되면, 코드베이스는 빠르게 자라는데 그 코드를 판단할 수 있는 사람은 점점 줄어든다. 이 격차는 인지부채(cognitive debt)로 쌓여, 어느 순간 조직은 자신이 소유한 시스템을 설명하지 못하게 된다.
+First, **speed imbalance.** If only implementation gets faster while the stages before and after stay the same, total lead time barely shrinks, and the organization runs into the question, "We adopted AI, so why aren't we any faster?" Second, **quality risk.** Development that enjoys only generation speed without a verification system mass-produces code that dazzles in a demo but is impossible to maintain in production—so-called AI slop. Third, **knowledge evaporation.** Decisions and domain knowledge scattered through prompts and conversations vanish when the session ends, and the next task starts from bare ground again. Fourth, **capability erosion.** When approving code you don't understand becomes routine, the codebase grows fast while the number of people who can judge that code steadily shrinks. This gap accumulates as cognitive debt, until at some point the organization can no longer explain the very system it owns.
 
-VDLC는 이 네 문제를 정면으로 다룬다. 병목이 된 구간(의도 정의, 검증)을 생명주기의 중심에 두고, 휘발되던 지식을 컨텍스트 자산으로 축적하며, 사람의 이해가 함께 자라는 구조를 만든다.
+VDLC tackles these four problems head-on. It places the bottleneck stages (intent definition, verification) at the center of the lifecycle, accumulates evaporating knowledge as context assets, and builds a structure in which a person's understanding grows along the way.
 
-## 3. 여섯 가지 원칙
+## 3. Six Principles
 
-**원칙 1 — 의도가 소스다 (Intent as Source).** 프로그래밍 언어로 쓴 코드가 아니라 자연어로 쓴 의도가 개발의 출발점이자 원본이다. 잘 쓴 의도 문서는 한 번 쓰고 버리는 요구사항 명세가 아니라, 에이전트에게 반복 투입되는 실행 가능한 스펙이다. 아마존의 6-pager와 PR-FAQ 같은 내러티브 문서가 좋은 형식인 이유는, 맥락·근거·트레이드오프를 서사로 담아내 에이전트가 행간을 추측할 필요를 줄여주기 때문이다.
+**Principle 1 — Intent as Source.** The starting point and the original of development is intent written in natural language, not code written in a programming language. A well-written intent document is not a write-once, throw-away requirements spec but an executable spec fed to agents again and again. Narrative documents like Amazon's 6-pager and PR-FAQ are a good form because they carry context, rationale, and trade-offs as narrative, reducing the agent's need to guess at what lies between the lines.
 
-**원칙 2 — 인간은 판단하고, AI는 실행한다.** 무엇을 만들지, 어디까지 허용할지, 이 결과를 믿을지는 인간의 몫이다. 어떻게 구현할지, 반복 작업을 어떻게 처리할지는 에이전트의 몫이다. 이 경계가 무너지면 양쪽 모두 사고가 난다. 판단까지 위임하면 통제를 잃고, 실행까지 인간이 붙들면 속도를 잃는다.
+**Principle 2 — Humans Judge, AI Executes.** What to build, how far to allow it, and whether to trust the result are the human's job. How to implement it and how to handle repetitive work are the agent's job. When this boundary breaks, both sides fail. Delegate judgment too, and you lose control; keep humans holding execution too, and you lose speed.
 
-**원칙 3 — 속도는 검증이 결정한다 (Verification Sets the Pace).** 생성은 더 이상 병목이 아니다. 전체 리드타임은 "얼마나 빨리 만드느냐"가 아니라 "만들어진 것을 얼마나 빨리 믿을 수 있느냐"가 결정한다. 따라서 테스트, 평가 기준, 리뷰 체계 같은 검증 자산에 투자하는 것이 곧 속도에 투자하는 것이다.
+**Principle 3 — Verification Sets the Pace.** Generation is no longer the bottleneck. Total lead time is decided not by "how fast you build" but by "how fast you can trust what was built." Investing in verification assets—tests, evaluation criteria, review systems—is therefore investing in speed.
 
-**원칙 4 — 컨텍스트는 자산이다 (Context as Asset).** 프로젝트 규칙(CLAUDE.md), 재사용 가능한 스킬, 도메인 위키, 코딩 컨벤션은 부수적인 문서가 아니라 조직의 핵심 자산이다. 같은 모델을 써도 컨텍스트의 품질에 따라 산출물 품질이 갈린다. VDLC는 사이클을 돌 때마다 이 자산이 두꺼워지고, 자산이 두꺼워질수록 다음 사이클이 빨라지는 복리 구조를 설계한다.
+**Principle 4 — Context as Asset.** Project rules (CLAUDE.md), reusable skills, domain wikis, and coding conventions are not incidental documents but core organizational assets. With the same model, output quality diverges by the quality of the context. VDLC designs a compounding structure in which these assets thicken with every cycle, and the thicker they get, the faster the next cycle runs.
 
-**원칙 5 — 작게 돌리고, 자주 환류한다.** 한 사이클의 단위는 주 단위 스프린트가 아니라 시간과 일이다. 작은 단위로 의도–구현–검증을 돌리고, 각 사이클에서 배운 것을 즉시 컨텍스트에 반영한다.
+**Principle 5 — Run Small Cycles, Feed Back Often.** The unit of one cycle is hours and days, not week-long sprints. Run intent–build–verify in small units, and fold what you learned in each cycle back into context immediately.
 
-**원칙 6 — 이해가 소유다 (Understanding as Ownership).** 에이전트가 만든 코드를 승인하는 순간, 그 코드의 책임은 승인한 사람의 것이 된다. 이해하지 못한 채 승인한 산출물은 인지부채로 쌓이고, 기술부채처럼 복리로 불어난다. 사이클을 돌 때마다 컨텍스트 자산만 두꺼워져서는 안 되고, 사람의 이해도 함께 자라야 한다. 그래서 VDLC는 학습을 개인의 선택이 아니라 라이프사이클에 내장된 활동으로 다룬다.
+**Principle 6 — Understanding as Ownership.** The moment you approve code an agent made, responsibility for that code becomes yours. Output approved without understanding piles up as cognitive debt and, like technical debt, compounds. With every cycle, it isn't enough for the context assets alone to thicken—a person's understanding must grow too. So VDLC treats learning not as an individual's choice but as an activity built into the lifecycle.
 
-## 4. 라이프사이클: 여섯 단계
+## 4. The Lifecycle: Six Stages
 
 ```mermaid
 flowchart LR
-    subgraph H["인간 주도 · AI 보조"]
-        P1["1. 의도 정의<br/>(Intent)"]
-        P2["2. 컨텍스트 설계<br/>(Context)"]
-        P6["6. 환류<br/>(Evolve)"]
+    subgraph H["Human-led · AI-assisted"]
+        P1["1. Intent"]
+        P2["2. Context"]
+        P6["6. Evolve"]
     end
-    subgraph A["AI 주도 · 인간 관문"]
-        P3["3. 공동 구현<br/>(Co-Construction)"]
-        P4["4. 검증<br/>(Verification)"]
-        P5["5. 배포와 관찰<br/>(Ship & Observe)"]
+    subgraph A["AI-led · Human gate"]
+        P3["3. Co-Construction"]
+        P4["4. Verification"]
+        P5["5. Ship & Observe"]
     end
     P1 --> P2
     P2 --> P3
     P3 --> P4
-    P4 -->|"불합격"| P3
-    P4 -->|"합격"| P5
+    P4 -->|"Fail"| P3
+    P4 -->|"Pass"| P5
     P5 --> P6
     P6 --> P1
-    P6 -.->|"컨텍스트 자산 갱신"| P2
+    P6 -.->|"Context asset update"| P2
 ```
 
-여섯 단계는 주도자가 다르다. 의도 정의, 컨텍스트 설계, 환류(1·2·6단계)는 인간이 주도하고 AI가 보조한다. 공동 구현, 검증, 배포와 관찰(3·4·5단계)은 AI가 주도하되, 각 단계의 관문—계획 승인, 최종 리뷰, 배포 승인—은 인간이 지킨다. 주도권을 넘기는 것과 판단을 넘기는 것은 다르다. 원칙 2의 경계는 바로 이 관문들로 라이프사이클에 구현된다.
+The six stages differ in who drives them. Intent, Context, and Evolve (stages 1, 2, 6) are led by humans and assisted by AI. Co-Construction, Verification, and Ship & Observe (stages 3, 4, 5) are led by AI, but humans guard each stage's gate—plan approval, final review, deploy approval. Handing over the lead is not the same as handing over judgment. The boundary of Principle 2 is implemented in the lifecycle precisely through these gates.
 
-### 1단계 — 의도 정의 (Intent)
+### Stage 1 — Intent
 
-*주도: 인간 · 보조: AI*
+*Driver: Human · Support: AI*
 
-무엇을, 왜 만드는지를 사람이 합의하고 문서로 만든다. 산출물은 내러티브 형식의 의도 문서다. PR-FAQ로 완성된 모습을 먼저 그리고, 6-pager 형식으로 배경·제약·트레이드오프를 서술하며, 검증 가능한 성공 기준을 명시한다. 이 단계의 품질이 이후 모든 단계의 상한선을 정한다. 모호한 의도는 에이전트의 추측을 부르고, 추측은 재작업을 부른다.
+People agree on what to build and why, and turn it into a document. The artifact is a narrative-form intent document. First picture the finished shape with a PR-FAQ, then describe the background, constraints, and trade-offs in 6-pager form, and state verifiable success criteria. The quality of this stage sets the ceiling for every stage that follows. Vague intent invites the agent to guess, and guesses invite rework.
 
-→ [1단계 플레이북](/guide/intent)
+→ [Stage 1 Playbook](/guide/intent)
 
-### 2단계 — 컨텍스트 설계 (Context)
+### Stage 2 — Context
 
-*주도: 인간 · 보조: AI*
+*Driver: Human · Support: AI*
 
-에이전트가 참조할 지식과 규칙을 준비한다. 프로젝트 규칙, 아키텍처 결정 기록, 코딩 컨벤션, 도메인 용어집, 재사용 스킬이 여기에 해당한다. 신규 프로젝트라면 최소한의 골격을 세우고, 기존 프로젝트라면 이전 사이클에서 축적된 자산을 점검하고 갱신한다.
+Prepare the knowledge and rules the agent will reference. Project rules, architecture decision records, coding conventions, domain glossaries, and reusable skills all belong here. For a new project, set up a minimal skeleton; for an existing project, inspect and refresh the assets accumulated in prior cycles.
 
-→ [2단계 플레이북](/guide/context)
+→ [Stage 2 Playbook](/guide/context)
 
-### 3단계 — 공동 구현 (Co-Construction)
+### Stage 3 — Co-Construction
 
-*주도: AI · 관문: 인간(계획 승인)*
+*Driver: AI · Gate: Human (plan approval)*
 
-에이전트가 계획을 제안하고, 인간이 승인하면, 에이전트가 구현한다. 핵심은 '계획 승인' 관문이다. 코드를 한 줄씩 검토하는 대신 계획 수준에서 방향을 통제하면, 통제력을 유지하면서도 생성 속도를 온전히 누릴 수 있다. 작업은 독립적으로 검증 가능한 작은 단위로 쪼개며, 단위별로 여러 에이전트를 병렬로 오케스트레이션할 수 있다. 승인 관문이 형식적인 클릭이 되지 않으려면, 승인 전에 계획을 자기 언어로 요약해 에이전트에게 되물어 확인한다. 요약이 어긋난다면 그것은 계획의 문제이기 이전에 이해의 문제이고, 이해하지 못한 계획은 승인하지 않는 것이 원칙이다.
+The agent proposes a plan, the human approves it, and the agent implements. The heart of it is the "plan approval" gate. Instead of reviewing code line by line, controlling direction at the plan level lets you keep control while fully enjoying generation speed. Work is split into small, independently verifiable units, and multiple agents can be orchestrated in parallel per unit. So the approval gate doesn't become a rote click, summarize the plan in your own words before approving and check it back with the agent. If the summary is off, that is a problem of understanding before it is a problem of the plan—and the rule is not to approve a plan you don't understand.
 
-→ [3단계 플레이북](/guide/build)
+→ [Stage 3 Playbook](/guide/build)
 
-### 4단계 — 검증 (Verification)
+### Stage 4 — Verification
 
-*주도: AI · 관문: 인간(최종 리뷰)*
+*Driver: AI · Gate: Human (final review)*
 
-만들어진 것을 믿을 수 있는지 확인한다. 자동화된 테스트와 정적 분석이 1차 방어선, 별도 에이전트의 교차 리뷰가 2차, 인간 리뷰가 최종 관문이다. 모든 산출물에 같은 강도를 적용하는 대신 리스크에 비례해 검증 강도를 조절한다. 결제·인증·개인정보처럼 실패 비용이 큰 영역은 인간 리뷰를 강화하고, 내부 도구나 프로토타입은 자동 검증 중심으로 가볍게 통과시킨다. 검증에서 발견된 문제는 코드 수정으로 끝내지 않고, 의도 문서나 컨텍스트의 결함까지 추적해 고친다. 검증의 대상에는 산출물만이 아니라 승인자의 이해도 포함된다. 리스크가 높은 변경은 "승인자가 이 코드를 설명할 수 있는가"를 통과 기준에 넣는다. 자신이 이해한 바를 에이전트에게 설명하고 맞는지 확인받는 설명 되물기, 에이전트와 함께 변경 지점을 짚어가는 코드 워크스루가 유효한 도구다.
+Confirm whether what was built can be trusted. Automated tests and static analysis are the first line of defense, a separate agent's cross-review is the second, and human review is the final gate. Rather than applying the same intensity to every artifact, scale verification intensity in proportion to risk. Strengthen human review for areas where failure is costly—payments, authentication, personal data—and let internal tools or prototypes pass lightly on automated checks. Problems found in verification aren't closed out with a code fix alone; trace them back to defects in the intent document or context and fix those too. Verification covers not only the output but the approver's understanding. For high-risk changes, put "can the approver explain this code" into the pass criteria. Explain-back—explaining what you understood to the agent and having it confirmed—and code walkthroughs, tracing the change points together with the agent, are effective tools.
 
-→ [4단계 플레이북](/guide/verify)
+→ [Stage 4 Playbook](/guide/verify)
 
-### 5단계 — 배포와 관찰 (Ship & Observe)
+### Stage 5 — Ship & Observe
 
-*주도: AI · 관문: 인간(배포 승인)*
+*Driver: AI · Gate: Human (deploy approval)*
 
-검증을 통과한 산출물을 배포하고 운영 데이터를 관찰한다. CI/CD 파이프라인과 관측 도구는 VDLC가 작동하기 위한 전제 조건이다. 운영에서 발견된 이슈는 로그, 재현 절차, 기대 동작을 갖춘 재현 가능한 컨텍스트로 정리해 다음 사이클의 입력으로 만든다.
+Ship the verified output and observe operational data. A CI/CD pipeline and observability tools are preconditions for VDLC to work. Issues found in operation are organized into reproducible context—complete with logs, reproduction steps, and expected behavior—and turned into input for the next cycle.
 
-→ [5단계 플레이북](/guide/ship)
+→ [Stage 5 Playbook](/guide/ship)
 
-### 6단계 — 환류 (Evolve)
+### Stage 6 — Evolve
 
-*주도: 인간 · 보조: AI*
+*Driver: Human · Support: AI*
 
-사이클에서 배운 것을 자산에 반영한다. 반복된 지시는 프로젝트 규칙으로, 검증에서 잡힌 실수 패턴은 리뷰 체크리스트로, 새로 정리된 도메인 지식은 위키로 들어간다. 이 단계를 생략하면 VDLC는 그저 빠른 코딩일 뿐이다. 환류가 있어야 사이클을 돌수록 조직이 똑똑해지는 학습 루프가 완성된다. 환류의 대상은 컨텍스트 자산만이 아니다. 사이클에서 처음 만난 패턴과 기술을 되짚어 자기 언어로 정리하고, 이해하지 못한 채 넘어간 지점이 있다면 여기서 상환한다. 조직의 자산과 개인의 이해가 함께 자라야 다음 사이클의 판단이 빨라진다.
+Fold what the cycle taught into the assets. Repeated instructions become project rules, mistake patterns caught in verification become review-checklist items, and newly organized domain knowledge goes into the wiki. Skip this stage and VDLC is merely fast coding. Only with feedback does the learning loop complete, in which the organization gets smarter with every cycle. Feedback covers more than context assets. Revisit the patterns and techniques you met for the first time this cycle, put them into your own words, and if there are points you passed over without understanding, repay them here. Only when the organization's assets and the individual's understanding grow together does judgment in the next cycle get faster.
 
-→ [6단계 플레이북](/guide/evolve)
+→ [Stage 6 Playbook](/guide/evolve)
 
-## 5. 역할의 재정의
+## 5. Redefining Roles
 
-VDLC에서 개발자는 코드 작성자가 아니라 세 역할의 결합체가 된다. 의도를 명확한 문서로 벼려내는 **의도 설계자**, 여러 에이전트에게 일을 배분하고 진행을 조율하는 **오케스트레이터**, 결과를 믿을지 판단하는 **검증자**다. 타이핑 숙련도의 가치는 줄고, 문제 정의력과 시스템 설계 감각과 리뷰 안목의 가치가 커진다. 그리고 세 역할을 지탱하는 토대는 학습이다. 사이클을 돌 때마다 자신의 이해를 갱신하지 않는 개발자는 검증자 역할부터 무너진다.
+In VDLC the developer becomes not a code writer but a fusion of three roles: the **intent designer** who forges intent into a clear document, the **orchestrator** who distributes work across multiple agents and coordinates progress, and the **verifier** who judges whether to trust the result. The value of typing proficiency drops, while the value of problem definition, a sense for system design, and review judgment rises. And the foundation under all three roles is learning. A developer who doesn't refresh their understanding with every cycle sees the verifier role collapse first.
 
-비개발 직군의 참여 범위도 넓어진다. 기획자와 도메인 전문가는 의도 문서 작성의 공동 주체가 되고, 프로토타입 수준의 구현은 직접 수행할 수 있다. 다만 4단계 검증의 최종 책임은 프로덕션 품질을 판단할 수 있는 엔지니어에게 남는다.
+The scope for non-developer roles widens too. Planners and domain experts become co-authors of the intent document and can carry out prototype-level implementation themselves. That said, final responsibility for stage 4 verification remains with engineers who can judge production quality.
 
-## 6. 산출물의 재정의
+## 6. Redefining Artifacts
 
-| 구분 | 전통 SDLC | VDLC |
+| Aspect | Traditional SDLC | VDLC |
 |---|---|---|
-| 1차 산출물 | 코드 | 의도 문서, 컨텍스트 자산, 검증 자산 |
-| 코드의 지위 | 수작업으로 만든 원본 | 재생성 가능한 2차 산출물 |
-| 문서의 지위 | 코드를 뒤따르는 기록(자주 방치됨) | 코드에 앞서는 스펙(에이전트의 입력) |
-| 축적되는 것 | 코드베이스 | 코드베이스 + 컨텍스트 자산 + 평가 기준 + 사람의 이해 |
+| Primary artifact | Code | Intent documents, context assets, verification assets |
+| Status of code | A hand-crafted original | A regenerable secondary artifact |
+| Status of documents | A record trailing the code (often neglected) | A spec preceding the code (input for the agent) |
+| What accumulates | The codebase | Codebase + context assets + evaluation criteria + human understanding |
 
-이 전환의 실무적 의미는 명확하다. 문서화가 개발을 지연시키는 비용이 아니라, 다음 생성의 품질을 끌어올리는 투자로 바뀐다.
+The practical meaning of this shift is clear. Documentation turns from a cost that delays development into an investment that raises the quality of the next generation.
 
-## 7. 기존 방법론과의 관계
+## 7. Relationship to Existing Methodologies
 
-VDLC는 기존 방법론을 부정하지 않고 그 위에 선다. **애자일**의 반복과 피드백 정신은 그대로 계승하되, 반복 주기를 주 단위 스프린트에서 시간·일 단위 사이클로 압축한다. **DevOps**가 구축한 CI/CD와 관측 인프라는 4단계와 5단계가 작동하기 위한 토대다. **TDD**의 "검증 기준을 먼저 세운다"는 사고는 원칙 3으로 확장된다.
+VDLC does not negate existing methodologies; it stands on top of them. It inherits **Agile's** spirit of iteration and feedback intact, but compresses the iteration cycle from week-long sprints into hour- and day-scale cycles. The CI/CD and observability infrastructure that **DevOps** built is the foundation for stages 4 and 5 to work. **TDD's** thinking of "set the verification criteria first" expands into Principle 3.
 
-AWS의 **AI-DLC**와는 문제의식을 공유한다. AI-DLC가 Inception–Construction–Operations라는 조직 수준의 청사진과 몹(Mob) 중심의 협업 의례를 제시한다면, VDLC는 바이브코딩 실천을 중심에 두고 개인과 팀이 매일 돌리는 실행 루프와 컨텍스트 자산화 구조를 구체화한다. 두 방법론은 경쟁 관계가 아니라, 조직 관점의 프레임(AI-DLC)과 실무 관점의 사이클(VDLC)로 상호 보완적으로 쓸 수 있다.
+VDLC shares its problem awareness with AWS's **AI-DLC.** Where AI-DLC offers an organization-level blueprint of Inception–Construction–Operations and mob-centered collaboration rituals, VDLC puts vibe-coding practice at the center and concretizes the execution loop that individuals and teams run every day, along with the structure for turning context into assets. The two are not competitors but complementary: an organizational-perspective frame (AI-DLC) and a practice-perspective cycle (VDLC).
 
-## 8. 안티패턴
+## 8. Anti-patterns
 
-**검증 없는 바이브.** 생성 속도에 취해 4단계를 건너뛰는 경우다. 초기에는 빠르게 전진하는 듯 보이지만, 이해하지 못한 코드가 쌓이면서 어느 순간부터 수정 하나가 회귀 버그 셋을 낳는다. 데모까지는 도달하고 프로덕션에는 도달하지 못하는 전형적인 경로다.
+**Vibes without verification.** Drunk on generation speed, you skip stage 4. Early on it looks like fast progress, but as code you don't understand piles up, at some point a single fix breeds three regression bugs. The classic path that reaches the demo but never reaches production.
 
-**컨텍스트 없는 프롬프트.** 매 세션을 맨바닥에서 시작하는 경우다. 같은 지시를 반복하고, 세션마다 스타일과 구조가 달라지며, 팀원 간 산출물의 일관성이 무너진다. 환류(6단계)가 작동하지 않는 조직의 증상이다.
+**Prompts without context.** You start every session from bare ground. You repeat the same instructions, style and structure diverge from session to session, and consistency across teammates' output falls apart. A symptom of an organization where Evolve (stage 6) isn't working.
 
-**병목이 된 인간.** 생성은 분 단위인데 리뷰 체계는 예전 그대로인 경우다. 에이전트가 만든 산출물이 리뷰 대기열에 쌓이고, AI 도입 효과가 대기 시간에 잠식된다. 리스크 기반 검증 강도 조절과 에이전트 교차 리뷰 같은 검증 체계의 재설계가 필요하다는 신호다.
+**The human bottleneck.** Generation runs in minutes while the review system stays as it was. Agent output piles up in the review queue, and the benefit of AI adoption is eaten by wait time. A signal that the verification system needs redesign—risk-based verification intensity and agent cross-review among them.
 
-**전 구간 자동화 환상.** 판단까지 에이전트에 위임하는 경우다. 요구사항 해석, 아키텍처 선택, 배포 승인 같은 판단 지점에서 인간 관문을 제거하면, 빠르게 잘못된 방향으로 멀리 가게 된다. 원칙 2의 경계는 자동화 수준이 올라가도 유지되어야 한다.
+**The full-automation illusion.** You delegate even judgment to the agent. Remove the human gate at judgment points like requirements interpretation, architecture choice, and deploy approval, and you go far in the wrong direction fast. The boundary of Principle 2 must hold even as automation levels rise.
 
-**이해 없는 승인.** 관문마다 승인 버튼만 누르는 경우다. 당장은 사이클이 매끄럽게 돌지만, 인지부채가 쌓이면서 리뷰 안목 자체가 침식되고, 어느 순간 "인간은 판단한다"는 원칙 2가 공허해진다. 판단할 수 없는 사람이 지키는 관문은 관문이 아니다.
+**Approval without understanding.** You just press the approve button at every gate. For now the cycle runs smoothly, but as cognitive debt accumulates, review judgment itself erodes, and at some point Principle 2's "humans judge" rings hollow. A gate guarded by someone who cannot judge is no gate at all.
 
-## 9. 도입 경로
+## 9. Adoption Path
 
-조직 도입은 파일럿 → 컨텍스트 자산화 → 팀 단위 확산 → 조직 표준화의 네 걸음으로 진행한다. 실패 비용이 낮은 내부 도구나 신규 소규모 프로젝트에서 먼저 여섯 단계 전체를 경험하고, 거기서 나온 규칙과 지식을 재사용 가능한 컨텍스트 자산으로 정리한 뒤, 테스트 기준·리뷰 규칙·리스크 등급을 갖춘 검증 체계로 팀 단위 확산을 거쳐, 사이클 리드타임·재작업률·컨텍스트 자산 증가량 같은 지표로 조직 표준으로 정착시킨다.
+Organizational adoption proceeds in four steps: pilot → context asset-building → team-level rollout → organizational standardization. First experience all six stages on an internal tool or a small new project where failure is cheap, organize the resulting rules and knowledge into reusable context assets, roll out to the team level through a verification system equipped with test criteria, review rules, and risk grades, and settle it as an organizational standard using metrics like cycle lead time, rework rate, and context asset growth.
 
-각 걸음의 목표, 해야 할 일, 완료 신호는 [도입 로드맵](/adoption/roadmap)에서 자세히 다룬다.
+The goal, the work, and the completion signal for each step are covered in detail in the [Adoption Roadmap](/adoption/roadmap).
 
-## 맺으며
+## Closing
 
-바이브코딩은 도구의 변화가 아니라 가정의 변화다. "인간이 코드를 쓴다"는 가정이 사라진 자리에 무엇을 세울 것인가에 대한 하나의 답이 VDLC다. 의도를 원본으로 삼고, 검증으로 속도를 만들고, 컨텍스트를 복리로 쌓는 조직은, 같은 모델을 쓰는 경쟁자보다 사이클을 돌 때마다 조금씩 더 빨라진다. 그 격차가 누적된 것이 곧 AI 시대의 개발 경쟁력이다.
+Vibe coding is a change of assumption, not a change of tool. VDLC is one answer to what to build in the place left empty when the assumption "humans write the code" disappears. An organization that makes intent the original, makes speed out of verification, and compounds context grows a little faster than a competitor on the same model with every cycle. The accumulation of that gap is exactly what development competitiveness looks like in the AI era.

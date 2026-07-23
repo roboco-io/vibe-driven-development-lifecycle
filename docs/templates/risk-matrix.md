@@ -1,45 +1,45 @@
 ---
-title: "템플릿 — 리스크 매트릭스"
+title: "Template — Risk Matrix"
 ---
 
-# 템플릿 — 리스크 매트릭스
+# Template — Risk Matrix
 
-## 언제 쓰나
+## When to Use
 
-[4단계 — 검증](/guide/verify)에서 산출물마다 리스크 등급을 매기고, 등급에 맞는 검증 강도를 정할 때 쓴다. 모든 산출물에 같은 강도의 검증을 걸면 리소스가 낭비되고, 반대로 실패 비용이 큰 영역을 가볍게 넘기면 사고로 이어진다. 이 매트릭스는 등급 판정 기준과, 등급별로 어디까지 검증해야 통과시킬 수 있는지를 미리 합의해두는 문서다.
+Use it in [Stage 4 — Verification](/guide/verify) when assigning a risk grade to each artifact and setting the verification intensity that matches the grade. Apply the same verification intensity to every artifact and you waste resources; conversely, wave a high-failure-cost area through lightly and it leads to an incident. This matrix is a document that agrees in advance on the grading criteria and, per grade, how far you must verify before you can pass it.
 
-## 사용법
+## How to Use
 
-아래 매트릭스를 프로젝트의 `docs/` 또는 `specs/`에 한 번 복사해두고, 사이클마다 새로 만들지 않는다. 등급 판정 기준(설명 부분)은 프로젝트 도메인에 맞게 조정해도 되지만, "인간 리뷰 필수 여부"는 조정 후에도 팀 합의를 다시 받는다 — 검증 강도를 낮추는 조정은 곧 리스크를 더 감수하겠다는 결정이기 때문이다. 실제 검증 시점에는 매트릭스 아래 "산출물별 판정" 표에 이번 사이클에서 다루는 산출물을 채워 어느 등급인지, 왜 그 등급인지 기록한다.
+Copy the matrix below once into your project's `docs/` or `specs/`, and don't recreate it every cycle. You may adjust the grading criteria (the description part) to fit your project domain, but re-obtain team agreement on "whether human review is required" even after adjusting—lowering verification intensity is a decision to accept more risk. At the actual verification point, fill the "Per-artifact assessment" table below the matrix with the artifacts handled this cycle, recording which grade they are and why.
 
-## 템플릿
+## Template
 
 ````markdown
-# 리스크 매트릭스
+# Risk Matrix
 
-<!-- 작성 안내: 등급 정의는 프로젝트 도메인에 맞게 조정 가능하나, 조정 시 팀 합의를 다시 받는다. -->
+<!-- Guidance: Grade definitions may be adjusted to fit the project domain, but re-obtain team agreement when adjusting. -->
 
-| 등급 | 해당 영역 (예시) | 인간 리뷰 | 교차 리뷰 (별도 에이전트) | 자동 테스트 수준 |
+| Grade | Applicable areas (examples) | Human review | Cross-review (separate agent) | Automated test level |
 |---|---|---|---|---|
-| High | 결제, 인증, 개인정보 처리, 비가역 데이터 변경(삭제·마이그레이션) | 필수 — 병합 전 승인 없이는 배포 불가 | 필수 — 구현한 에이전트와 다른 세션이 정합성·누락 케이스 점검 | 단위 테스트 + 통합 테스트 + 경계값/실패 케이스 커버 |
-| Medium | 핵심 비즈니스 로직(가격 계산, 권한 분기, 알림 발송 조건 등) | 권장 — 리스크가 높다고 판단되면 승격 | 권장 — 여유가 없으면 생략 가능하나 사유를 기록 | 단위 테스트 필수, 주요 분기 커버 |
-| Low | 내부 도구, 프로토타입, 문서/스타일 변경, 되돌리기 쉬운 설정 | 생략 가능 — 자동 검증 통과만으로 진행 | 생략 가능 | 존재하는 테스트만 통과하면 충분, 신규 테스트 강제하지 않음 |
+| High | Payments, authentication, personal-data handling, irreversible data changes (deletion, migration) | Required — cannot deploy without pre-merge approval | Required — a different session than the implementing agent checks consistency and missing cases | Unit tests + integration tests + boundary/failure-case coverage |
+| Medium | Core business logic (price calculation, permission branching, notification-send conditions, etc.) | Recommended — promote if judged high-risk | Recommended — may skip if pressed for time, but record the reason | Unit tests required, major branches covered |
+| Low | Internal tools, prototypes, doc/style changes, easily reversible settings | May skip — proceed on automated checks passing alone | May skip | Passing existing tests is enough; new tests not enforced |
 
-## 등급 판정 기준
+## Grading Criteria
 
-<!-- 작성 안내: 애매한 경계 사례를 어느 쪽으로 판정할지 원칙을 남긴다. -->
+<!-- Guidance: Leave the principle for which way to grade ambiguous borderline cases. -->
 
-- **되돌릴 수 있는가.** 실패했을 때 즉시 롤백 가능하면 한 단계 낮은 등급으로 판정할 수 있다. 데이터 삭제·과금처럼 되돌릴 수 없으면 무조건 High다.
-- **영향 범위가 얼마나 넓은가.** 전체 사용자에게 영향을 주는 인증·결제 로직은 High. 특정 관리자 화면에만 영향을 주는 로직은 Medium 이하로 판정할 수 있다.
-- **애매하면 한 단계 올린다.** High와 Medium 사이에서 판단이 서지 않으면 High로 취급한다. 검증을 더 하는 비용이 사고 비용보다 항상 싸다.
+- **Is it reversible?** If it can be rolled back immediately on failure, you may grade it one level lower. If it can't be undone—like data deletion or billing—it's unconditionally High.
+- **How wide is the impact?** Authentication/payment logic affecting all users is High. Logic affecting only a specific admin screen may be graded Medium or below.
+- **When in doubt, raise it one level.** If you can't decide between High and Medium, treat it as High. The cost of doing more verification is always cheaper than the cost of an incident.
 
-## 산출물별 판정
+## Per-artifact Assessment
 
-<!-- 작성 안내: 이번 사이클에서 검증할 산출물을 실제로 채운다. "왜 이 등급인가"는 생략하지 않는다. -->
+<!-- Guidance: Actually fill in the artifacts to verify this cycle. Don't omit "why this grade." -->
 
-| 산출물 | 등급 | 판정 근거 |
+| Artifact | Grade | Basis |
 |---|---|---|
-| 예: 결제 수단 등록 API | High | 결제 정보를 직접 다루고, 실패 시 롤백이 어려운 외부 PG 연동 포함 |
-| 예: 할인율 계산 로직 개편 | Medium | 매출에 영향을 주지만 특정 프로모션 화면에 국한, 배포 후 즉시 롤백 가능 |
-| 예: 내부 어드민 대시보드 필터 UI | Low | 내부 도구, 잘못돼도 데이터 손상 없음 |
+| e.g.: Payment-method registration API | High | Directly handles payment info and includes external PG integration where rollback on failure is hard |
+| e.g.: Discount-rate calculation rework | Medium | Affects revenue but is limited to a specific promotion screen and can be rolled back immediately after deploy |
+| e.g.: Internal admin dashboard filter UI | Low | Internal tool; no data corruption even if wrong |
 ````

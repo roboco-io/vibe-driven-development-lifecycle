@@ -1,72 +1,72 @@
 ---
-title: "템플릿 — CLAUDE.md 예시"
+title: "Template — CLAUDE.md Example"
 ---
 
-# 템플릿 — CLAUDE.md 예시
+# Template — CLAUDE.md Example
 
-## 언제 쓰나
+## When to Use
 
-[2단계 — 컨텍스트 설계](/guide/context)에서 프로젝트 규칙 파일의 골격을 세우거나 기존 파일을 점검·갱신할 때 쓴다. 규칙 파일은 에이전트가 매 세션 같은 질문("테스트는 어떻게 돌려요", "네이밍 규칙이 뭐예요")을 반복하지 않도록 만드는 컨텍스트 자산이다. 이 문서는 이 사이트의 다른 페이지와 달리 **도구 중립 원칙의 예외**로, Claude Code가 실제로 읽는 파일인 `CLAUDE.md`를 기준으로 구체적인 예시를 제공한다. 형식은 도구마다 다르지만 담아야 할 내용의 종류는 대체로 같으므로, 다른 도구를 쓰더라도 섹션 구성은 그대로 참고할 수 있다.
+Use it in [Stage 2 — Context](/guide/context) when setting up the skeleton of a project rules file or inspecting and refreshing an existing one. The rules file is a context asset that keeps the agent from repeating the same questions every session ("how do I run tests," "what's the naming rule"). Unlike the other pages on this site, this document is an **exception to the tool-neutral principle**: it provides concrete examples based on `CLAUDE.md`, the file Claude Code actually reads. The format differs by tool, but the kinds of content to include are largely the same, so even with a different tool you can reference the section structure as-is.
 
-## 사용법
+## How to Use
 
-아래 예시를 그대로 복사하지 않는다. 각 섹션 위 주석은 "이 섹션이 왜 필요한가"를 설명하는 것이지, 내용을 그대로 베끼라는 뜻이 아니다. 프로젝트에 해당하지 않는 섹션은 지우고, 매 세션 구두로 반복 설명하고 있는 것이 있다면 그것부터 섹션으로 추가한다. 파일이 수천 줄로 불어나면 정작 중요한 규칙이 묻히므로, 세부 규칙은 이 파일에 다 적지 말고 별도 문서로 분리한 뒤 링크만 남긴다. 멀티 프로젝트 워크스페이스라면 상위 디렉토리의 `CLAUDE.md`에 조직 공통 규칙을, 하위 프로젝트에 프로젝트별 규칙을 두어 상속 구조로 관리한다.
+Don't copy the example below verbatim. The comment above each section explains "why this section is needed"; it doesn't mean copy the content as-is. Delete sections that don't apply to your project, and if there's something you repeat verbally every session, add that as a section first. If the file balloons to thousands of lines, the rules that actually matter get buried, so don't write every detailed rule in this file—split them into separate documents and leave only links. In a multi-project workspace, put organization-wide common rules in the parent directory's `CLAUDE.md` and project-specific rules in the child projects, managing them in an inheritance structure.
 
-Claude Code를 쓰지 않는 팀은 도구별 대응 파일에 같은 구성을 적용하면 된다. 예를 들어 다수의 에이전트 도구가 공통으로 읽는 `AGENTS.md` 관례가 있고, Cursor는 `.cursor/rules`, 그 외 각 도구가 자체 규칙 파일 포맷을 두는 경우가 많다 — 파일명과 문법은 달라도 "프로젝트 규칙을 에이전트가 세션 시작 시 자동으로 읽게 만든다"는 목적은 동일하다.
+Teams not using Claude Code can apply the same structure to their tool's corresponding file. For example, there's an `AGENTS.md` convention that many agent tools read in common, Cursor uses `.cursor/rules`, and other tools often have their own rules-file format—the filename and syntax differ, but the purpose of "having the agent read the project rules automatically at session start" is the same.
 
-## 템플릿
+## Template
 
 ````markdown
 # CLAUDE.md
 
-<!-- 왜 있는가: 파일 맨 위에서 이 문서의 성격을 한 줄로 못 박아, 에이전트가 "이건 참고 문서가 아니라 지켜야 할 규칙"임을 바로 인지하게 한다. -->
-이 파일은 이 저장소에서 작업하는 AI 에이전트가 반드시 지켜야 할 규칙을 담는다.
+<!-- Why it's here: Pin the nature of this document in one line at the very top, so the agent immediately recognizes "this isn't a reference doc but rules to follow." -->
+This file holds the rules that AI agents working in this repository must follow.
 
-## 프로젝트 개요
+## Project Overview
 
-<!-- 왜 있는가: 코드만 봐서는 알기 어려운 "이 프로젝트가 무엇을 하는가"를 한 문단으로 줘서, 에이전트가 목적에 맞는 판단을 하게 한다. -->
-예: 이 저장소는 사내 결제 승인 API 서버다. Node.js + TypeScript로 작성됐고, 외부 PG사 3곳과 연동한다.
+<!-- Why it's here: Give "what this project does"—hard to tell from code alone—in one paragraph, so the agent makes judgments fitting the purpose. -->
+e.g.: This repository is an in-house payment-approval API server. Written in Node.js + TypeScript, it integrates with 3 external PG providers.
 
-## 자주 쓰는 명령어
+## Frequently Used Commands
 
-<!-- 왜 있는가: 빌드/테스트/린트 명령을 매번 물어보거나 추측하지 않게 한다. 잘못 추측하면 존재하지 않는 명령을 실행하려다 실패한다. -->
-- 테스트: `npm test`
-- 린트: `npm run lint`
-- 로컬 서버 실행: `npm run dev`
-- 마이그레이션: `npm run db:migrate`
+<!-- Why it's here: So build/test/lint commands aren't asked about or guessed every time. Guess wrong and the agent fails trying to run a command that doesn't exist. -->
+- Test: `npm test`
+- Lint: `npm run lint`
+- Run local server: `npm run dev`
+- Migration: `npm run db:migrate`
 
-## 코딩 컨벤션
+## Coding Conventions
 
-<!-- 왜 있는가: 네이밍·구조 규칙을 세션마다 구두로 반복 지시하는 것을 막는다. 컨벤션이 없으면 에이전트마다, 세션마다 스타일이 갈린다. -->
-- 파일명은 kebab-case, 컴포넌트는 PascalCase를 쓴다.
-- API 응답 타입은 반드시 `types/` 아래 명시적으로 선언하고 `any`를 쓰지 않는다.
-- 테스트 파일은 대상 파일과 같은 디렉토리에 `*.test.ts`로 둔다.
+<!-- Why it's here: Prevent repeating naming/structure rules verbally every session. Without conventions, style diverges by agent and by session. -->
+- Filenames use kebab-case, components use PascalCase.
+- API response types must be declared explicitly under `types/` and `any` must not be used.
+- Test files go in the same directory as their target file as `*.test.ts`.
 
-## 금지 사항
+## Prohibitions
 
-<!-- 왜 있는가: 되돌리기 어렵거나 리스크가 큰 행동을 사전에 차단한다. 리스크 매트릭스에서 High로 분류된 영역과 맞물린다. -->
-- `main` 브랜치에 직접 커밋하지 않는다. 항상 PR을 통한다.
-- 마이그레이션 파일을 생성한 뒤 별도 승인 없이 프로덕션 DB에 직접 실행하지 않는다.
-- `.env`, `secrets/` 하위 파일 내용을 로그나 커밋에 노출하지 않는다.
+<!-- Why it's here: Block hard-to-reverse or high-risk actions in advance. Ties into the areas classified as High in the risk matrix. -->
+- Don't commit directly to the `main` branch. Always go through a PR.
+- Don't run migration files directly against the production DB without separate approval after creating them.
+- Don't expose the contents of `.env` or files under `secrets/` in logs or commits.
 
-## 아키텍처 메모
+## Architecture Notes
 
-<!-- 왜 있는가: "왜 이렇게 구조화했는가"를 남겨, 에이전트가 구조를 임의로 바꾸는 리팩터링을 제안하지 않게 한다. 상세 근거는 ADR로 분리하고 여기서는 요약만 링크한다. -->
-결제 승인 로직은 PG사별 어댑터 패턴으로 분리돼 있다 (`src/adapters/`). PG사 추가 시 새 어댑터만 구현하면 되고, 기존 어댑터를 수정하지 않는다. 배경은 `docs/adr/0003-pg-adapter-pattern.md` 참고.
+<!-- Why it's here: Leave "why it's structured this way" so the agent doesn't propose refactorings that arbitrarily change the structure. Split detailed rationale into an ADR and link only a summary here. -->
+Payment-approval logic is separated by an adapter pattern per PG provider (`src/adapters/`). Adding a PG provider requires implementing only a new adapter, without modifying existing adapters. See `docs/adr/0003-pg-adapter-pattern.md` for the background.
 
-## 도메인 용어집
+## Domain Glossary
 
-<!-- 왜 있는가: 팀 안에서 의미가 갈리는 용어를 고정해, 에이전트와 사람이 같은 뜻으로 대화하게 한다. -->
-- "승인(approve)": PG사로부터 결제 성공 응답을 받은 상태. "완료(complete)"와 구분 — 완료는 정산까지 끝난 상태를 뜻한다.
-- "가맹점(merchant)": 이 시스템을 사용하는 우리 고객사. 최종 소비자를 뜻하는 "사용자(user)"와 혼동하지 않는다.
+<!-- Why it's here: Pin terms whose meaning splits within the team, so agent and people talk with the same meaning. -->
+- "approve": the state of having received a payment-success response from the PG provider. Distinct from "complete"—complete means settlement is also finished.
+- "merchant": our customer company that uses this system. Don't confuse it with "user," which means the end consumer.
 
-## 테스트 원칙
+## Test Principles
 
-<!-- 왜 있는가: 리뷰 체크리스트의 "테스트 실재성" 항목과 맞물린다. 테스트를 통과시키기 위한 테스트가 아니라 실제 검증을 강제한다. -->
-새 로직을 추가할 때는 정상 케이스뿐 아니라 실패 케이스(PG사 타임아웃, 중복 승인 요청)를 반드시 테스트에 포함한다. 결제 관련 변경은 [리스크 매트릭스](/templates/risk-matrix) 기준 High이므로 통합 테스트 없이 병합하지 않는다.
+<!-- Why it's here: Ties into the "Test Reality" item of the review checklist. Enforces actual verification, not tests written just to pass. -->
+When adding new logic, always include failure cases (PG provider timeout, duplicate approval request) in the tests, not just the happy path. Payment-related changes are High by the [Risk Matrix](/templates/risk-matrix), so don't merge without integration tests.
 
-## 세션 시작 시 규칙
+## Session-start Rules
 
-<!-- 왜 있는가: 매 세션이 같은 출발선에서 시작되도록, 참조해야 할 문서를 명시적으로 지정한다. -->
-작업을 시작하기 전 최신 의도 문서(`specs/` 아래 가장 최근 파일)를 먼저 읽는다. 의도 문서와 어긋나는 지시를 받으면, 바로 구현하지 말고 먼저 사용자에게 확인한다.
+<!-- Why it's here: Explicitly specify the documents to reference so every session starts from the same line. -->
+Before starting work, read the latest intent document first (the most recent file under `specs/`). If you receive an instruction that conflicts with the intent document, don't implement it right away—check with the user first.
 ````

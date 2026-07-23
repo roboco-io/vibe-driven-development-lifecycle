@@ -1,15 +1,15 @@
 ---
-title: "도입"
+title: "Adoption"
 ---
 
-# 도입
+# Adoption
 
-VDLC를 조직에 들이는 과정을 세 문서로 나눠 정리했다. 지금 팀이 어디쯤 있는지 가늠하고, 다음 걸음을 정하고, 그 걸음이 실제로 효과를 내고 있는지 확인하는 순서로 읽는다.
+We've organized the process of bringing VDLC into an organization across three documents. Read them in order: gauge where your team is now, decide the next step, and confirm whether that step is actually paying off.
 
-| 문서 | 무엇을 다루나 |
+| Document | What it covers |
 |---|---|
-| [성숙도 모델](/adoption/maturity) | 4레벨(탐색–실천–자산화–표준화) 판별 기준과 18문항 셀프 진단 체크리스트. 팀이 지금 어디에 있는지부터 확인한다. |
-| [도입 로드맵](/adoption/roadmap) | 파일럿 → 컨텍스트 자산화 → 팀 확산 → 조직 표준, 네 걸음의 목표·할 일·완료 신호. 성숙도 레벨과 걸음이 서로 대응한다. |
-| [측정 지표](/adoption/metrics) | 사이클 리드타임, 재작업률, 검증 통과율, 컨텍스트 자산 증가량 4종의 정의·측정법·해석·게이밍 방지. |
+| [Maturity Model](/adoption/maturity) | The criteria for the 4 levels (Exploring–Practicing–Compounding–Systematizing) and an 18-question self-diagnostic checklist. Start by confirming where your team is. |
+| [Adoption Roadmap](/adoption/roadmap) | Pilot → context asset-building → team rollout → organizational standard: the goal, work, and completion signal for each of the four steps. The maturity levels and the steps correspond to each other. |
+| [Metrics](/adoption/metrics) | The definition, measurement, interpretation, and gaming-prevention for the 4 metrics: cycle lead time, rework rate, verification pass rate, and context asset growth. |
 
-처음이라면 [성숙도 모델](/adoption/maturity)의 셀프 진단으로 시작해 지금 레벨을 확인한 뒤, [도입 로드맵](/adoption/roadmap)에서 그 레벨에 맞는 다음 걸음을 찾는 순서를 권한다.
+If it's your first time, we recommend starting with the [Maturity Model](/adoption/maturity) self-diagnostic to confirm your current level, then finding the next step for that level in the [Adoption Roadmap](/adoption/roadmap).

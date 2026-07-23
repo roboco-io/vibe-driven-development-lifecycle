@@ -1,91 +1,91 @@
 ---
-title: "측정 지표"
+title: "Metrics"
 ---
 
-# 측정 지표
+# Metrics
 
-> 성숙도 모델이 "어디쯤 와 있는가"를 정성적으로 보여준다면, 이 4종 지표는 "실제로 나아지고 있는가"를 정량적으로 보여준다.
+> Where the maturity model shows "how far along you are" qualitatively, these 4 metrics show "whether you're actually improving" quantitatively.
 
-지표는 [성숙도 모델](/adoption/maturity)과 분리해서 다룬다. 성숙도는 절차와 자산의 정착 정도를 판별하는 체크리스트이고, 지표는 그 절차가 실제로 효과를 내고 있는지 시간에 따라 추적하는 숫자다. [L4 표준화](/adoption/maturity)에 도달한 조직은 이 4종을 정기적으로 수집하지만, 그 이전 단계에서도 방향을 확인하는 용도로 일찍부터 재보는 것을 권한다.
+Metrics are treated separately from the [Maturity Model](/adoption/maturity). Maturity is a checklist that judges how well procedures and assets have settled in; metrics are numbers that track over time whether those procedures are actually paying off. An organization that has reached [L4 Systematizing](/adoption/maturity) collects these 4 regularly, but even at earlier stages we recommend measuring them early to confirm direction.
 
-모든 지표에는 공통된 위험이 있다. 숫자를 개선하는 것 자체가 목표가 되면, 지표는 좋아지는데 실제 산출물의 질은 나빠지는 역효과(굿하트의 법칙)가 생긴다. 각 지표의 "주의점"은 이 역효과를 미리 짚어둔 것이다.
+Every metric shares a common risk. When improving the number itself becomes the goal, the metric gets better while the actual quality of the output gets worse—the counter-effect (Goodhart's law). Each metric's "Caution" points this counter-effect out in advance.
 
-## 사이클 리드타임
+## Cycle Lead Time
 
-### 정의
+### Definition
 
-의도 정의를 시작한 시점부터 배포(또는 검증 통과로 병합)까지 걸린 시간이다. 하나의 VDLC 사이클, 즉 [1단계 — 의도 정의](/guide/intent)부터 [5단계 — 배포와 관찰](/guide/ship)까지의 총 소요 시간을 잰다.
+The time taken from starting intent definition to deployment (or merge on verification-pass). It measures the total time for one VDLC cycle—from [Stage 1 — Intent](/guide/intent) through [Stage 5 — Ship & Observe](/guide/ship).
 
-### 측정 방법
+### How to Measure
 
-의도 문서 커밋 시각(또는 작업 티켓 생성 시각)을 시작점으로, 배포 완료 시각(또는 최종 병합 시각)을 종료점으로 삼는다. 작업 관리 도구나 리포의 커밋·PR 타임스탬프에서 뽑을 수 있다. 팀·기능 단위로 정기적으로(예: 스프린트 또는 월 단위) 중앙값을 집계한다 — 평균은 소수의 대형 작업에 쉽게 왜곡되므로 중앙값을 우선한다.
+Take the intent-document commit time (or work-ticket creation time) as the start point and the deploy-completion time (or final merge time) as the end point. You can pull these from a work-management tool or the repo's commit/PR timestamps. Aggregate the median regularly (e.g., per sprint or per month) by team/feature—the average is easily distorted by a few large tasks, so prefer the median.
 
-### 해석 가이드
+### Interpretation Guide
 
-- **좋아지는 신호**: 중앙값이 사이클을 거듭할수록 짧아진다. 특히 비슷한 크기의 작업끼리 비교했을 때 짧아지는 추세면, [컨텍스트 자산](/adoption/roadmap)이 재사용되며 복리 효과가 나고 있다는 신호다.
-- **나빠지는 신호**: 리드타임이 늘거나, 편차(최댓값과 중앙값의 격차)가 커진다. 편차 확대는 특정 유형의 작업만 병목에 걸리고 있다는 뜻이므로, 어느 단계에서 지연되는지 먼저 분해해야 한다.
+- **Improving signal**: The median gets shorter cycle after cycle. Especially if it shortens when comparing tasks of similar size, that's a signal that [context assets](/adoption/roadmap) are being reused and the compounding effect is kicking in.
+- **Worsening signal**: Lead time grows, or the spread (the gap between the maximum and the median) widens. A widening spread means only a certain type of task is hitting the bottleneck, so you first need to decompose which stage is delaying.
 
-### 주의점
+### Caution
 
-작업을 인위적으로 잘게 쪼개 개별 리드타임만 짧게 만들면 숫자는 개선되지만 실질적인 산출물 완성까지의 총 시간은 그대로거나 늘어난다. 작업 분해 단위 자체가 바뀌지 않았는지 함께 확인한다. 또한 검증을 생략해 리드타임을 줄이는 경우가 있으므로, 반드시 재작업률·검증 통과율과 같이 본다.
+Artificially slicing work into small pieces to shorten only the individual lead times improves the number, but the total time to actual output completion stays the same or grows. Check together whether the work-decomposition unit itself has changed. Also, since lead time is sometimes reduced by skipping verification, always view it alongside rework rate and verification pass rate.
 
-## 재작업률
+## Rework Rate
 
-### 정의
+### Definition
 
-한 번 "완료"로 처리된 산출물이 이후 결함·요구사항 오해·설계 변경으로 다시 손을 대게 된 비율이다. 재작업은 버그 수정, 리뷰 반려 후 재구현, 배포 후 롤백/핫픽스를 포함한다.
+The proportion of output once marked "done" that later has to be touched again due to defects, misunderstood requirements, or design changes. Rework includes bug fixes, re-implementation after review rejection, and post-deploy rollback/hotfix.
 
-### 측정 방법
+### How to Measure
 
-일정 기간 병합된 변경 중, 병합 이후 같은 기능/영역에 대해 결함 수정이나 재구현 목적의 후속 커밋·PR이 발생한 비율을 센다. 이슈 트래커에서 "버그" 라벨이 원래 작업을 참조하는 비율로 근사할 수도 있다. `재작업 건수 / 전체 완료 건수`로 계산하고, 기간(예: 월 단위)을 고정해 추세를 본다.
+Among changes merged in a given period, count the proportion where a follow-up commit/PR aimed at defect fixing or re-implementation occurred for the same feature/area after merge. You can also approximate it as the proportion of "bug"-labeled issues in the issue tracker that reference the original work. Calculate it as `rework count / total done count`, fixing the period (e.g., monthly) to see the trend.
 
-### 해석 가이드
+### Interpretation Guide
 
-- **좋아지는 신호**: 재작업률이 낮아지고, 재작업이 발생하더라도 작은 수정에 그친다. 의도 문서의 성공 기준이 명확해지고 검증 체계가 자리 잡을수록 이 지표는 내려가는 것이 자연스럽다.
-- **나빠지는 신호**: 재작업률이 오르거나, 같은 영역에서 재작업이 반복된다. 반복되는 재작업은 특정 컨텍스트 자산(도메인 규칙, 리뷰 체크리스트)이 낡았거나 애초에 없다는 신호다.
+- **Improving signal**: Rework rate falls, and even when rework happens it stays a small fix. As the intent document's success criteria get clearer and the verification system settles in, it's natural for this metric to go down.
+- **Worsening signal**: Rework rate rises, or rework repeats in the same area. Repeated rework is a signal that a certain context asset (domain rule, review checklist) is stale or was never there to begin with.
 
-### 주의점
+### Caution
 
-"완료" 기준을 느슨하게 정의해 재작업을 애초에 재작업으로 집계하지 않는 방식으로 숫자를 낮출 수 있다. 완료의 정의(예: 배포 후 N일 이내 결함 없음)를 팀이 합의해 고정하고, 임의로 바꾸지 않는다. 재작업을 줄이려고 검증을 과도하게 강화해 리드타임이 함께 늘어나는 경우도 있으므로, 이 지표만 단독으로 최적화하지 않는다.
+You can lower the number by defining "done" loosely so rework isn't counted as rework to begin with. Have the team agree on and fix the definition of done (e.g., no defects within N days after deploy) and don't change it arbitrarily. Rework is sometimes reduced by over-strengthening verification, which grows lead time along with it, so don't optimize this metric in isolation.
 
-## 검증 통과율 (1회 통과 비율)
+## Verification Pass Rate (First-pass Rate)
 
-### 정의
+### Definition
 
-[4단계 — 검증](/guide/verify)에 처음 제출한 산출물이 추가 수정 없이 그대로 통과한 비율이다. 자동 테스트, 교차 리뷰, 인간 리뷰 중 어느 단계든 반려 없이 1회에 통과했는지를 본다.
+The proportion of output submitted to [Stage 4 — Verification](/guide/verify) for the first time that passes as-is without additional fixes. It looks at whether it passed on the first try without rejection at any stage—automated tests, cross-review, or human review.
 
-### 측정 방법
+### How to Measure
 
-일정 기간의 PR(또는 리뷰 요청) 중, 리뷰 코멘트로 인한 수정 커밋 없이 승인·병합된 건수의 비율을 센다. `1회 통과 건수 / 전체 검증 제출 건수`로 계산한다. 자동 테스트와 인간 리뷰를 구분해서 따로 집계하면 어느 검증 단계가 병목인지 더 정확히 알 수 있다.
+Among the PRs (or review requests) in a given period, count the proportion approved/merged without a fix commit due to review comments. Calculate it as `first-pass count / total verification-submission count`. Separating and tallying automated tests and human review lets you more precisely tell which verification stage is the bottleneck.
 
-### 해석 가이드
+### Interpretation Guide
 
-- **좋아지는 신호**: 통과율이 오르는 동시에 재작업률도 함께 낮다. 두 지표가 같이 좋아지면 의도 문서와 컨텍스트 자산의 품질이 실제로 검증 단계의 반려를 줄이고 있다는 뜻이다.
-- **나빠지는 신호**: 통과율이 낮거나 정체되어 있다. 특정 유형의 반려(같은 컨벤션 위반, 같은 예외 케이스 누락)가 반복된다면, 그 규칙이 아직 컨텍스트 자산(CLAUDE.md, 리뷰 체크리스트)에 반영되지 않았다는 신호다.
+- **Improving signal**: The pass rate rises while the rework rate is also low. When both metrics improve together, it means the quality of intent documents and context assets is actually reducing rejections at the verification stage.
+- **Worsening signal**: The pass rate is low or stagnant. If a certain type of rejection (the same convention violation, the same missing edge case) recurs, it's a signal that the rule hasn't yet been reflected into a context asset (CLAUDE.md, review checklist).
 
-### 주의점
+### Caution
 
-이 지표를 높이려고 검증 기준 자체를 낮추면(리뷰를 형식적으로 통과시키면) 통과율은 오르지만 재작업률과 프로덕션 결함이 뒤따라 오른다. 반드시 재작업률과 짝지어 해석한다. 또한 리스크가 낮은 산출물만 골라 통과율을 계산하면 실제보다 좋게 보이므로, 리스크 등급과 무관하게 전체 제출 건을 모수로 삼는다.
+Lower the verification criteria themselves to raise this metric (passing reviews perfunctorily) and the pass rate rises, but rework rate and production defects rise in its wake. Always interpret it paired with rework rate. Also, calculating the pass rate on only low-risk output makes it look better than reality, so take all submissions regardless of risk grade as the denominator.
 
-## 컨텍스트 자산 증가량
+## Context Asset Growth
 
-### 정의
+### Definition
 
-팀·조직이 재사용 가능한 형태로 보유한 컨텍스트 자산(프로젝트 규칙 파일, 재사용 스킬, 도메인 위키, 리뷰 체크리스트, 리스크 등급표 등)이 일정 기간 동안 얼마나 늘고, 얼마나 재사용됐는지를 함께 보는 지표다.
+A metric that jointly looks at how much the reusable context assets a team/organization holds (project rules files, reusable skills, domain wikis, review checklists, risk-grade tables, etc.) have grown and how much they've been reused over a period.
 
-### 측정 방법
+### How to Measure
 
-**증가량**은 리포에 커밋된 컨텍스트 자산 파일 수·변경 라인 수, 또는 위키 페이지 수의 기간별 증분으로 근사한다. **재사용률**은 새 프로젝트나 새 세션이 기존 자산을 얼마나 참조했는지로 보완한다 — 예를 들어 신규 프로젝트의 CLAUDE.md가 기존 조직 표준에서 몇 항목을 그대로 가져왔는지, 온보딩 체크리스트에서 기존 위키를 몇 회 링크했는지를 센다.
+Approximate **growth** by the per-period increment in the number of context-asset files/changed lines committed to the repo, or the number of wiki pages. Complement it with **reuse rate**—how much new projects or new sessions referenced existing assets. For example, count how many items a new project's CLAUDE.md took as-is from the existing organizational standard, or how many times the onboarding checklist links to the existing wiki.
 
-### 해석 가이드
+### Interpretation Guide
 
-- **좋아지는 신호**: 자산이 꾸준히 늘면서 동시에 재사용 빈도도 함께 오른다. 이 지표는 [원칙 4 — 컨텍스트는 자산이다](/manifesto)가 말하는 복리 구조가 실제로 작동하고 있다는 가장 직접적인 증거다.
-- **나빠지는 신호**: 자산은 느는데 재사용은 늘지 않는다. 문서만 쌓이고 아무도 참조하지 않는 상태로, 환류가 형식적으로만 이뤄지고 있다는 신호다. 반대로 자산 증가 자체가 멈췄다면 [6단계 — 환류](/guide/evolve)가 작동하지 않고 있다는 신호다.
+- **Improving signal**: Assets grow steadily while reuse frequency rises together. This metric is the most direct evidence that the compounding structure described by [Principle 4 — Context as Asset](/manifesto) is actually working.
+- **Worsening signal**: Assets grow but reuse doesn't. Documents just pile up with no one referencing them—a signal that feedback is happening only perfunctorily. Conversely, if asset growth itself has stopped, that's a signal that [Stage 6 — Evolve](/guide/evolve) isn't working.
 
-### 주의점
+### Caution
 
-파일 수나 라인 수만 세면, 내용 없는 문서를 양산해 숫자를 부풀리는 게이밍이 가능하다. 반드시 재사용률(실제로 참조·인용된 횟수)을 함께 봐서 "쌓이기만 한 자산"과 "실제로 쓰이는 자산"을 구분한다. 또한 낡은 자산을 정리하지 않고 방치하면 증가량은 계속 양수로 보이지만 실제 유효 자산의 밀도는 떨어질 수 있으므로, 정기적으로 낡은 자산을 솎아내는 절차도 함께 관리한다.
+Counting only file or line counts allows gaming by mass-producing empty documents to inflate the number. Always view it alongside the reuse rate (how many times it was actually referenced/cited) to distinguish "assets that only pile up" from "assets actually used." Also, if you leave stale assets un-pruned, growth keeps looking positive while the density of actually valid assets can drop, so manage a procedure to regularly weed out stale assets too.
 
-## 함께 보기
+## Viewing Them Together
 
-네 지표는 서로를 견제하도록 설계됐다 — 리드타임만 줄이면 재작업이 늘고, 검증 통과율만 높이면 기준이 느슨해질 수 있다. 넷을 같은 주기로 나란히 보고, 하나가 눈에 띄게 개선될 때 나머지가 함께 나빠지지 않는지 확인하는 것이 이 지표 체계를 게이밍하지 않는 가장 확실한 방법이다. 지표를 언제부터 재기 시작할지는 [도입 로드맵](/adoption/roadmap)의 마지막 걸음(조직 표준)을 참고한다.
+The four metrics are designed to check one another—shorten only lead time and rework grows; raise only verification pass rate and the criteria can loosen. Viewing all four side by side on the same cadence and confirming that when one improves noticeably the rest don't worsen along with it is the surest way not to game this metric system. Refer to the last step of the [Adoption Roadmap](/adoption/roadmap) (organizational standard) for when to start measuring metrics.

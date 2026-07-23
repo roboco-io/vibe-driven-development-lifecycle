@@ -1,48 +1,48 @@
 ---
-title: "1단계 — 의도 정의 (Intent)"
+title: "Stage 1 — Intent"
 ---
 
-# 1단계 — 의도 정의 (Intent)
+# Stage 1 — Intent
 
-> 무엇을, 왜 만드는지를 검증 가능한 문장으로 못 박는다.
+> Nail down what to build and why in verifiable sentences.
 
-## 이 단계의 목적
+## Purpose of This Stage
 
-이 단계의 산출물은 코드가 아니라 문서지만, 이후 모든 단계의 상한선을 정하는 것은 이 문서다. 의도가 모호하면 에이전트는 빈틈을 추측으로 채우고, 그 추측은 리뷰 단계에서 재작업으로 되돌아온다. 목표는 "무엇을 만들지"에 대한 합의를 사람들 사이에서 먼저 끝내고, 그 합의를 에이전트가 행간 없이 읽을 수 있는 문서로 남기는 것이다.
+The artifact of this stage is a document, not code, yet this document is what sets the ceiling for every stage that follows. When intent is vague, the agent fills the gaps with guesses, and those guesses come back as rework at the review stage. The goal is to finish the agreement on "what to build" among people first, and to leave that agreement in a document the agent can read without reading between the lines.
 
-## 실행 순서
+## How to Execute
 
-1. **문제/기회를 한 문단으로 서술한다.** 지금 무엇이 고통스럽고, 왜 지금 해결해야 하는지를 데이터나 구체 사례로 뒷받침한다. "더 좋으면 좋겠다" 수준의 서술은 반려한다.
-2. **PR-FAQ로 완성된 모습을 역산한다.** 출시 발표문과 예상 FAQ를 먼저 써서, 사용자 관점에서 "이게 성공하면 무엇이 달라지는가"를 구체적으로 그린다.
-3. **6-pager 축약형으로 배경·제약·트레이드오프를 서술한다.** 고려했다가 버린 대안과 그 이유를 반드시 남긴다. 버린 것을 적지 않으면 나중에 같은 대안이 재검토 없이 반복 제안된다.
-4. **검증 가능한 성공 기준을 명시한다.** "사용성이 좋아진다"가 아니라 "온보딩 소요 시간이 30분 이내면 성공"처럼 참/거짓을 판정할 수 있는 문장으로 쓴다.
-5. **이해관계자 합의를 받는다.** 리뷰 코멘트나 승인 기록을 문서에 남겨, 나중에 "그런 얘기 없었다"는 되짚기를 차단한다.
+1. **Describe the problem/opportunity in one paragraph.** Back up what hurts now and why it must be solved now with data or concrete cases. Reject descriptions at the level of "it would be nice if it were better."
+2. **Work backward from the finished shape with a PR-FAQ.** Write the launch announcement and expected FAQ first, so you concretely picture "what changes if this succeeds" from the user's perspective.
+3. **Describe background, constraints, and trade-offs in condensed 6-pager form.** Always record the alternatives you considered and discarded, and why. If you don't write down what you discarded, the same alternative gets proposed again later without re-examination.
+4. **State verifiable success criteria.** Not "usability improves" but sentences you can judge true or false, like "success if onboarding takes 30 minutes or less."
+5. **Get stakeholder agreement.** Leave review comments or an approval record in the document to shut down later claims of "nobody said that."
 
-## 산출물
+## Artifacts
 
-- 의도 문서 — [의도 문서 템플릿](/templates/intent-doc) (6-pager 축약형)
-- PR-FAQ — [PR-FAQ 양식](/templates/pr-faq)
+- Intent document — [Intent Document Template](/templates/intent-doc) (condensed 6-pager form)
+- PR-FAQ — [PR-FAQ Template](/templates/pr-faq)
 
-두 문서는 리포에 커밋해 다음 단계(컨텍스트 설계)와 이후 사이클의 입력으로 남긴다.
+Commit both documents to the repo as input for the next stage (Context) and for later cycles.
 
-## 완료 기준 체크리스트
+## Completion Checklist
 
-- [ ] 성공 기준이 "~하면 성공"처럼 검증 가능한 문장으로 쓰여 있다
-- [ ] 트레이드오프에서 의도적으로 버린 대안과 그 이유가 명시돼 있다
-- [ ] 에이전트가 행간을 추측하지 않고 읽을 수 있을 만큼 배경과 제약이 구체적이다
-- [ ] 이해관계자 전원의 합의(리뷰 코멘트·승인 기록)가 문서에 남아 있다
-- [ ] 문서가 리포에 커밋되어 다음 세션에서 그대로 참조 가능하다
+- [ ] Success criteria are written as verifiable sentences, like "success if …"
+- [ ] The alternatives deliberately discarded in trade-offs, and the reasons, are stated
+- [ ] Background and constraints are concrete enough for the agent to read without guessing between the lines
+- [ ] Agreement from all stakeholders (review comments, approval record) is recorded in the document
+- [ ] The document is committed to the repo so it can be referenced as-is in the next session
 
-## 흔한 실수
+## Common Mistakes
 
-- **기능 나열식 요구사항.** "A 화면, B 버튼, C API"만 나열하고 왜 필요한지가 없으면 에이전트는 목적 없이 표면만 구현한다.
-- **성공 기준 없는 의도.** "빠르고 안정적으로"처럼 측정 불가능한 형용사만 있으면 검증 단계에서 합격선을 정할 수 없다.
-- **한 번 쓰고 버리는 문서.** 합의 직후 방치되고 세션마다 구두로 다시 설명하면, 문서는 죽은 기록이 되고 컨텍스트 자산으로 이어지지 않는다.
+- **Feature-listing requirements.** Listing only "screen A, button B, API C" without why they're needed leaves the agent implementing the surface with no purpose.
+- **Intent without success criteria.** With only immeasurable adjectives like "fast and stable," you can't set a pass line at the verification stage.
+- **A write-once, throw-away document.** If it's neglected right after agreement and re-explained verbally every session, the document becomes a dead record and never carries over into a context asset.
 
-## Claude Code로 하면
+## With Claude Code
 
 ::: tip
-의도 문서를 `specs/` 또는 `docs/`에 커밋하고, 프로젝트 `CLAUDE.md`에 "세션 시작 시 최신 의도 문서를 먼저 읽는다"는 규칙을 명시한다. 그러면 매 세션이 같은 출발선에서 시작된다.
+Commit the intent document to `specs/` or `docs/`, and state a rule in the project `CLAUDE.md`: "read the latest intent document first at the start of a session." That way every session starts from the same line.
 
-의도 문서가 준비되면 plan mode로 넘어간다. 문서 경로를 프롬프트에 지정해 "이 의도 문서를 기준으로 구현 계획을 세워줘"라고 요청하면, 에이전트가 의도를 작업 단위로 분해한 계획을 제안한다. 이 계획을 승인하는 것이 3단계(공동 구현)로 넘어가는 관문이다. 의도 문서 자체를 승인 없이 계획으로 건너뛰지 않는다 — 문서화되지 않은 의도는 다음 세션에서 휘발된다.
+Once the intent document is ready, move to plan mode. Point the prompt at the document path and ask, "build an implementation plan based on this intent document," and the agent proposes a plan that decomposes the intent into work units. Approving this plan is the gate into stage 3 (Co-Construction). Don't skip straight from the intent document to a plan without approval—undocumented intent evaporates in the next session.
 :::

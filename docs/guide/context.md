@@ -1,46 +1,46 @@
 ---
-title: "2단계 — 컨텍스트 설계 (Context)"
+title: "Stage 2 — Context"
 ---
 
-# 2단계 — 컨텍스트 설계 (Context)
+# Stage 2 — Context
 
-> 에이전트가 매번 같은 질문을 다시 하지 않도록 지식과 규칙을 자산으로 준비한다.
+> Prepare knowledge and rules as assets so the agent doesn't ask the same questions again every time.
 
-## 이 단계의 목적
+## Purpose of This Stage
 
-같은 모델을 쓰더라도 산출물의 품질을 가르는 것은 컨텍스트의 품질이다. 이 단계의 목표는 에이전트가 프로젝트의 규칙·구조·용어·관례를 매번 되묻지 않고 참조할 수 있는 자산을 갖추는 것이다. 신규 프로젝트라면 최소 골격을 세우고, 기존 프로젝트라면 이전 사이클에서 쌓인 자산을 점검하고 갱신한다 — 둘을 혼동하면 신규 프로젝트에 과잉 문서를, 기존 프로젝트에 방치된 문서를 남긴다.
+Even with the same model, what divides the quality of the output is the quality of the context. The goal of this stage is to have assets the agent can reference for the project's rules, structure, terms, and conventions without asking again every time. For a new project, set up a minimal skeleton; for an existing project, inspect and refresh the assets accumulated in prior cycles—confuse the two and you leave over-documentation on a new project and neglected documentation on an existing one.
 
-## 실행 순서
+## How to Execute
 
-1. **프로젝트 규칙 파일 골격을 작성한다.** `CLAUDE.md`(또는 동등한 파일)에 코딩 컨벤션, 금지 사항, 자주 쓰는 명령어를 최소 단위로 채운다.
-2. **아키텍처 결정 기록(ADR)을 남긴다.** "왜 이 구조를 선택했는가"를 대안·근거와 함께 짧게 기록해, 나중에 같은 논쟁이 반복되지 않게 한다.
-3. **도메인 용어집을 정리한다.** 팀 안에서 의미가 갈리는 용어(예: "계정" vs "사용자")를 한 곳에 고정해 에이전트와 사람이 같은 뜻으로 대화하게 한다.
-4. **코딩 컨벤션을 명시한다.** 네이밍, 폴더 구조, 테스트 배치 규칙처럼 매 세션 반복 지시되는 것을 규칙 파일로 옮긴다.
-5. **재사용 가능한 스킬을 점검한다(기존 프로젝트).** 이전 사이클에서 만든 스킬·프롬프트·서브에이전트 정의가 최신 코드와 어긋나지 않는지 확인하고 갱신한다.
+1. **Draft the skeleton of the project rules file.** Fill `CLAUDE.md` (or an equivalent file) with coding conventions, prohibitions, and frequently used commands at the minimum unit.
+2. **Leave architecture decision records (ADRs).** Record "why this structure was chosen," briefly, along with alternatives and rationale, so the same debate doesn't recur later.
+3. **Organize a domain glossary.** Pin terms whose meaning splits within the team (e.g., "account" vs. "user") in one place so agent and people talk with the same meaning.
+4. **State coding conventions.** Move things instructed repeatedly every session—naming, folder structure, test placement rules—into the rules file.
+5. **Inspect reusable skills (existing projects).** Check whether skills, prompts, and subagent definitions made in prior cycles are out of sync with the current code, and refresh them.
 
-## 산출물
+## Artifacts
 
-- 프로젝트 규칙 파일 — [CLAUDE.md 예시](/templates/claude-md)
+- Project rules file — [CLAUDE.md Example](/templates/claude-md)
 
-신규 프로젝트는 위 다섯 항목 중 1·4번(규칙 골격, 컨벤션)만으로 시작해도 충분하다. 기존 프로젝트는 다섯 항목 전체를 "점검·갱신" 관점으로 훑는다 — 새로 쓰는 것보다 낡은 부분을 찾아 고치는 작업이 대부분이다.
+A new project can start with just items 1 and 4 (rules skeleton, conventions) of the five above. An existing project sweeps all five items from an "inspect and refresh" angle—most of the work is finding and fixing stale parts rather than writing anew.
 
-## 완료 기준 체크리스트
+## Completion Checklist
 
-- [ ] 규칙 파일이 존재하고, 프로젝트를 처음 보는 에이전트가 그것만 읽고 작업을 시작할 수 있다
-- [ ] 최근 주요 아키텍처 결정에 ADR이 남아 있다
-- [ ] 팀 안에서 뜻이 갈리는 용어가 용어집에 고정돼 있다
-- [ ] 코딩 컨벤션이 매 세션 구두로 반복되지 않고 파일로 존재한다
-- [ ] (기존 프로젝트) 규칙 파일의 서술이 실제 코드 상태와 일치한다
+- [ ] A rules file exists, and an agent seeing the project for the first time can start work from it alone
+- [ ] Recent major architecture decisions have ADRs
+- [ ] Terms whose meaning splits within the team are pinned in the glossary
+- [ ] Coding conventions exist as a file rather than being repeated verbally every session
+- [ ] (Existing projects) The rules file's descriptions match the actual state of the code
 
-## 흔한 실수
+## Common Mistakes
 
-- **규칙 파일에 모든 것을 넣어 컨텍스트 비대화.** 매 세션 전체를 읽어야 하는 파일이 수천 줄이 되면, 정작 중요한 규칙이 노이즈에 묻히고 토큰 비용만 늘어난다. 세부 규칙은 참조 링크로 분리한다.
-- **문서와 실제 코드의 불일치 방치.** 리팩터링 후 규칙 파일을 갱신하지 않으면, 에이전트는 존재하지 않는 구조를 전제로 코드를 생성한다. 컨텍스트 자산은 코드가 바뀌는 만큼 함께 바뀌어야 자산이지, 그렇지 않으면 부채다.
+- **Stuffing everything into the rules file, bloating context.** When a file that must be read in full every session runs to thousands of lines, the rules that actually matter get buried in noise and only token cost grows. Split detailed rules out into reference links.
+- **Leaving documents and actual code out of sync.** If you don't refresh the rules file after refactoring, the agent generates code on the premise of a structure that no longer exists. A context asset is an asset only when it changes as much as the code changes; otherwise it's debt.
 
-## Claude Code로 하면
+## With Claude Code
 
 ::: tip
-`CLAUDE.md`는 계층으로 관리한다. 사용자 홈의 글로벌 `CLAUDE.md`에는 개인의 작업 습관·전역 규칙을, 프로젝트 루트의 `CLAUDE.md`에는 그 프로젝트에서만 적용되는 규칙을 둔다. 멀티 프로젝트 워크스페이스에서는 상위 디렉토리에 조직 공통 규칙을, 하위 프로젝트에 프로젝트별 규칙을 두어 중복 없이 상속시킨다.
+Manage `CLAUDE.md` in layers. Put personal working habits and global rules in the global `CLAUDE.md` in your home directory, and rules that apply only to a given project in the project-root `CLAUDE.md`. In a multi-project workspace, put organization-wide common rules in a parent directory and project-specific rules in the child projects, so they inherit without duplication.
 
-반복되는 작업 절차는 `.claude/skills/`에 스킬로, 특정 역할에 반복 위임하는 작업은 서브에이전트 정의로 뽑아둔다. 두 경우 모두 "한 세션에서 임기응변으로 쓴 프롬프트"가 아니라 "다음 사이클에서도 그대로 재사용 가능한 자산"인지가 기준이다. 재사용된 적 없는 스킬은 컨텍스트 비대화의 후보이므로 정리 대상으로 표시해둔다.
+Extract recurring work procedures into skills under `.claude/skills/`, and work you repeatedly delegate to a particular role into subagent definitions. In both cases the test is whether it's "an asset reusable as-is in the next cycle" rather than "a prompt improvised in one session." A skill that has never been reused is a candidate for context bloat, so mark it for cleanup.
 :::

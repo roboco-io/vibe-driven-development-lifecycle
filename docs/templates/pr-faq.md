@@ -1,76 +1,76 @@
 ---
-title: "템플릿 — PR-FAQ"
+title: "Template — PR-FAQ"
 ---
 
-# 템플릿 — PR-FAQ
+# Template — PR-FAQ
 
-## 언제 쓰나
+## When to Use
 
-[1단계 — 의도 정의](/guide/intent)에서 완성된 모습을 먼저 그려볼 때 쓴다. 아마존이 신제품 기획에 쓰는 방식으로, 아직 만들지 않은 것의 출시 발표문(Press Release)과 예상 질의응답(FAQ)을 먼저 작성한다. 기능이나 요구사항을 나열하는 대신 "이게 성공하면 사용자에게 무엇이 달라지는가"를 사용자 관점의 문장으로 강제하기 때문에, 목적 없이 표면만 구현하는 실수를 문서 작성 단계에서 걸러낸다. 의도 문서(6-pager)와 함께 작성하며, 보통 PR-FAQ를 먼저 써서 목표 상을 그린 뒤 6-pager로 배경·제약을 채운다.
+Use it in [Stage 1 — Intent](/guide/intent) when picturing the finished shape first. In the way Amazon uses it for new-product planning, you write the launch announcement (Press Release) and expected Q&A (FAQ) of something not yet built. Instead of listing features or requirements, it forces "what changes for the user if this succeeds" into sentences from the user's perspective, so it filters out the mistake of implementing the surface with no purpose at the document stage. Write it alongside the intent document (6-pager); usually you write the PR-FAQ first to picture the target shape, then fill in background and constraints with the 6-pager.
 
-## 사용법
+## How to Use
 
-아래 템플릿을 복사해 실제 출시 시점을 상상하고 과거형/현재형으로 서술한다. "아직 검토 중" 같은 조건문은 쓰지 않는다 — 확정된 사실처럼 써야 무엇을 목표로 하는지 명확해진다. 인용문은 실제로 할 법한 발언을 상상해서 채운다. FAQ는 실제로 나올 질문을 예상해 답을 미리 준비하는 것이 목적이므로, 어려운 질문(가격, 제약, 실패 시나리오)을 피하지 않는다.
+Copy the template below and describe it in past/present tense, imagining the actual launch moment. Don't use conditionals like "still under review"—write it as settled fact to make clear what you're aiming for. Fill quotes with statements someone might plausibly make. Since the FAQ's purpose is to anticipate the questions that will actually come and prepare answers in advance, don't dodge the hard questions (price, constraints, failure scenarios).
 
-## 템플릿
+## Template
 
 ````markdown
-# [제품/기능명] 출시 발표문
+# [Product/Feature Name] Launch Announcement
 
-## 헤드라인
+## Headline
 
-<!-- 작성 안내: 제품/기능과 핵심 가치를 한 문장으로. 보도자료 제목처럼 쓴다. -->
+<!-- Guidance: The product/feature and its core value in one sentence. Write it like a press-release title. -->
 
-예: [서비스명], 온보딩 시간을 30분에서 5분으로 줄이는 간편 설정 마법사 출시
+e.g.: [Service Name] launches a simple setup wizard that cuts onboarding time from 30 minutes to 5
 
-## 고객 문제
+## Customer Problem
 
-<!-- 작성 안내: 지금 고객이 겪는 구체적인 어려움을 1~2문단으로. 수치나 사례를 포함한다. -->
+<!-- Guidance: The concrete difficulty customers face now, in 1-2 paragraphs. Include figures or cases. -->
 
-예: 신규 사용자의 42%가 첫 세션에서 설정을 마치지 못하고 이탈한다. 대부분 12단계에 달하는 초기 설정 과정에서 무엇을 입력해야 하는지 혼란스러워한다.
+e.g.: 42% of new users drop off in their first session without finishing setup. Most get confused about what to enter during the initial setup process, which runs to 12 steps.
 
-## 해결
+## Solution
 
-<!-- 작성 안내: 무엇을 만들었고, 그것이 고객 문제를 어떻게 해결하는지 1~2문단으로. -->
+<!-- Guidance: What you built and how it solves the customer problem, in 1-2 paragraphs. -->
 
-예: 새 온보딩 마법사는 필수 입력을 5단계로 줄이고, 나머지 설정은 사용 중 필요한 시점에 자연스럽게 안내한다. 사용자는 첫 세션에서 핵심 기능에 곧바로 도달한다.
+e.g.: The new onboarding wizard cuts required inputs to 5 steps and naturally guides the rest of the settings at the point they're needed during use. Users reach the core feature right away in their first session.
 
-## 인용 — 회사/팀
+## Quote — Company/Team
 
-<!-- 작성 안내: 이 기능을 만든 이유를 팀 관점에서 한 문장 인용으로. -->
+<!-- Guidance: One quote on why you built this feature, from the team's perspective. -->
 
-예: "사용자가 서비스의 가치를 느끼기도 전에 설정 화면에서 포기하는 것이 가장 큰 손실이었습니다." — [담당자명], [팀명]
+e.g.: "The biggest loss was users giving up at the settings screen before ever feeling the service's value." — [Owner Name], [Team Name]
 
-## 인용 — 고객
+## Quote — Customer
 
-<!-- 작성 안내: 이 기능을 쓴 고객이 할 법한 말을 상상해서 한 문장으로. -->
+<!-- Guidance: One sentence imagining what a customer who used this feature might say. -->
 
-예: "가입하고 5분 만에 첫 결과를 봤습니다. 예전엔 설정만 하다가 포기했었는데요." — [가상 고객 페르소나]
+e.g.: "I saw my first result 5 minutes after signing up. Before, I used to give up while still setting things up." — [Fictional customer persona]
 
-## 시작 방법
+## How to Start
 
-<!-- 작성 안내: 고객이 지금 무엇을 하면 되는지 행동 지침 한 문단. -->
+<!-- Guidance: One paragraph of action guidance on what the customer should do now. -->
 
-예: 기존 사용자는 별도 조치가 필요 없다. 신규 가입자는 다음 배포부터 자동으로 새 온보딩 흐름을 경험한다.
+e.g.: Existing users need to do nothing. New sign-ups automatically experience the new onboarding flow from the next release.
 
 ---
 
 # FAQ
 
-## 고객 FAQ
+## Customer FAQ
 
-<!-- 작성 안내: 실제 사용자가 물어볼 법한 질문 3~5개와 답. -->
+<!-- Guidance: 3-5 questions actual users might ask, with answers. -->
 
-1. **예: 기존에 저장해둔 설정은 어떻게 되나요?** 답: 기존 설정은 그대로 유지되며, 새 온보딩은 신규 가입자에게만 적용됩니다.
-2. **예: 건너뛴 고급 설정은 나중에 어디서 찾나요?** 답: 설정 메뉴 상단에 안내 배너로 노출되며, 언제든 접근할 수 있습니다.
-3. **예: 추가 비용이 발생하나요?** 답: 아니요, 기존 요금제 사용자에게 무료로 제공됩니다.
+1. **e.g.: What happens to the settings I already saved?** Answer: Existing settings are kept as-is, and the new onboarding applies only to new sign-ups.
+2. **e.g.: Where do I find the advanced settings I skipped later?** Answer: They're surfaced as a guide banner at the top of the settings menu and are accessible anytime.
+3. **e.g.: Does this cost extra?** Answer: No, it's provided free to users on existing plans.
 
-## 내부 FAQ
+## Internal FAQ
 
-<!-- 작성 안내: 팀 내부·이해관계자가 물어볼 법한 질문 3~5개와 답. 리스크, 트레이드오프, 측정 계획을 포함한다. -->
+<!-- Guidance: 3-5 questions the team/stakeholders might ask, with answers. Include risks, trade-offs, and the measurement plan. -->
 
-1. **예: 성공 여부는 무엇으로 판단하나요?** 답: 7일 리텐션과 온보딩 완료 시간을 배포 4주 후 비교한다. 의도 문서의 성공 기준을 참조.
-2. **예: 실패하면 롤백 계획은?** 답: 기능 플래그로 감싸 즉시 이전 흐름으로 되돌릴 수 있다.
-3. **예: 이번 범위에서 뺀 것은 무엇이고 왜인가?** 답: 소셜 로그인 연동은 이번 이탈률 문제와 직접 관련이 없어 다음 사이클로 미뤘다.
-4. **예: 어떤 팀이 리뷰에 참여해야 하나요?** 답: 프로덕트, 인증 도메인 담당자, QA. 인증 흐름이 걸려 있어 High 리스크로 분류.
+1. **e.g.: How do we judge success?** Answer: Compare 7-day retention and onboarding completion time 4 weeks after release. Refer to the success criteria in the intent document.
+2. **e.g.: What's the rollback plan if it fails?** Answer: Wrap it in a feature flag so we can revert to the previous flow immediately.
+3. **e.g.: What did we exclude from this scope, and why?** Answer: Social login integration isn't directly related to this drop-off problem, so we deferred it to the next cycle.
+4. **e.g.: Which teams should join the review?** Answer: Product, the authentication domain owner, and QA. Classified as High risk because the auth flow is involved.
 ````

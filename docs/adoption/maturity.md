@@ -1,109 +1,109 @@
 ---
-title: "성숙도 모델"
+title: "Maturity Model"
 ---
 
-# 성숙도 모델
+# Maturity Model
 
-> VDLC 도입 정도를 4단계로 나누어 팀이 지금 어디에 있고 다음에 무엇을 해야 하는지 가늠하는 기준이다.
+> A standard that divides the degree of VDLC adoption into 4 levels, to gauge where a team is now and what it should do next.
 
-성숙도는 도구 사용 여부가 아니라 절차와 자산의 정착 정도로 판정한다. 코딩 에이전트를 매일 쓰더라도 팀 공용 규칙과 검증 체계가 없다면 여전히 낮은 레벨이고, 반대로 도구 사용 빈도가 낮아도 의도 문서와 계획 승인 관문이 자리 잡았다면 그 팀은 이미 다음 레벨에 들어선 것이다.
+Maturity is judged by how well procedures and assets have settled in, not by whether tools are used. A team that uses a coding agent every day is still at a low level if it has no team-shared rules and no verification system; conversely, a team with low tool-usage frequency has already entered the next level if intent documents and a plan-approval gate have taken hold.
 
-## 4레벨 표
+## The 4-Level Table
 
-| 레벨 | 이름 | 특징 | 판별 신호 |
+| Level | Name | Characteristics | Distinguishing signals |
 |---|---|---|---|
-| 1 | 탐색(Exploring) | 개인이 바이브코딩 실험 중, 프로세스 없음 | 프롬프트 세션마다 휘발, 검증은 "돌아가면 OK" |
-| 2 | 실천(Practicing) | 개인/소수가 VDLC 사이클을 돌림 | 의도 문서 작성 시작, 컨텍스트 파일 존재, 계획 승인 관문 사용 |
-| 3 | 자산화(Compounding) | 팀 단위 컨텍스트 자산 축적·재사용 | 팀 공용 규칙/스킬/템플릿, 리스크 기반 검증, 환류 의례 정착 |
-| 4 | 표준화(Systematizing) | 조직 표준 정착, 지표로 관리 | 리드타임·재작업률 측정, 온보딩에 자산 재사용 |
+| 1 | Exploring | An individual experimenting with vibe coding, no process | Prompt sessions evaporate; verification is "OK if it runs" |
+| 2 | Practicing | An individual/a few run the VDLC cycle | Intent-document writing starts, context files exist, plan-approval gate used |
+| 3 | Compounding | Team-level context assets accumulated and reused | Team-shared rules/skills/templates, risk-based verification, feedback ritual settled |
+| 4 | Systematizing | Organizational standard settled, managed by metrics | Lead time/rework rate measured, assets reused in onboarding |
 
-## 레벨별 상세
+## Level Details
 
-### L1 — 탐색(Exploring)
+### L1 — Exploring
 
-**특징**: 개인이 코딩 에이전트로 실험하고 있지만 팀 차원의 프로세스는 없다. 프롬프트와 그 결과는 각자의 채팅창 안에 머문다.
+**Characteristics**: An individual is experimenting with a coding agent, but there's no team-level process. Prompts and their results stay inside each person's chat window.
 
-**판별 신호**: 세션이 끝나면 그 세션에서 합의한 내용도 함께 사라진다. 결과물을 믿을 수 있는지 판단하는 기준은 "일단 실행해서 돌아가면 OK" 수준이다. 같은 질문을 세션마다 다시 설명한다.
+**Distinguishing signals**: When a session ends, what was agreed in that session vanishes with it. The standard for judging whether output can be trusted is at the level of "just run it and OK if it works." The same question is re-explained every session.
 
-**다음 레벨로 가는 열쇠**: 결과물이 아니라 시작점을 남긴다 — 코드를 작성하기 전에 목적과 성공 기준을 문서 한 장으로 써보는 것.
+**Key to the next level**: Leave the starting point, not the output—writing the purpose and success criteria on a single sheet before writing code.
 
-### L2 — 실천(Practicing)
+### L2 — Practicing
 
-**특징**: 개인 또는 소수가 [여섯 단계](/guide/intent) 사이클을 의식적으로 돌린다. 의도 문서를 쓰고, 에이전트의 계획을 검토한 뒤에 구현을 진행한다.
+**Characteristics**: An individual or a few deliberately run the [six-stage](/guide/intent) cycle. They write intent documents and proceed to implementation only after reviewing the agent's plan.
 
-**판별 신호**: 의도 문서 작성이 시작됐고, 프로젝트 규칙 파일(CLAUDE.md 등)이 존재한다. 계획 승인 관문을 쓰지만, 이 절차는 아직 개인의 습관이지 팀의 규칙은 아니다.
+**Distinguishing signals**: Intent-document writing has begun, and a project rules file (CLAUDE.md, etc.) exists. They use the plan-approval gate, but this procedure is still an individual's habit, not the team's rule.
 
-**다음 레벨로 가는 열쇠**: 개인의 규칙 파일과 습관을 팀 공용 자산으로 옮긴다 — 나 혼자만 참조하던 CLAUDE.md와 체크리스트를 팀 전체가 같이 쓰고 갱신하는 것으로 전환하는 것.
+**Key to the next level**: Move the individual's rules file and habits into team-shared assets—shifting the CLAUDE.md and checklist you referenced alone into something the whole team uses and refreshes together.
 
-### L3 — 자산화(Compounding)
+### L3 — Compounding
 
-**특징**: 팀 단위로 컨텍스트 자산이 축적되고 재사용된다. 검증 강도는 리스크에 따라 달라지고, 사이클이 끝날 때마다 배운 것을 자산에 반영하는 환류 의례가 정착돼 있다.
+**Characteristics**: Context assets accumulate and are reused at the team level. Verification intensity varies by risk, and a feedback ritual that reflects what's learned into assets at the end of each cycle has settled in.
 
-**판별 신호**: 팀 공용 규칙·스킬·템플릿이 존재하고 여러 사람이 같은 것을 참조한다. 리스크 등급에 따라 검증 강도를 구분하는 기준이 있다. 정기적인 환류(회고, 체크리스트 갱신)가 팀 일정에 들어 있다.
+**Distinguishing signals**: Team-shared rules/skills/templates exist and several people reference the same ones. There's a standard for differentiating verification intensity by risk grade. Regular feedback (retrospective, checklist refresh) is on the team schedule.
 
-**다음 레벨로 가는 열쇠**: 정성적으로 "좋아지고 있다"는 감각을 정량 지표로 바꾼다 — 리드타임, 재작업률 같은 [측정 지표](/adoption/metrics)를 실제로 재기 시작하는 것.
+**Key to the next level**: Turn the qualitative sense of "it's getting better" into quantitative metrics—actually starting to measure [metrics](/adoption/metrics) like lead time and rework rate.
 
-### L4 — 표준화(Systematizing)
+### L4 — Systematizing
 
-**특징**: VDLC가 특정 팀의 실천이 아니라 조직의 기본값이다. 지표로 효과를 관리하고, 신규 프로젝트와 온보딩이 기존 자산 재사용을 전제로 시작한다.
+**Characteristics**: VDLC is the organization's default rather than a particular team's practice. Effect is managed with metrics, and new projects and onboarding start on the premise of reusing existing assets.
 
-**판별 신호**: 사이클 리드타임·재작업률 같은 지표를 정기적으로 측정하고 의사결정에 쓴다. 온보딩 과정에서 신규 합류자가 조직 표준 컨텍스트 자산을 재사용한다.
+**Distinguishing signals**: Metrics like cycle lead time and rework rate are measured regularly and used in decision-making. During onboarding, new joiners reuse organizational standard context assets.
 
-**표준을 유지하는 열쇠**: 지표가 나빠지는 신호를 방치하지 않는다 — 표준화는 도달한 상태가 아니라 [측정 지표](/adoption/metrics)로 계속 점검하며 유지하는 상태다.
+**Key to maintaining the standard**: Don't neglect signals of worsening metrics—standardization is not a state you've reached but a state you keep maintaining by continually inspecting it with [metrics](/adoption/metrics).
 
-## 셀프 진단 체크리스트
+## Self-diagnostic Checklist
 
-[여섯 가지 원칙](/manifesto)별로 3문항씩, 총 18문항이다. 각 원칙 안에서 문항은 난이도 순으로 배치했다 — 1번(Q1)은 L2(실천) 수준에서, 2번(Q2)은 L3(자산화) 수준에서, 3번(Q3)은 L4(표준화) 수준에서 자연스럽게 "예"가 되는 문항이다. 뒤의 레벨 판정은 이 Q1/Q2/Q3 계열별로 따로 집계하므로, 답할 때 각 문항이 몇 번(Q1/Q2/Q3)인지 함께 표시해두면 채점이 쉽다. 모두 관찰 가능한 사실을 묻으므로 예/아니오로만 답한다.
+Three questions per [principle](/manifesto) among the six, 18 in total. Within each principle, the questions are arranged by difficulty—question 1 (Q1) naturally becomes "yes" at the L2 (Practicing) level, question 2 (Q2) at the L3 (Compounding) level, and question 3 (Q3) at the L4 (Systematizing) level. The level determination that follows tallies these by the Q1/Q2/Q3 series separately, so marking which number (Q1/Q2/Q3) each question is when you answer makes scoring easy. All ask about observable facts, so answer only yes/no.
 
-### 원칙 1 — 의도가 소스다
+### Principle 1 — Intent as Source
 
-- [ ] Q1. 기능 작업을 시작하기 전에 목적과 성공 기준을 문서 한 장으로라도 남긴다.
-- [ ] Q2. 팀이 공유하는 의도 문서 형식(6-pager, PR-FAQ 등)이 있고 대부분의 작업에 실제로 쓰인다.
-- [ ] Q3. 의도 문서에 적은 성공 기준을 사후에 검토해, 다음 의도 문서의 품질 기준으로 반영한다.
+- [ ] Q1. Before starting feature work, you leave the purpose and success criteria on at least a single sheet.
+- [ ] Q2. There's a team-shared intent-document format (6-pager, PR-FAQ, etc.) and it's actually used for most work.
+- [ ] Q3. You review the success criteria written in intent documents after the fact and reflect them into the quality standard for the next intent document.
 
-### 원칙 2 — 인간은 판단하고, AI는 실행한다
+### Principle 2 — Humans Judge, AI Executes
 
-- [ ] Q1. 에이전트가 제안한 구현 계획을 코드 작성 전에 사람이 검토·승인한 적이 있다.
-- [ ] Q2. 계획 승인 관문이 개인 습관이 아니라 팀의 문서화된 절차로 정착돼 있다.
-- [ ] Q3. 무엇을 만들지·언제 배포할지에 대한 판단 권한과 실행 위임 범위가 조직 차원에서 명문화돼 있고 온보딩에서 다룬다.
+- [ ] Q1. A person has reviewed and approved the implementation plan the agent proposed before code was written.
+- [ ] Q2. The plan-approval gate has settled as the team's documented procedure rather than an individual habit.
+- [ ] Q3. The authority over what to build and when to deploy, and the scope of execution delegation, are codified at the organization level and covered in onboarding.
 
-### 원칙 3 — 속도는 검증이 결정한다
+### Principle 3 — Verification Sets the Pace
 
-- [ ] Q1. 에이전트 산출물을 자동화된 테스트나 정적 분석 없이 병합하는 경우가 거의 없다.
-- [ ] Q2. 리스크 수준에 따라 검증 강도(자동 검증만 vs 인간 리뷰 필수)를 구분하는 기준이 팀에 있다.
-- [ ] Q3. 검증 통과율(1회 통과 비율) 같은 지표를 정기적으로 측정하고 검증 체계 개선에 사용한다.
+- [ ] Q1. It's rare to merge agent output without automated tests or static analysis.
+- [ ] Q2. The team has a standard for differentiating verification intensity (automated checks only vs. human review required) by risk level.
+- [ ] Q3. You regularly measure a metric like verification pass rate (first-pass rate) and use it to improve the verification system.
 
-### 원칙 4 — 컨텍스트는 자산이다
+### Principle 4 — Context as Asset
 
-- [ ] Q1. 프로젝트 규칙 파일(CLAUDE.md 등)이 존재하고 실제로 참조된다.
-- [ ] Q2. 팀 공용 컨텍스트 자산(스킬, 위키, 컨벤션)이 있고 여러 사람이 재사용한다.
-- [ ] Q3. 컨텍스트 자산의 증가·재사용 현황을 추적하고, 신규 프로젝트가 기존 자산 재사용을 기본으로 시작한다.
+- [ ] Q1. A project rules file (CLAUDE.md, etc.) exists and is actually referenced.
+- [ ] Q2. Team-shared context assets (skills, wiki, conventions) exist and several people reuse them.
+- [ ] Q3. You track the growth and reuse of context assets, and new projects start with reusing existing assets by default.
 
-### 원칙 5 — 작게 돌리고, 자주 환류한다
+### Principle 5 — Run Small Cycles, Feed Back Often
 
-- [ ] Q1. 의도-구현-검증 한 사이클이 스프린트 단위가 아니라 하루~며칠 단위로 돈다.
-- [ ] Q2. 사이클이 끝날 때마다 배운 것을 규칙·체크리스트·위키로 옮기는 환류 의례가 팀 일정에 있다.
-- [ ] Q3. 환류의 결과가 조직 지표(리드타임, 재작업률 등) 개선으로 이어지는지 추적한다.
+- [ ] Q1. One intent-build-verify cycle runs on a day-to-few-days scale rather than a sprint scale.
+- [ ] Q2. There's a feedback ritual on the team schedule that moves what's learned into rules/checklists/wiki at the end of each cycle.
+- [ ] Q3. You track whether the results of feedback lead to improvements in organizational metrics (lead time, rework rate, etc.).
 
-### 원칙 6 — 이해가 소유다
+### Principle 6 — Understanding as Ownership
 
-- [ ] Q1. 에이전트 산출물을 승인하기 전에, 계획이나 변경 내용을 자기 언어로 요약해 확인하는 습관이 있다.
-- [ ] Q2. 리스크가 높은 변경에 대해 승인자가 내용을 설명할 수 있는지 확인하는 절차(설명 되물기, 코드 워크스루 등)가 팀에 있다.
-- [ ] Q3. 이해하지 못한 채 넘어간 지점을 환류에서 상환하는 학습 활동이 조직 표준 절차로 명문화돼 있고 온보딩에서 다룬다.
+- [ ] Q1. You have the habit of summarizing the plan or changes in your own words to confirm them before approving agent output.
+- [ ] Q2. For high-risk changes, the team has a procedure (explain-back, code walkthrough, etc.) to confirm the approver can explain the content.
+- [ ] Q3. A learning activity that repays points passed over without understanding during feedback is codified as an organizational standard procedure and covered in onboarding.
 
-## 레벨 판정 규칙 (계층형 매핑)
+## Level Determination Rule (Tiered Mapping)
 
-18문항의 "예" 개수를 단순 합산하지 않는다. 대신 Q1/Q2/Q3 계열(각 6문항, 원칙마다 하나씩)을 따로 집계해, 위 단계부터 순서대로 조건을 확인한다.
+Don't simply sum the number of "yes" answers across the 18 questions. Instead, tally the Q1/Q2/Q3 series (6 questions each, one per principle) separately and check the conditions in order from the top level down.
 
-| 확인 순서 | 조건 | 조건 충족 시 레벨 |
+| Check order | Condition | Level if met |
 |---|---|---|
-| 1 | Q3 계열(3번 문항 6개) 중 "예" 3개 이상 | L4 표준화(Systematizing) |
-| 2 | (1 미충족 시) Q2 계열(2번 문항 6개) 중 "예" 3개 이상 | L3 자산화(Compounding) |
-| 3 | (1·2 미충족 시) Q1 계열(1번 문항 6개) 중 "예" 3개 이상 | L2 실천(Practicing) |
-| 4 | 위 세 조건 모두 미충족 | L1 탐색(Exploring) |
+| 1 | 3 or more "yes" among the Q3 series (the 6 question-3 items) | L4 Systematizing |
+| 2 | (if 1 unmet) 3 or more "yes" among the Q2 series (the 6 question-2 items) | L3 Compounding |
+| 3 | (if 1 and 2 unmet) 3 or more "yes" among the Q1 series (the 6 question-1 items) | L2 Practicing |
+| 4 | None of the three conditions above met | L1 Exploring |
 
-위에서부터 순서대로 확인해 처음 만족하는 조건의 레벨을 최종 레벨로 삼는다(상위 조건을 만족하면 하위 조건은 확인하지 않는다). 임계값을 6문항 중 3개로 잡은 것은 스펙의 레벨별 판별 신호가 각각 3개 안팎의 항목(예: L2 = 의도 문서·컨텍스트 파일·계획 승인 관문 3가지)으로 구성돼 있기 때문이다 — 계열마다 그 신호에 대응하는 문항이 하나씩(6원칙 × 1문항 = 6문항) 있으므로, 그중 절반(3개 이상)이 "예"면 해당 레벨의 신호가 실제로 발현되고 있다고 본다.
+Check in order from the top and take the level of the first condition satisfied as the final level (if a higher condition is met, don't check the lower ones). We set the threshold at 3 of 6 questions because the spec's per-level distinguishing signals each consist of about 3 items (e.g., L2 = intent document, context file, plan-approval gate—3 things)—each series has one question corresponding to each signal (6 principles × 1 question = 6 questions), so if half (3 or more) of them are "yes," that level's signals are genuinely manifesting.
 
-단순 합산 방식은 Q1/Q2/Q3가 서로 다른 성숙도 신호를 대표한다는 점을 무시해 경계에서 오판을 낳는다. 예를 들어 스펙의 L2 판별 신호 3가지에 정확히 해당하는 문항만 "예"인 팀은 총합이 3이라 합산식으로는 L1로 잘못 판정되지만, 계열형 규칙에서는 Q1 계열 3개 이상을 충족해 정확히 L2로 판정된다. 마찬가지로 L2 신호를 모두 충족(Q1 계열 6개)한 데다 L3 판별 신호 3가지까지 갖춘 팀은 합산식으로는 총합 9로 L2에 머물지만, 계열형 규칙에서는 Q2 계열 3개 이상을 충족해 정확히 L3로 판정된다.
+Simple summation ignores that Q1/Q2/Q3 represent different maturity signals and produces misjudgments at the boundaries. For example, a team with "yes" on exactly the questions matching the spec's 3 L2 distinguishing signals has a total of 3, which the summation formula misjudges as L1—but the series rule satisfies 3 or more in the Q1 series and correctly determines L2. Likewise, a team that fully meets the L2 signals (all 6 in the Q1 series) and also has the 3 L3 distinguishing signals stays at L2 with a total of 9 in the summation formula, but the series rule satisfies 3 or more in the Q2 series and correctly determines L3.
 
-체크리스트는 자기 평가용이며 팀 전체가 각자 답한 뒤 결과를 맞춰보는 방식을 권한다. 답이 크게 갈리는 문항이 있다면, 그 자체가 팀 안에 공유되지 않은 절차가 있다는 신호다. 진단 결과에 맞는 다음 단계는 [도입 로드맵](/adoption/roadmap)에서 확인한다.
+The checklist is for self-assessment, and we recommend the whole team answers individually and then compares results. If there's a question where answers diverge widely, that itself is a signal of a procedure not shared within the team. Confirm the next step matching your diagnostic result in the [Adoption Roadmap](/adoption/roadmap).

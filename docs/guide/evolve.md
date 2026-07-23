@@ -1,49 +1,49 @@
 ---
-title: "6단계 — 환류 (Evolve)"
+title: "Stage 6 — Evolve"
 ---
 
-# 6단계 — 환류 (Evolve)
+# Stage 6 — Evolve
 
-> 환류가 없는 VDLC는 그저 빠른 코딩이다.
+> VDLC without feedback is just fast coding.
 
-## 이 단계의 목적
+## Purpose of This Stage
 
-5단계에서 배포하고 관찰한 결과는 그 자체로는 아무것도 바꾸지 않는다. 이 단계의 역할은 사이클에서 배운 것을 다음 사이클이 더 잘 돌아가도록 컨텍스트 자산에 되먹이는 것이다. 원칙 4(컨텍스트는 자산이다)가 말하듯, VDLC는 사이클을 돌 때마다 자산이 두꺼워지고 자산이 두꺼워질수록 다음 사이클이 빨라지는 복리 구조로 설계돼 있다. 이 단계를 건너뛰면 매 사이클이 처음부터 같은 실수를 반복하는, 그저 속도만 빠른 코딩으로 전락한다. 환류의 대상은 조직의 자산만이 아니다. 원칙 6(이해가 소유다)이 말하듯, 개인의 이해도 여기서 함께 자라야 한다.
+The result you shipped and observed in stage 5 changes nothing on its own. This stage's role is to feed what the cycle taught back into context assets so the next cycle runs better. As Principle 4 (Context as Asset) says, VDLC is designed as a compounding structure in which assets thicken with every cycle, and the thicker they get, the faster the next cycle runs. Skip this stage and every cycle repeats the same mistakes from scratch—coding that is merely fast. Feedback covers more than the organization's assets. As Principle 6 (Understanding as Ownership) says, the individual's understanding must grow here too.
 
-## 실행 순서
+## How to Execute
 
-1. **반복된 지시를 프로젝트 규칙으로 옮긴다.** 같은 지시를 두 번 이상 반복했다면, 그것은 에이전트가 스스로 알아야 할 규칙이다. CLAUDE.md나 이에 준하는 규칙 파일에 추가한다.
-2. **검증에서 잡힌 실수 패턴을 리뷰 체크리스트에 반영한다.** 4단계(검증)에서 같은 유형의 문제가 반복해서 발견됐다면, 그 문제를 걸러낼 항목을 체크리스트에 추가해 다음 사이클부터는 자동으로 잡히게 한다.
-3. **새로 정리된 도메인 지식을 위키로 옮긴다.** 사이클을 진행하며 밝혀진 도메인 규칙, 용어, 예외 케이스는 대화 로그에 묻어두지 말고 위키 문서로 정리한다.
-4. **이해하지 못한 채 넘어간 지점을 상환한다.** 사이클에서 처음 만난 패턴과 기술을 되짚어 자기 언어로 정리하고, 승인은 했지만 설명할 수 없는 코드가 있다면 여기서 학습해 인지부채를 갚는다.
-5. **사이클 회고를 가볍게, 시간 단위로 돌린다.** 스프린트 회고처럼 주 단위로 몰아서 하지 않는다. 사이클이 끝날 때마다 몇 분이면 충분하다 — 무엇을 반복 지시했는지, 무엇이 검증에서 걸렸는지, 무엇을 새로 배웠는지 세 질문만 훑는다.
+1. **Move repeated instructions into project rules.** If you've repeated the same instruction more than once, that's a rule the agent should know on its own. Add it to CLAUDE.md or an equivalent rules file.
+2. **Reflect mistake patterns caught in verification into the review checklist.** If the same type of problem was found repeatedly in stage 4 (Verification), add an item that filters it into the checklist so it's caught automatically from the next cycle.
+3. **Move newly organized domain knowledge into the wiki.** Domain rules, terms, and edge cases uncovered while running the cycle shouldn't stay buried in conversation logs—organize them into wiki documents.
+4. **Repay points you passed over without understanding.** Revisit the patterns and techniques you met for the first time this cycle, put them into your own words, and if there's code you approved but can't explain, learn it here to pay off the cognitive debt.
+5. **Run a light cycle retrospective, on an hourly scale.** Don't batch it weekly like a sprint retrospective. A few minutes at the end of each cycle is enough—just sweep three questions: what did I instruct repeatedly, what got caught in verification, what did I newly learn.
 
-## 산출물
+## Artifacts
 
-- 갱신된 프로젝트 규칙, 리뷰 체크리스트, 위키 문서 — 최소 하나 이상
-- 사이클 회고 기록 — 세 질문에 대한 짧은 답으로 충분하다
+- Updated project rules, review checklist, wiki documents — at least one
+- Cycle retrospective record — short answers to the three questions are enough
 
-환류가 실제로 조직의 속도를 끌어올리고 있는지는 [도입 지표](/adoption/metrics)로 추적한다.
+Whether feedback is actually lifting the organization's speed is tracked with the [Adoption Metrics](/adoption/metrics).
 
-## 완료 기준 체크리스트
+## Completion Checklist
 
-- [ ] 이번 사이클에서 컨텍스트 자산(규칙·체크리스트·위키) 중 하나 이상이 갱신됐다
-- [ ] 반복된 지시가 있었다면 프로젝트 규칙에 반영됐다
-- [ ] 검증에서 잡힌 실수 패턴이 있었다면 리뷰 체크리스트에 반영됐다
-- [ ] 새로 밝혀진 도메인 지식이 있었다면 위키에 반영됐다
-- [ ] 이해하지 못한 채 넘어간 지점이 있었다면 되짚어 자기 언어로 정리했다
-- [ ] 사이클 회고가 스프린트 단위가 아니라 사이클이 끝날 때마다 가볍게 이루어졌다
+- [ ] At least one context asset (rules, checklist, wiki) was updated this cycle
+- [ ] If there were repeated instructions, they were reflected into project rules
+- [ ] If there were mistake patterns caught in verification, they were reflected into the review checklist
+- [ ] If there was newly uncovered domain knowledge, it was reflected into the wiki
+- [ ] If there were points passed over without understanding, they were revisited and put into your own words
+- [ ] The cycle retrospective was done lightly at the end of each cycle rather than on a sprint scale
 
-## 흔한 실수
+## Common Mistakes
 
-- **환류를 생략하고 다음 사이클로 바로 넘어간다.** 배운 것을 자산에 반영하지 않으면 같은 실수가 다음 사이클에서 똑같이 반복된다. 속도는 빠르지만 조직은 똑똑해지지 않는다.
-- **회고를 스프린트 단위로 몰아서 한다.** 몇 주 뒤에 몰아서 회고하면 무엇을 반복 지시했는지, 무엇이 왜 걸렸는지 세부가 흐려진다. 사이클이 끝난 직후, 기억이 선명할 때 짧게 하는 편이 낫다.
-- **자산 갱신을 개인 메모로 남긴다.** 갱신된 규칙이나 지식이 에이전트가 읽는 파일(CLAUDE.md, 위키, 체크리스트)로 들어가지 않으면, 다음 사이클에서 에이전트는 여전히 아무것도 모른다.
+- **Skipping feedback and moving straight to the next cycle.** Don't reflect what you learned into assets and the same mistake repeats identically in the next cycle. Speed is fast, but the organization doesn't get smarter.
+- **Batching the retrospective on a sprint scale.** Batch the retrospective weeks later and the details of what you instructed repeatedly and what got caught and why blur. Better to do it briefly right after the cycle ends, while memory is sharp.
+- **Leaving asset updates as personal notes.** If updated rules or knowledge don't go into files the agent reads (CLAUDE.md, wiki, checklist), the agent still knows nothing in the next cycle.
 
-## Claude Code로 하면
+## With Claude Code
 
 ::: tip
-사이클을 마칠 때마다 "이번에 반복해서 지시한 게 있었나?"를 스스로에게 묻고, 있다면 CLAUDE.md에 한 줄 추가하는 습관을 들인다. 여러 프로젝트에서 반복적으로 쓰는 절차라면 슬래시 커맨드나 스킬로 승격시켜 재사용 가능한 자산으로 만든다.
+At the end of each cycle, get into the habit of asking yourself "was there anything I instructed repeatedly this time?"—and if so, adding a line to CLAUDE.md. If it's a procedure you use repeatedly across several projects, promote it to a slash command or skill to make it a reusable asset.
 
-세션을 넘나드는 학습은 메모리 기능으로 보완할 수 있다. 특정 세션에서 발견한 실수 패턴이나 도메인 지식을 메모리에 남겨두면, 다음 세션에서 같은 설명을 반복하지 않고 바로 이어서 작업할 수 있다.
+Learning that crosses sessions can be reinforced with the memory feature. Leave a mistake pattern or domain knowledge you found in a given session in memory, and in the next session you can pick right up without repeating the same explanation.
 :::

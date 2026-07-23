@@ -1,108 +1,108 @@
 ---
-title: "도입 로드맵"
+title: "Adoption Roadmap"
 ---
 
-# 도입 로드맵
+# Adoption Roadmap
 
-> 조직 도입은 네 걸음으로 진행한다. 각 걸음은 [성숙도 모델](/adoption/maturity)의 특정 구간을 통과하는 과정이기도 하다.
+> Organizational adoption proceeds in four steps. Each step is also the process of passing through a specific segment of the [Maturity Model](/adoption/maturity).
 
-VDLC는 전사에 한 번에 적용하는 방식으로 도입하지 않는다. 실패 비용이 낮은 곳에서 여섯 단계 전체를 한 바퀴 돌려보고, 거기서 나온 자산과 규칙을 발판 삼아 범위를 넓혀가는 순서를 권한다. 각 걸음의 완료 신호를 확인한 뒤에만 다음 걸음으로 넘어간다 — 신호 없이 범위만 넓히면 [매니페스토](/manifesto)가 짚은 안티패턴을 조직 전체에 복제하게 된다.
+VDLC is not adopted by applying it company-wide all at once. We recommend running all six stages once through a place where failure is cheap, and widening the scope using the assets and rules that come out of it as a foothold. Move to the next step only after confirming the current step's completion signal—widen the scope without the signal and you replicate the anti-patterns the [Manifesto](/manifesto) points out across the whole organization.
 
-## 걸음 1 — 파일럿
+## Step 1 — Pilot
 
-**대응 성숙도**: [L1 탐색](/adoption/maturity) → L2 실천 전환
+**Corresponding maturity**: [L1 Exploring](/adoption/maturity) → L2 Practicing transition
 
-### 목표
+### Goal
 
-실패 비용이 낮은 영역에서 [여섯 단계](/guide/intent) 전체를 처음부터 끝까지 한 번 경험한다. 이 걸음의 목적은 속도 검증이 아니라, 의도 정의부터 환류까지 전 구간을 실제로 돌려보는 것 자체다.
+Experience all [six stages](/guide/intent) from start to finish once, in an area where failure is cheap. The purpose of this step is not to verify speed but to actually run the whole span from intent definition to feedback.
 
-### 해야 할 일
+### What to Do
 
-- 사용자가 제한적이고 실패해도 매출에 직접 영향을 주지 않는 내부 도구나 신규 소규모 프로젝트를 하나 고른다.
-- [1단계 — 의도 정의](/guide/intent)부터 [6단계 — 환류](/guide/evolve)까지 생략 없이 순서대로 진행한다.
-- 계획 승인 관문, 자동 검증 같은 최소 장치만 세우고 나머지는 단순하게 유지한다. 이 단계에서 완벽한 체계를 만들려 하지 않는다.
+- Pick one internal tool or small new project with limited users where failure doesn't directly affect revenue.
+- Proceed in order without omissions from [Stage 1 — Intent](/guide/intent) through [Stage 6 — Evolve](/guide/evolve).
+- Set up only minimal mechanisms like the plan-approval gate and automated checks, and keep the rest simple. Don't try to build a perfect system at this stage.
 
-### 완료 신호
+### Completion Signals
 
-- 파일럿 프로젝트가 여섯 단계를 한 바퀴 이상 완주했다.
-- 의도 문서와 계획 승인 없이 진행한 사이클과, 절차를 지킨 사이클의 차이를 팀이 스스로 설명할 수 있다.
-- "검증 없는 바이브", "컨텍스트 없는 프롬프트" 같은 안티패턴을 최소 한 번은 직접 겪고 원인을 짚어냈다.
+- The pilot project completed one or more full laps of the six stages.
+- The team can explain the difference between cycles run without an intent document and plan approval and cycles that followed the procedure.
+- The team directly experienced anti-patterns like "Vibes without verification" and "Prompts without context" at least once and pinned down the cause.
 
-### 관련 가이드·템플릿
+### Related Guides/Templates
 
-[1단계 — 의도 정의](/guide/intent) · [의도 문서 템플릿](/templates/intent-doc) · [4단계 — 검증](/guide/verify)
+[Stage 1 — Intent](/guide/intent) · [Intent Document Template](/templates/intent-doc) · [Stage 4 — Verification](/guide/verify)
 
-## 걸음 2 — 컨텍스트 자산화
+## Step 2 — Context Asset-building
 
-**대응 성숙도**: L2 실천 → [L3 자산화](/adoption/maturity) 진입 준비
+**Corresponding maturity**: L2 Practicing → preparing to enter [L3 Compounding](/adoption/maturity)
 
-### 목표
+### Goal
 
-파일럿에서 반복적으로 설명하거나 즉흥적으로 판단했던 규칙과 지식을 재사용 가능한 형태로 정리한다. 이 걸음이 없으면 파일럿의 경험은 그 프로젝트 안에서만 유효하고 다음 프로젝트로 이어지지 않는다.
+Organize the rules and knowledge you repeatedly explained or judged on the fly during the pilot into a reusable form. Without this step, the pilot's experience is valid only within that project and doesn't carry over to the next.
 
-### 해야 할 일
+### What to Do
 
-- 파일럿 중 세션마다 반복해서 설명했던 도메인 규칙을 프로젝트 규칙 파일(CLAUDE.md 등)로 옮긴다.
-- 검증 단계에서 반복적으로 잡힌 실수 패턴을 리뷰 체크리스트로 만든다.
-- 리스크가 다른 산출물에 검증 강도를 어떻게 달리 적용했는지 리스크 등급표로 정리한다.
-- [6단계 — 환류](/guide/evolve)를 파일럿의 마지막 사이클에서 한 번으로 끝내지 않고, 앞으로도 반복될 습관으로 자리 잡게 한다.
+- Move the domain rules you repeatedly explained every session during the pilot into a project rules file (CLAUDE.md, etc.).
+- Turn the mistake patterns repeatedly caught in the verification stage into a review checklist.
+- Organize how you applied different verification intensities to artifacts of different risk into a risk-grade table.
+- Don't end [Stage 6 — Evolve](/guide/evolve) with one pass in the pilot's last cycle—settle it as a habit that keeps recurring.
 
-### 완료 신호
+### Completion Signals
 
-- 다음 사이클을 시작할 때 이전과 같은 설명을 처음부터 반복하지 않는다.
-- 팀 밖의 다른 사람이 프로젝트 규칙 파일과 체크리스트만 보고도 팀의 판단 기준을 대략 파악할 수 있다.
-- 컨텍스트 자산(규칙 파일, 체크리스트, 등급표)이 리포에 커밋되어 버전 관리된다.
+- When starting the next cycle, you don't repeat the same explanation from scratch as before.
+- Someone outside the team can roughly grasp the team's judgment criteria just from the project rules file and checklist.
+- Context assets (rules file, checklist, grade table) are committed to the repo and version-controlled.
 
-### 관련 가이드·템플릿
+### Related Guides/Templates
 
-[2단계 — 컨텍스트 설계](/guide/context) · [CLAUDE.md 예시](/templates/claude-md) · [리뷰 체크리스트](/templates/review-checklist) · [리스크 매트릭스](/templates/risk-matrix)
+[Stage 2 — Context](/guide/context) · [CLAUDE.md Example](/templates/claude-md) · [Review Checklist](/templates/review-checklist) · [Risk Matrix](/templates/risk-matrix)
 
-## 걸음 3 — 팀 확산
+## Step 3 — Team Rollout
 
-**대응 성숙도**: [L3 자산화](/adoption/maturity) 정착
+**Corresponding maturity**: [L3 Compounding](/adoption/maturity) settling in
 
-### 목표
+### Goal
 
-파일럿의 규칙과 자산을 개인 소유에서 팀 공용으로 전환하고, 테스트 기준·리뷰 규칙·리스크 등급을 갖춘 검증 체계를 팀 단위로 세운다.
+Shift the pilot's rules and assets from individual ownership to team-shared, and build a verification system with test criteria, review rules, and risk grades at the team level.
 
-### 해야 할 일
+### What to Do
 
-- 컨텍스트 자산을 개인 저장소가 아니라 팀이 함께 참조하고 갱신하는 위치(공유 리포, 위키)로 옮긴다.
-- 리스크 등급에 따라 검증 강도를 구분하는 기준을 팀 전체가 동일하게 적용하도록 합의한다.
-- 계획 승인 관문과 교차 리뷰를 팀의 표준 작업 절차로 문서화한다.
-- 사이클이 끝날 때마다 배운 것을 자산에 반영하는 환류 의례(정기 회고, 체크리스트 갱신)를 팀 일정에 넣는다.
+- Move context assets from a personal repository to a location the team references and refreshes together (shared repo, wiki).
+- Agree that the whole team applies the same criteria for differentiating verification intensity by risk grade.
+- Document the plan-approval gate and cross-review as the team's standard working procedure.
+- Put a feedback ritual (regular retrospective, checklist refresh) that reflects what's learned into assets at the end of each cycle onto the team schedule.
 
-### 완료 신호
+### Completion Signals
 
-- 팀원 대부분이 개인 판단이 아니라 팀 공용 규칙과 등급표를 기준으로 검증 강도를 정한다.
-- 신규 합류자가 온보딩 과정에서 팀 컨텍스트 자산을 참조해 빠르게 합류한다.
-- 환류 의례가 특정 개인의 습관이 아니라 팀 일정에 고정된 절차로 존재한다.
+- Most team members set verification intensity based on team-shared rules and grade tables rather than individual judgment.
+- New joiners onboard quickly by referencing the team's context assets during onboarding.
+- The feedback ritual exists as a procedure fixed on the team schedule rather than a particular individual's habit.
 
-### 관련 가이드·템플릿
+### Related Guides/Templates
 
-[3단계 — 공동 구현](/guide/build) · [4단계 — 검증](/guide/verify) · [6단계 — 환류](/guide/evolve) · [리스크 매트릭스](/templates/risk-matrix)
+[Stage 3 — Co-Construction](/guide/build) · [Stage 4 — Verification](/guide/verify) · [Stage 6 — Evolve](/guide/evolve) · [Risk Matrix](/templates/risk-matrix)
 
-## 걸음 4 — 조직 표준
+## Step 4 — Organizational Standard
 
-**대응 성숙도**: [L4 표준화](/adoption/maturity)
+**Corresponding maturity**: [L4 Systematizing](/adoption/maturity)
 
-### 목표
+### Goal
 
-VDLC를 특정 팀의 실천이 아니라 조직의 표준 프로세스로 정착시키고, 지표로 그 효과를 관리한다.
+Settle VDLC as the organization's standard process rather than a particular team's practice, and manage its effect with metrics.
 
-### 해야 할 일
+### What to Do
 
-- [측정 지표](/adoption/metrics) 4종(사이클 리드타임, 재작업률, 검증 통과율, 컨텍스트 자산 증가량)을 정기적으로 수집하는 체계를 만든다.
-- 팀별로 흩어져 있던 컨텍스트 자산 중 조직 전체에 유효한 것을 선별해 공용 자산으로 승격한다.
-- 신규 프로젝트와 신규 입사자 온보딩에 조직 표준 자산 재사용을 기본 절차로 넣는다.
-- 지표가 나빠지는 신호를 정기적으로 점검하고, 필요하면 검증 체계나 자산을 갱신하는 책임자를 지정한다.
+- Build a system to regularly collect the 4 [Metrics](/adoption/metrics) (cycle lead time, rework rate, verification pass rate, context asset growth).
+- Select, from context assets scattered across teams, those valid organization-wide and promote them to shared assets.
+- Make reusing organizational standard assets a default procedure in new projects and new-hire onboarding.
+- Regularly inspect signals of worsening metrics, and if needed, designate an owner to refresh the verification system or assets.
 
-### 완료 신호
+### Completion Signals
 
-- 지표가 특정 팀이 아니라 조직 단위로 정기 수집되고, 의사결정에 실제로 쓰인다.
-- 새 프로젝트가 처음부터 조직 표준 컨텍스트 자산을 재사용하며 시작한다.
-- VDLC 적용 여부가 개인의 선택이 아니라 조직의 기본값이다.
+- Metrics are regularly collected at the organization level rather than a particular team, and are actually used in decision-making.
+- New projects start by reusing organizational standard context assets from the outset.
+- Whether to apply VDLC is the organization's default rather than an individual's choice.
 
-### 관련 가이드·템플릿
+### Related Guides/Templates
 
-[측정 지표](/adoption/metrics) · [성숙도 모델](/adoption/maturity)
+[Metrics](/adoption/metrics) · [Maturity Model](/adoption/maturity)

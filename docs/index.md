@@ -3,76 +3,76 @@ layout: home
 hero:
   name: VDLC
   text: Vibe-Driven Development Lifecycle
-  tagline: 의도가 소스다 — 바이브코딩을 전제로 재설계한 소프트웨어 개발 생명주기
+  tagline: Intent is the source — a software development lifecycle redesigned around vibe coding
   actions:
     - theme: brand
-      text: 매니페스토 읽기
+      text: Read the Manifesto
       link: /manifesto
     - theme: alt
-      text: 실무 가이드
+      text: Practical Guide
       link: /guide/intent
     - theme: alt
-      text: 도입 로드맵
+      text: Adoption Roadmap
       link: /adoption/roadmap
 features:
-  - title: 의도가 소스다
-    details: 코드가 아니라 자연어 의도가 원본. 잘 쓴 의도 문서는 에이전트에게 반복 투입되는 실행 가능한 스펙이다.
-  - title: 인간은 판단하고, AI는 실행한다
-    details: 무엇을 만들지·어디까지 허용할지·이 결과를 믿을지는 인간의 몫이고, 어떻게 구현할지는 에이전트의 몫이다.
-  - title: 속도는 검증이 결정한다
-    details: 생성은 더 이상 병목이 아니다. 리드타임은 만들어진 것을 얼마나 빨리 믿을 수 있는지가 결정하므로, 검증 자산에 대한 투자가 곧 속도에 대한 투자다.
-  - title: 컨텍스트는 자산이다
-    details: 프로젝트 규칙, 재사용 스킬, 도메인 위키는 부수 문서가 아니라 핵심 자산이다. 사이클을 돌 때마다 두꺼워지고, 두꺼워질수록 다음 사이클이 빨라진다.
-  - title: 작게 돌리고, 자주 환류한다
-    details: 사이클의 단위는 주 단위 스프린트가 아니라 시간과 일이다. 작은 단위로 의도–구현–검증을 돌리고, 배운 것을 즉시 컨텍스트에 반영한다.
-  - title: 이해가 소유다
-    details: 이해하지 못한 채 승인한 산출물은 인지부채로 쌓여 복리로 불어난다. 사이클을 돌 때마다 컨텍스트 자산과 함께 사람의 이해도 자라야 한다.
+  - title: Intent as Source
+    details: The original is natural-language intent, not code. A well-written intent document is an executable spec fed to agents again and again.
+  - title: Humans Judge, AI Executes
+    details: What to build, how far to allow it, and whether to trust the result are the human's job; how to implement it is the agent's.
+  - title: Verification Sets the Pace
+    details: Generation is no longer the bottleneck. Lead time is decided by how quickly you can trust what was built, so investing in verification assets is investing in speed.
+  - title: Context as Asset
+    details: Project rules, reusable skills, and domain wikis are not side documents but core assets. They thicken with every cycle, and the thicker they get, the faster the next cycle runs.
+  - title: Run Small Cycles, Feed Back Often
+    details: The unit of a cycle is hours and days, not week-long sprints. Run intent–build–verify in small units and fold what you learned back into context immediately.
+  - title: Understanding as Ownership
+    details: Output approved without understanding piles up as cognitive debt and compounds. With every cycle, a person's understanding must grow alongside the context assets.
 ---
 
-## VDLC란
+## What VDLC Is
 
-VDLC(Vibe-Driven Development Lifecycle)는 AI 에이전트가 코드 구현의 주체가 되는 시대에 맞춰 소프트웨어 개발의 전 과정을 재구성한 개발 생명주기다. 핵심 명제는 하나다. **의도와 컨텍스트가 1차 산출물이고, 코드는 그로부터 재생성 가능한 2차 산출물이다.**
+VDLC (Vibe-Driven Development Lifecycle) is a development lifecycle that reconstructs the entire software development process for an era in which AI agents are the ones implementing code. Its core proposition is a single one: **intent and context are the primary artifacts, and code is a secondary artifact regenerable from them.**
 
-## 라이프사이클: 여섯 단계
+## The Lifecycle: Six Stages
 
 ```mermaid
 flowchart LR
-    subgraph H["인간 주도 · AI 보조"]
-        P1["1. 의도 정의<br/>(Intent)"]
-        P2["2. 컨텍스트 설계<br/>(Context)"]
-        P6["6. 환류<br/>(Evolve)"]
+    subgraph H["Human-led · AI-assisted"]
+        P1["1. Intent"]
+        P2["2. Context"]
+        P6["6. Evolve"]
     end
-    subgraph A["AI 주도 · 인간 관문"]
-        P3["3. 공동 구현<br/>(Co-Construction)"]
-        P4["4. 검증<br/>(Verification)"]
-        P5["5. 배포와 관찰<br/>(Ship & Observe)"]
+    subgraph A["AI-led · Human gate"]
+        P3["3. Co-Construction"]
+        P4["4. Verification"]
+        P5["5. Ship & Observe"]
     end
     P1 --> P2
     P2 --> P3
     P3 --> P4
-    P4 -->|"불합격"| P3
-    P4 -->|"합격"| P5
+    P4 -->|"Fail"| P3
+    P4 -->|"Pass"| P5
     P5 --> P6
     P6 --> P1
-    P6 -.->|"컨텍스트 자산 갱신"| P2
+    P6 -.->|"Context asset update"| P2
 ```
 
-의도 정의, 컨텍스트 설계, 환류(1·2·6단계)는 인간이 주도하고 AI가 보조한다. 공동 구현, 검증, 배포와 관찰(3·4·5단계)은 AI가 주도하되, 계획 승인·최종 리뷰·배포 승인의 관문은 인간이 지킨다.
+Intent, Context, and Evolve (stages 1, 2, 6) are led by humans and assisted by AI. Co-Construction, Verification, and Ship & Observe (stages 3, 4, 5) are led by AI, but humans guard the gates of plan approval, final review, and deploy approval.
 
-## 왜 지금인가
+## Why Now
 
-바이브코딩이 실무로 들어오며 코드를 작성하는 비용은 사실상 0에 수렴하고 있다. 문제는 생명주기의 나머지 구간이 그대로라는 점이다. 기존 SDLC를 그대로 두고 구현 단계에만 AI를 끼워 넣으면 네 가지 문제가 반복된다.
+As vibe coding moves into practice, the cost of writing code is effectively converging to zero. The problem is that the rest of the lifecycle stays the same. If you leave the existing SDLC in place and slot AI only into the implementation stage, four problems recur.
 
-- **속도 불균형** — 구현만 빨라지고 앞뒤 구간이 그대로면 전체 리드타임은 거의 줄지 않는다.
-- **품질 리스크** — 검증 체계 없이 생성 속도만 누리면 데모에서는 화려하지만 유지보수 불가능한 코드를 양산한다.
-- **지식의 휘발** — 프롬프트와 대화 속 의사결정과 도메인 지식은 세션이 끝나면 사라지고, 다음 작업은 맨바닥에서 다시 시작한다.
-- **역량 침식** — 이해하지 못한 코드를 승인하는 일이 반복되면 인지부채(cognitive debt)가 쌓여, 코드를 판단할 수 있는 사람이 점점 줄어든다.
+- **Speed imbalance** — If only implementation gets faster while the stages before and after stay the same, total lead time barely shrinks.
+- **Quality risk** — Enjoying generation speed without a verification system mass-produces code that dazzles in a demo but is impossible to maintain.
+- **Knowledge evaporation** — Decisions and domain knowledge scattered through prompts and conversations vanish when the session ends, and the next task starts from bare ground again.
+- **Capability erosion** — When approving code you don't understand becomes routine, cognitive debt accumulates, and the number of people who can judge the code steadily shrinks.
 
-VDLC는 이 네 문제를 정면으로 다뤄, 병목이 된 구간을 생명주기의 중심에 두고, 휘발되던 지식을 컨텍스트 자산으로 축적하며, 사람의 이해가 함께 자라는 구조를 만든다.
+VDLC tackles these four problems head-on: it places the bottleneck stages at the center of the lifecycle, accumulates evaporating knowledge as context assets, and builds a structure in which a person's understanding grows along the way.
 
-## 더 알아보기
+## Learn More
 
-- [매니페스토](/manifesto) — VDLC의 정의, 배경, 여섯 가지 원칙, 기존 방법론과의 관계를 담은 원문
-- [실무 가이드](/guide/intent) — 여섯 단계 각각을 실행하는 방법을 다루는 플레이북
-- [템플릿](/templates/) — 의도 문서, PR-FAQ, 리스크 매트릭스 등 반복 사용하는 문서 양식
-- [도입](/adoption/) — 성숙도 모델, 도입 로드맵, 측정 지표로 조직 도입 경로를 설계하는 문서
+- [Manifesto](/manifesto) — the full text covering VDLC's definition, background, six principles, and relationship to existing methodologies
+- [Practical Guide](/guide/intent) — a playbook covering how to execute each of the six stages
+- [Templates](/templates/) — reusable document formats such as intent documents, PR-FAQs, and risk matrices
+- [Adoption](/adoption/) — documents for designing an organizational adoption path with a maturity model, roadmap, and metrics

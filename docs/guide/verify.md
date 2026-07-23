@@ -1,49 +1,49 @@
 ---
-title: "4단계 — 검증 (Verification)"
+title: "Stage 4 — Verification"
 ---
 
-# 4단계 — 검증 (Verification)
+# Stage 4 — Verification
 
-> 만들어진 속도가 아니라 믿을 수 있게 된 속도가 전체 리드타임을 결정한다.
+> It's not the speed at which something was built but the speed at which it became trustworthy that decides total lead time.
 
-## 이 단계의 목적
+## Purpose of This Stage
 
-3단계에서 나온 산출물은 아직 신뢰 대상이 아니다. 이 단계의 목적은 "만들어졌다"와 "믿을 수 있다" 사이의 간극을 좁히는 것이다. 생성 속도는 더 이상 병목이 아니므로, 검증에 투자하는 것이 곧 전체 리드타임에 투자하는 것과 같다. 모든 산출물에 같은 강도의 검증을 걸면 리소스가 낭비되므로, 실패 비용에 비례해 검증 강도를 조절한다.
+The output from stage 3 is not yet an object of trust. The purpose of this stage is to close the gap between "it was built" and "it can be trusted." Since generation speed is no longer the bottleneck, investing in verification is the same as investing in total lead time. Applying the same verification intensity to every artifact wastes resources, so scale verification intensity in proportion to the cost of failure.
 
-## 실행 순서
+## How to Execute
 
-1. **1차 방어선 — 자동 테스트와 정적 분석을 돌린다.** 단위 테스트, 린트, 타입 체크처럼 사람 없이 즉시 실행 가능한 검증을 먼저 통과시킨다. 여기서 걸러지지 않으면 이후 단계 전체가 낭비된다.
-2. **리스크 등급을 매긴다.** 이 산출물이 실패했을 때 비용이 얼마나 큰지 판단한다. 결제·인증·개인정보처럼 실패 비용이 큰 영역인지, 내부 도구·프로토타입처럼 가벼운 영역인지 분류한다. 기준은 [리스크 매트릭스](/templates/risk-matrix)를 따른다.
-3. **2차 방어선 — 별도 에이전트가 교차 리뷰한다.** 리스크 등급에 비례해 구현한 에이전트와 다른 세션·다른 에이전트가 코드를 다시 읽고 의도와의 정합성, 누락된 케이스를 점검한다.
-4. **최종 관문 — 인간이 리뷰한다.** 리스크 등급이 높을수록 인간 리뷰의 비중을 늘린다. 리스크가 낮은 영역은 자동 검증 통과만으로 다음 단계로 넘어갈 수 있다. 검증의 대상에는 승인자의 이해도 포함된다. 리스크가 높은 변경은 "승인자가 이 코드를 설명할 수 있는가"를 통과 기준에 넣는다 — 자신이 이해한 바를 에이전트에게 설명하고 확인받는 설명 되물기, 에이전트와 함께 변경 지점을 짚어가는 코드 워크스루가 유효한 도구다.
-5. **발견된 문제의 근원을 추적한다.** 코드를 고치는 것으로 끝내지 않는다. 같은 문제가 반복될 여지가 있다면 의도 문서나 컨텍스트 자산의 결함까지 거슬러 올라가 함께 고친다.
+1. **First line of defense — run automated tests and static analysis.** Pass verifications that run immediately without a person first—unit tests, lint, type checks. What isn't filtered here wastes every later stage.
+2. **Assign a risk grade.** Judge how large the cost is if this artifact fails. Classify whether it's a high-failure-cost area like payments, authentication, or personal data, or a light area like an internal tool or prototype. Use the [Risk Matrix](/templates/risk-matrix) as the standard.
+3. **Second line of defense — a separate agent cross-reviews.** In proportion to the risk grade, a different session/different agent than the one that implemented reads the code again and checks consistency with intent and missing cases.
+4. **Final gate — a human reviews.** The higher the risk grade, the greater the weight of human review. Low-risk areas can move on with automated checks passing alone. Verification covers the approver's understanding too. For high-risk changes, put "can the approver explain this code" into the pass criteria—explain-back, explaining what you understood to the agent and having it confirmed, and code walkthroughs, tracing the change points together with the agent, are effective tools.
+5. **Trace found problems to their root.** Don't stop at fixing the code. If there's room for the same problem to recur, go back up to the defect in the intent document or context asset and fix that too.
 
-## 산출물
+## Artifacts
 
-- 리스크 등급이 부여된 검증 계획 — [리스크 매트릭스](/templates/risk-matrix)
-- 리뷰 기록 — [리뷰 체크리스트](/templates/review-checklist)
+- A verification plan with risk grades assigned — [Risk Matrix](/templates/risk-matrix)
+- Review records — [Review Checklist](/templates/review-checklist)
 
-검증 통과 기록은 5단계(배포와 관찰)로 넘어가는 근거로 남긴다.
+Leave the verification-pass record as the basis for moving to stage 5 (Ship & Observe).
 
-## 완료 기준 체크리스트
+## Completion Checklist
 
-- [ ] 산출물마다 리스크 등급이 부여돼 있다
-- [ ] 1차 방어선(자동 테스트·정적 분석)이 사람 개입 없이 자동으로 돈다
-- [ ] 리스크가 높은 영역은 별도 에이전트의 교차 리뷰를 거쳤다
-- [ ] 리스크가 높은 영역은 인간 리뷰 기록이 남아 있다
-- [ ] 리스크가 높은 변경은 승인자가 그 내용을 설명할 수 있는지 확인했다
-- [ ] 발견된 문제가 코드 수정에 그치지 않고, 필요한 경우 의도 문서·컨텍스트 자산까지 갱신됐다
+- [ ] Each artifact has a risk grade assigned
+- [ ] The first line of defense (automated tests, static analysis) runs automatically without human intervention
+- [ ] High-risk areas went through a separate agent's cross-review
+- [ ] High-risk areas have a human review record
+- [ ] For high-risk changes, it was confirmed the approver can explain their content
+- [ ] Found problems didn't stop at a code fix; where needed, the intent document and context assets were updated too
 
-## 흔한 실수
+## Common Mistakes
 
-- **모든 산출물에 같은 강도의 검증을 건다.** 프로토타입까지 결제 시스템 수준으로 리뷰하면 검증이 병목이 되고, 반대로 인증 로직을 프로토타입처럼 가볍게 넘기면 사고로 이어진다.
-- **자동 검증만 믿고 인간 리뷰를 생략한다.** 테스트를 통과했다는 것은 정의된 케이스를 만족했다는 뜻일 뿐, 의도와 정합한지는 별개 질문이다.
-- **증상만 고치고 근원을 방치한다.** 같은 유형의 실수가 다음 사이클에서 반복된다면, 그 실수를 막을 규칙이 아직 컨텍스트 자산으로 옮겨지지 않았다는 신호다.
+- **Applying the same verification intensity to every artifact.** Review even a prototype at payment-system level and verification becomes the bottleneck; conversely, wave auth logic through as lightly as a prototype and it leads to an incident.
+- **Trusting only automated checks and skipping human review.** Passing tests just means the defined cases were satisfied; whether it's consistent with intent is a separate question.
+- **Fixing only the symptom and leaving the root.** If the same type of mistake recurs in the next cycle, it's a signal that the rule to block it hasn't yet been moved into a context asset.
 
-## Claude Code로 하면
+## With Claude Code
 
 ::: tip
-코드 리뷰를 별도 서브에이전트나 리뷰 전용 커맨드로 분리하면, 구현한 세션과 다른 시각에서 2차 방어선 역할을 하게 만들 수 있다. 같은 세션이 자기 결과를 그대로 승인하는 구조를 피하는 것이 핵심이다.
+Split code review into a separate subagent or a dedicated review command, so it plays the second line of defense from a different perspective than the implementing session. The key is to avoid a structure where the same session approves its own results.
 
-훅(hook)으로 커밋 전 테스트 실행을 강제하면 1차 방어선을 사람이 잊어도 건너뛸 수 없게 만든다. 검증에서 반복적으로 잡히는 실수 패턴은 리뷰 체크리스트에 항목으로 추가해, 다음 사이클부터는 같은 실수가 자동으로 걸리게 한다.
+Enforce running tests before commit with a hook, so the first line of defense can't be skipped even if a person forgets. Add mistake patterns repeatedly caught in verification as items in the review checklist, so from the next cycle the same mistake gets caught automatically.
 :::

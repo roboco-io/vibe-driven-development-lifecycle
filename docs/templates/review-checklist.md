@@ -1,67 +1,67 @@
 ---
-title: "템플릿 — 리뷰 체크리스트"
+title: "Template — Review Checklist"
 ---
 
-# 템플릿 — 리뷰 체크리스트
+# Template — Review Checklist
 
-## 언제 쓰나
+## When to Use
 
-[4단계 — 검증](/guide/verify)에서 에이전트 산출물을 사람 또는 교차 리뷰 에이전트가 검토할 때 쓴다. 코드 리뷰를 "잘 짰는지" 위주로만 보면 에이전트 특유의 실수 — 의도와 어긋난 구현, 실제로는 아무것도 검증하지 않는 테스트, 불필요하게 방어적인 코드 — 를 놓치기 쉽다. 이 체크리스트는 그런 실수를 항목으로 못 박아 리뷰어가 매번 같은 것을 놓치지 않게 한다.
+Use it in [Stage 4 — Verification](/guide/verify) when a person or a cross-review agent reviews agent output. Review code only for "was it well written" and you easily miss agent-specific mistakes—implementation that diverges from intent, tests that actually verify nothing, needlessly defensive code. This checklist nails those mistakes down as items so the reviewer doesn't miss the same things every time.
 
-## 사용법
+## How to Use
 
-리뷰할 PR/커밋 단위로 아래 체크리스트를 복사해 리뷰 코멘트나 리뷰 기록 문서에 붙여 넣는다. 체크할 수 없는 항목(근거가 불충분한 항목)은 통과시키지 말고 이유를 옆에 적어 남긴다. 리뷰 중 반복적으로 걸리는 항목이 있으면, 그 항목을 프로젝트 `CLAUDE.md`나 린트 규칙으로 옮겨 다음 사이클부터 자동으로 걸리게 한다 — 체크리스트에만 남기고 컨텍스트 자산으로 옮기지 않으면 같은 실수가 반복된다.
+Copy the checklist below per PR/commit under review and paste it into a review comment or review-record document. Don't pass items you can't check (items with insufficient basis)—leave the reason next to them. If an item comes up repeatedly in review, move it into the project `CLAUDE.md` or a lint rule so it's caught automatically from the next cycle—leave it only in the checklist without moving it into a context asset and the same mistake repeats.
 
-## 템플릿
+## Template
 
 ````markdown
-# 리뷰 체크리스트: [PR/커밋 식별자]
+# Review Checklist: [PR/Commit Identifier]
 
-- 리스크 등급: <!-- 작성 안내: 리스크 매트릭스 기준 등급을 적는다. 예: High -->
-- 리뷰어: <!-- 작성 안내: 구현한 에이전트/세션과 다른 사람 또는 에이전트인지 명시 -->
+- Risk grade: <!-- Guidance: Write the grade per the risk matrix. e.g.: High -->
+- Reviewer: <!-- Guidance: State whether it's a different person or agent than the implementing agent/session -->
 
-## 의도 정합성
+## Intent Consistency
 
-<!-- 작성 안내: 산출물이 의도 문서에 쓴 목표와 실제로 일치하는지 확인한다. -->
+<!-- Guidance: Confirm the output actually matches the goals written in the intent document. -->
 
-- [ ] 구현이 의도 문서의 목표(성공 기준)를 실제로 만족한다 (예: "온보딩 5단계 축소"가 실제 단계 수로 확인됨)
-- [ ] 의도 문서에 없는 범위가 임의로 추가되지 않았다 (예: 요청하지 않은 UI 요소, 스코프 밖 리팩터링)
-- [ ] 의도 문서의 비목표(버린 것)가 실수로 다시 구현되지 않았다
+- [ ] The implementation actually satisfies the intent document's goals (success criteria) (e.g., "reduce onboarding to 5 steps" confirmed by actual step count)
+- [ ] No scope not in the intent document was added arbitrarily (e.g., unrequested UI elements, out-of-scope refactoring)
+- [ ] The intent document's non-goals (what was discarded) weren't accidentally re-implemented
 
-## 보안 기본
+## Security Basics
 
-<!-- 작성 안내: 리스크 등급이 Medium 이상이면 반드시 확인한다. -->
+<!-- Guidance: Always check if the risk grade is Medium or above. -->
 
-- [ ] 사용자 입력이 검증·이스케이프 없이 그대로 쿼리/명령/템플릿에 들어가지 않는다
-- [ ] 인증/인가 체크가 우회 경로 없이 모든 진입점에 걸려 있다 (예: API 라우트 추가 시 미들웨어 누락 여부)
-- [ ] 비밀값(API 키, 토큰)이 코드나 로그에 하드코딩되지 않았다
+- [ ] User input doesn't go straight into a query/command/template without validation or escaping
+- [ ] Authentication/authorization checks are in place at every entry point with no bypass path (e.g., missing middleware when adding an API route)
+- [ ] Secrets (API keys, tokens) aren't hard-coded in code or logs
 
-## 테스트 실재성
+## Test Reality
 
-<!-- 작성 안내: 테스트가 통과한다는 사실이 아니라, 통과하는 이유를 확인한다. -->
+<!-- Guidance: Confirm not the fact that tests pass, but the reason they pass. -->
 
-- [ ] 테스트를 실패하게 만들어 봤을 때(로직을 일부러 깨뜨려서) 실제로 실패한다 — 항상 통과하는 가짜 테스트가 아니다
-- [ ] 경계값과 실패 케이스(빈 입력, 최대값, 네트워크 오류 등)가 테스트에 포함돼 있다
-- [ ] 테스트가 구현 세부사항이 아니라 의도한 동작을 검증한다 (예: "함수가 호출됐는가"가 아니라 "결과값이 맞는가")
+- [ ] When you make the test fail (by deliberately breaking the logic), it actually fails — not a fake test that always passes
+- [ ] Boundary values and failure cases (empty input, max value, network error, etc.) are included in the tests
+- [ ] Tests verify intended behavior rather than implementation details (e.g., "is the result value correct" rather than "was the function called")
 
-## 컨텍스트 반영 여부
+## Context Reflection
 
-<!-- 작성 안내: 산출물이 프로젝트의 기존 규칙·컨벤션·용어를 따르는지 확인한다. -->
+<!-- Guidance: Confirm the output follows the project's existing rules, conventions, and terms. -->
 
-- [ ] 코딩 컨벤션(네이밍, 폴더 구조)이 `CLAUDE.md`/기존 코드베이스와 일치한다
-- [ ] 이미 있는 유틸/헬퍼를 재사용하지 않고 비슷한 기능을 새로 만들지 않았다
-- [ ] 도메인 용어집에 고정된 용어를 다른 의미로 쓰지 않았다
+- [ ] Coding conventions (naming, folder structure) match `CLAUDE.md`/the existing codebase
+- [ ] No new near-duplicate feature was built without reusing an existing util/helper
+- [ ] Terms pinned in the domain glossary weren't used with a different meaning
 
-## 슬롭 신호
+## Slop Signals
 
-<!-- 작성 안내: 데모에서는 문제없어 보이지만 유지보수 단계에서 부채가 되는 패턴을 찾는다. -->
+<!-- Guidance: Look for patterns that look fine in a demo but become debt at the maintenance stage. -->
 
-- [ ] 중복 코드가 없다 (같은 로직이 여러 곳에 복붙되지 않았다)
-- [ ] 죽은 코드가 없다 (쓰이지 않는 함수, 도달 불가능한 분기, 주석 처리된 코드 블록)
-- [ ] 과도한 방어 코드가 없다 (발생할 수 없는 케이스까지 try-catch/null 체크로 감싸 로직을 읽기 어렵게 만들지 않았다)
+- [ ] No duplicated code (the same logic isn't copy-pasted in several places)
+- [ ] No dead code (unused functions, unreachable branches, commented-out code blocks)
+- [ ] No excessive defensive code (logic isn't made hard to read by wrapping impossible cases in try-catch/null checks)
 
-## 종합 판정
+## Overall Assessment
 
-- [ ] 위 항목을 근거로 이 산출물을 신뢰하고 다음 단계(배포)로 넘길 수 있다
-- 통과하지 못한 항목과 후속 조치: <!-- 작성 안내: 코드 수정으로 끝낼지, 의도 문서/컨텍스트 자산까지 고칠지 명시 -->
+- [ ] Based on the items above, this output can be trusted and passed to the next stage (deployment)
+- Items that didn't pass and follow-up actions: <!-- Guidance: State whether to close with a code fix or to fix the intent document/context asset too -->
 ````
