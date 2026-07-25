@@ -18,7 +18,7 @@ class: text-center
 
 바이브코딩을 전제로 재설계한 소프트웨어 개발 생명주기
 
-<div class="text-sm opacity-50 mt-4">v1.3</div>
+<div class="text-sm opacity-50 mt-4">v1.1</div>
 
 ---
 

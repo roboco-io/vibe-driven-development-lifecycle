@@ -1,7 +1,7 @@
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { defineConfig } from "vitepress";
 
-const VERSION = "v1.3";
+const VERSION = "v1.1";
 
 interface LocaleStrings {
   manifesto: string;
