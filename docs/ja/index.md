@@ -35,7 +35,27 @@ VDLC(Vibe-Driven Development Lifecycle)は、AIエージェントがコード実
 
 ## ライフサイクル: 六つのステージ
 
-<LifecycleDiagram />
+```mermaid
+flowchart LR
+    subgraph H["人間主導 · AI補助"]
+        P1["1. 意図定義<br/>(Intent)"]
+        P2["2. コンテキスト設計<br/>(Context)"]
+        P6["6. 還流<br/>(Evolve)"]
+    end
+    subgraph A["AI主導 · 人間の関門"]
+        P3["3. 共同構築<br/>(Co-Construction)"]
+        P4["4. 検証<br/>(Verification)"]
+        P5["5. デプロイと観察<br/>(Ship & Observe)"]
+    end
+    P1 --> P2
+    P2 --> P3
+    P3 --> P4
+    P4 -->|"不合格"| P3
+    P4 -->|"合格"| P5
+    P5 --> P6
+    P6 --> P1
+    P6 -.->|"コンテキスト資産の更新"| P2
+```
 
 意図定義、コンテキスト設計、還流(ステージ1・2・6)は人間が主導しAIが補助する。共同構築、検証、デプロイと観察(ステージ3・4・5)はAIが主導するが、計画承認・最終レビュー・デプロイ承認の関門は人間が守る。
 

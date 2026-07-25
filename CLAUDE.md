@@ -65,7 +65,7 @@ specs/VDLC-weekly-cycle.md (사이클 방법론 원문)
 ## Slides Notes
 
 - `slides/slides.md`의 frontmatter에 `routerMode: hash`가 설정돼 있다(GitHub Pages 새로고침 404 방지). 제거하지 말 것.
-- 라이프사이클 6단계 다이어그램: 사이트(매니페스토·랜딩)는 `docs/.vitepress/theme/LifecycleDiagram.vue`(텍스트는 `lifecycle-data.ts`, 3로케일) 사용. mermaid P1~P6 단순판은 vdlc.md와 슬라이드에만 잔존 — 구조 변경 시 컴포넌트 데이터와 함께 수정.
+- 라이프사이클 6단계 다이어그램: 매니페스토 3벌은 `docs/.vitepress/theme/LifecycleDiagram.vue`(텍스트는 `lifecycle-data.ts`, 3로케일) 사용. mermaid P1~P6 단순판은 랜딩 3벌·vdlc.md·슬라이드에 잔존 — 구조 변경 시 컴포넌트 데이터와 mermaid를 함께 수정.
 
 ## specs/
 
