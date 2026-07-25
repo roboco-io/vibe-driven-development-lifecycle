@@ -1,9 +1,12 @@
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { defineConfig } from "vitepress";
 
+const VERSION = "v1.1";
+
 interface LocaleStrings {
   manifesto: string;
   guide: string;
+  cycle: string;
   templates: string;
   adoption: string;
   slides: string;
@@ -22,9 +25,11 @@ function localeThemeConfig(prefix: string, t: LocaleStrings) {
     nav: [
       { text: t.manifesto, link: `${p}/manifesto` },
       { text: t.guide, link: `${p}/guide/intent` },
+      { text: t.cycle, link: `${p}/cycle` },
       { text: t.templates, link: `${p}/templates/` },
       { text: t.adoption, link: `${p}/adoption/` },
       { text: t.slides, link: "/slides/", target: "_blank" },
+      { text: VERSION, link: `${p}/releases` },
     ],
     sidebar: {
       [`${p}/guide/`]: [
@@ -52,6 +57,7 @@ function localeThemeConfig(prefix: string, t: LocaleStrings) {
 const en = localeThemeConfig("", {
   manifesto: "Manifesto",
   guide: "Guide",
+  cycle: "6-Day Cycle",
   templates: "Templates",
   adoption: "Adoption",
   slides: "Slides (KO)",
@@ -64,6 +70,7 @@ const en = localeThemeConfig("", {
 const ko = localeThemeConfig("ko", {
   manifesto: "매니페스토",
   guide: "가이드",
+  cycle: "6일 사이클",
   templates: "템플릿",
   adoption: "도입",
   slides: "슬라이드",
@@ -76,6 +83,7 @@ const ko = localeThemeConfig("ko", {
 const ja = localeThemeConfig("ja", {
   manifesto: "マニフェスト",
   guide: "ガイド",
+  cycle: "6日サイクル",
   templates: "テンプレート",
   adoption: "導入",
   slides: "スライド (韓国語)",
