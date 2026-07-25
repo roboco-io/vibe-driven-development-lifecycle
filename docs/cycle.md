@@ -22,21 +22,12 @@ Keeping the 6-weeks : 2-weeks = 3 : 1 ratio, we substitute days for weeks. **6 w
 
 ```mermaid
 flowchart TB
-    subgraph SHAPING["Shaping track (always parallel)"]
-        direction LR
-        S1["Problem definition<br/>Set Appetite"] --> S2["Breadboard<br/>Tune intent resolution"] --> SP["Prototype round<br/>Convergent/divergent + decision record"] --> S3["Pitch = context doc<br/>Rabbit Holes / No-Gos"]
-    end
-    subgraph CYCLE["Build cycle (6 days)"]
-        direction LR
-        B0["Day 0<br/>Betting table<br/>Allocate parallel bets"] --> B1["Day 1-2<br/>One piece done<br/>Vertical slice"] --> B2["Day 3-5<br/>Delegate by scope<br/>downhill=agent"] --> B3["Day 6<br/>Verification gate<br/>Done=Deployed"]
-    end
-    subgraph COOL["Cool-down (2 days)"]
-        direction LR
-        C1["Regeneration verification<br/>Settle context debt"] --> C2["Next betting table"]
-    end
-    SHAPING -->|"Pitch finalized"| CYCLE
-    CYCLE -->|"Passes Day 6"| COOL
-    CYCLE -. "On convergence failure<br/>context breaker" .-> SHAPING
+    S["<b>Shaping track (always parallel)</b><br/>Problem definition → Breadboard → Prototype round → Pitch"]
+    B["<b>Build cycle (6 days)</b><br/>Day 0 betting → Day 1-2 vertical slice → Day 3-5 delegation → Day 6 verification gate"]
+    C["<b>Cool-down (2 days)</b><br/>Regeneration verification → Next betting table"]
+    S -->|"Pitch finalized"| B
+    B -->|"Passes Day 6"| C
+    B -. "On convergence failure<br/>context breaker" .-> S
 ```
 
 ### Day-by-day operating rules

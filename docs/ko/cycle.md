@@ -22,21 +22,12 @@ Shape Up의 장치들은 세 갈래로 갈라진다.
 
 ```mermaid
 flowchart TB
-    subgraph SHAPING["Shaping 트랙 (상시 병렬)"]
-        direction LR
-        S1["문제 정의<br/>Appetite 설정"] --> S2["Breadboard<br/>의도 해상도 조정"] --> SP["프로토타입 라운드<br/>수렴·발산 + 결정기록"] --> S3["핏치 = 컨텍스트 문서<br/>Rabbit holes / No-gos"]
-    end
-    subgraph CYCLE["빌드 사이클 (6일)"]
-        direction LR
-        B0["Day 0<br/>베팅 테이블<br/>병렬 베팅 배분"] --> B1["Day 1-2<br/>One piece done<br/>수직 슬라이스"] --> B2["Day 3-5<br/>스코프별 위임<br/>downhill=에이전트"] --> B3["Day 6<br/>검증 게이트<br/>Done=Deployed"]
-    end
-    subgraph COOL["쿨다운 (2일)"]
-        direction LR
-        C1["재생성 검증<br/>컨텍스트 부채 청산"] --> C2["다음 베팅 테이블"]
-    end
-    SHAPING -->|"핏치 확정"| CYCLE
-    CYCLE -->|"Day 6 통과"| COOL
-    CYCLE -. "수렴 실패 시<br/>컨텍스트 브레이커" .-> SHAPING
+    S["<b>Shaping 트랙 (상시 병렬)</b><br/>문제 정의 → Breadboard → 프로토타입 라운드 → 핏치"]
+    B["<b>빌드 사이클 (6일)</b><br/>Day 0 베팅 → Day 1-2 수직 슬라이스 → Day 3-5 위임 → Day 6 검증 게이트"]
+    C["<b>쿨다운 (2일)</b><br/>재생성 검증 → 다음 베팅 테이블"]
+    S -->|"핏치 확정"| B
+    B -->|"Day 6 통과"| C
+    B -. "수렴 실패 시<br/>컨텍스트 브레이커" .-> S
 ```
 
 ### Day별 운영 규칙
