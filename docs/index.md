@@ -35,27 +35,7 @@ VDLC (Vibe-Driven Development Lifecycle) is a development lifecycle that reconst
 
 ## The Lifecycle: Six Stages
 
-```mermaid
-flowchart LR
-    subgraph H["Human-led · AI-assisted"]
-        P1["1. Intent"]
-        P2["2. Context"]
-        P6["6. Evolve"]
-    end
-    subgraph A["AI-led · Human gate"]
-        P3["3. Co-Construction"]
-        P4["4. Verification"]
-        P5["5. Ship & Observe"]
-    end
-    P1 --> P2
-    P2 --> P3
-    P3 --> P4
-    P4 -->|"Fail"| P3
-    P4 -->|"Pass"| P5
-    P5 --> P6
-    P6 --> P1
-    P6 -.->|"Context asset update"| P2
-```
+<LifecycleDiagram />
 
 Intent, Context, and Evolve (stages 1, 2, 6) are led by humans and assisted by AI. Co-Construction, Verification, and Ship & Observe (stages 3, 4, 5) are led by AI, but humans guard the gates of plan approval, final review, and deploy approval.
 

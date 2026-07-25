@@ -35,27 +35,7 @@ VDLC(Vibe-Driven Development Lifecycle)는 AI 에이전트가 코드 구현의 �
 
 ## 라이프사이클: 여섯 단계
 
-```mermaid
-flowchart LR
-    subgraph H["인간 주도 · AI 보조"]
-        P1["1. 의도 정의<br/>(Intent)"]
-        P2["2. 컨텍스트 설계<br/>(Context)"]
-        P6["6. 환류<br/>(Evolve)"]
-    end
-    subgraph A["AI 주도 · 인간 관문"]
-        P3["3. 공동 구현<br/>(Co-Construction)"]
-        P4["4. 검증<br/>(Verification)"]
-        P5["5. 배포와 관찰<br/>(Ship & Observe)"]
-    end
-    P1 --> P2
-    P2 --> P3
-    P3 --> P4
-    P4 -->|"불합격"| P3
-    P4 -->|"합격"| P5
-    P5 --> P6
-    P6 --> P1
-    P6 -.->|"컨텍스트 자산 갱신"| P2
-```
+<LifecycleDiagram />
 
 의도 정의, 컨텍스트 설계, 환류(1·2·6단계)는 인간이 주도하고 AI가 보조한다. 공동 구현, 검증, 배포와 관찰(3·4·5단계)은 AI가 주도하되, 계획 승인·최종 리뷰·배포 승인의 관문은 인간이 지킨다.
 
