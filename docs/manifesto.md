@@ -156,6 +156,12 @@ Organizational adoption proceeds in four steps: pilot → context asset-building
 
 The goal, the work, and the completion signal for each step are covered in detail in the [Adoption Roadmap](/adoption/roadmap).
 
+## 10. Operating Rhythm: The 6-Day Cycle
+
+As a team-level operating rhythm, we recommend the **6-day cycle**, a reinterpretation of Basecamp Shape Up's six-week cycle on top of VDLC's premises. In an era when implementation finishes in minutes and hours, the variable that sets cycle length is not build time but the human time spent on shaping (defining intent) and verification, so we substitute days for weeks and run 6 days of build + 2 days of cool-down as one heartbeat. Shaping becomes not a documentation activity but an experimental activity with prototype rounds built in — because making it and judging has become cheaper than discussing and judging. A decision record auto-generated at each prototype round preserves the context of "why it was settled in this form" as a context asset.
+
+The full definitions of the cycle structure, the context breaker, parallel bets, the pitch template, and regeneration verification are covered in the [6-Day Cycle](/cycle).
+
 ## Closing
 
 Vibe coding is a change of assumption, not a change of tool. VDLC is one answer to what to build in the place left empty when the assumption "humans write the code" disappears. An organization that makes intent the original, makes speed out of verification, and compounds context grows a little faster than a competitor on the same model with every cycle. The accumulation of that gap is exactly what development competitiveness looks like in the AI era.
