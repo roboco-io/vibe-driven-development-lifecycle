@@ -6,7 +6,7 @@ VDLC is not a finished document but a methodology that keeps evolving. Versions 
 
 **Detailed lifecycle diagram — a circular view of actors and harness**
 
-- Replaced the plain P1–P6 diagram on the manifesto and landing pages with a circular ring diagram that surfaces, in one view, each stage's human/AI work, who leads, the human gates (plan approval, final review, ship approval), and the automated guardrails
+- Replaced the plain P1–P6 diagram on the manifesto and landing pages with a circular ring diagram that surfaces, in one view, each stage's human/AI work, who leads, the human gates (plan approval, final review, deploy approval), and the automated guardrails
 - Implemented as a single Vue component driven by locale string data, supporting all three locales (English, Korean, Japanese)
 - Reflows into a vertical 1→6 card stack on narrow screens (<960px) for mobile readability
 

@@ -34,7 +34,7 @@ export const lifecycleStrings: Record<string, LifecycleStrings> = {
   "en-US": {
     legend: { human: "Human-led", ai: "AI-led", gate: "◆ Human gate", guard: "🛡 Automated guardrails", fail: "Fail return", feedback: "Asset update" },
     hub: { line1: "Intent is the primary artifact", line2: "code is a regenerable secondary artifact" },
-    gates: { plan: "◆ Plan approval", review: "◆ Final review → ◆ Ship approval" },
+    gates: { plan: "◆ Plan approval", review: "◆ Final review → ◆ Deploy approval" },
     edges: { fail: "Fail — return to build", feedback: "Context-asset update" },
     badges: { human: "Human-led", ai: "AI-led" },
     stages: [
@@ -42,7 +42,7 @@ export const lifecycleStrings: Record<string, LifecycleStrings> = {
       { name: "2. Context", lead: "human", human: "Curate rules & conventions · update ADRs & glossary", ai: "Detect stale assets · skeleton drafts", guard: "CLAUDE.md · ADRs · No-Gos" },
       { name: "3. Co-Construction", lead: "ai", human: "Restate the plan in your own words · steer direction", ai: "Propose plan → implement · self-check · parallel orchestration", guard: "Verifiable units of work · CLAUDE.md rules" },
       { name: "4. Verification", lead: "ai", human: "Final review · \"can you explain it\" understanding check", ai: "Automated tests · static analysis · cross-review", guard: "Risk-proportional rigor · first-pass rate tracking" },
-      { name: "5. Ship & Observe", lead: "ai", human: "Ship approval", ai: "Auto deploy · observe operations · turn issues into reproducible context", guard: "CI/CD · observability (logs, error rate, latency) · rollback" },
+      { name: "5. Ship & Observe", lead: "ai", human: "Deploy approval", ai: "Auto deploy · observe operations · turn issues into reproducible context", guard: "CI/CD · observability (logs, error rate, latency) · rollback" },
       { name: "6. Evolve", lead: "human", human: "Learnings → rules & checklists · repay understanding debt", ai: "Extract repeated patterns · organize the wiki", guard: "Checklist updates · asset-growth measurement" },
     ],
   },

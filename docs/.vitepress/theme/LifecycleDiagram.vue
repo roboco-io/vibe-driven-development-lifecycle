@@ -19,6 +19,8 @@ const POS = [
       <span><i class="sw sw-ai" /> {{ t.legend.ai }}</span>
       <span class="c-gate">{{ t.legend.gate }}</span>
       <span class="c-guard">{{ t.legend.guard }}</span>
+      <span class="c-fail">- - {{ t.legend.fail }}</span>
+      <span class="c-fb">- - {{ t.legend.feedback }}</span>
     </div>
 
     <div class="lc-scroll lc-ring-wrap">
@@ -119,6 +121,8 @@ const POS = [
 .sw-ai { background: var(--lc-ai); }
 .c-gate { color: var(--lc-human); }
 .c-guard { color: var(--lc-guard); }
+.c-fail { color: var(--lc-fail); }
+.c-fb { color: var(--lc-feedback); }
 
 .lc-scroll { overflow-x: auto; border-radius: 8px; background: var(--vp-c-bg-soft); }
 .lc-canvas { position: relative; width: 1080px; height: 830px; margin: 0 auto; }
