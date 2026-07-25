@@ -70,6 +70,31 @@ const POS = [
         </div>
       </div>
     </div>
+
+    <div class="lc-stack">
+      <template v-for="(s, i) in t.stages" :key="'m-' + s.name">
+        <div v-if="i === 2" class="lc-gate lc-gate-inline">{{ t.gates.plan }}</div>
+        <div v-if="i === 4" class="lc-gate lc-gate-inline">{{ t.gates.review }}</div>
+        <div class="lc-card lc-card-static" :class="s.lead === 'human' ? 'lead-human' : 'lead-ai'">
+          <div class="lc-card-head">
+            <span class="lc-card-name">{{ s.name }}</span>
+            <span class="lc-badge">{{ s.lead === 'human' ? t.badges.human : t.badges.ai }}</span>
+          </div>
+          <template v-if="s.lead === 'ai'">
+            <div class="lc-row lc-ai-row">🤖 {{ s.ai }}</div>
+            <div class="lc-row lc-human-row">👤 {{ s.human }}</div>
+          </template>
+          <template v-else>
+            <div class="lc-row lc-human-row">👤 {{ s.human }}</div>
+            <div class="lc-row lc-ai-row">🤖 {{ s.ai }}</div>
+          </template>
+          <div class="lc-guard-row">🛡 {{ s.guard }}</div>
+        </div>
+        <div v-if="i === 3" class="lc-edge-inline lc-fail-c">↩ {{ t.edges.fail }}</div>
+        <div v-if="i === 5" class="lc-edge-inline lc-fb-c">⟲ {{ t.edges.feedback }}</div>
+        <div v-if="i < 5" class="lc-down">↓</div>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -124,4 +149,14 @@ const POS = [
 .lc-human-row { color: var(--vp-c-text-1); }
 .lc-ai-row { color: color-mix(in srgb, var(--lc-ai) 60%, var(--vp-c-text-1)); }
 .lc-guard-row { font-size: 9.5px; color: var(--lc-guard); border-top: 1px solid var(--vp-c-divider); margin-top: 4px; padding-top: 3px; }
+
+.lc-stack { display: none; }
+@media (max-width: 959px) {
+  .lc-ring-wrap { display: none; }
+  .lc-stack { display: flex; flex-direction: column; align-items: stretch; gap: 6px; background: var(--vp-c-bg-soft); border-radius: 8px; padding: 12px; }
+  .lc-card-static { position: static; width: auto; }
+  .lc-gate-inline { position: static; text-align: center; align-self: center; }
+  .lc-edge-inline { font-size: 10px; text-align: center; }
+  .lc-down { text-align: center; color: var(--vp-c-text-3); line-height: 1; }
+}
 </style>
