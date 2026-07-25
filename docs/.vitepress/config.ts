@@ -140,5 +140,9 @@ export default withMermaid(
         { icon: "github", link: "https://github.com/roboco-io/vibe-driven-development-lifecycle" },
       ],
     },
-  })
+    mermaid: {
+      // 기본 200px에서 라벨이 강제 줄바꿈되며 잘리는 문제 방지
+      flowchart: { wrappingWidth: 800 },
+    },
+  } as Parameters<typeof withMermaid>[0])
 );
