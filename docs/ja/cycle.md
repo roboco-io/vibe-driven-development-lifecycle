@@ -21,19 +21,22 @@ Shape Upの仕掛けは三つに分かれる。
 6週間:2週間 = 3:1の比率を保ちながら、週を日に置き換える。**6営業日ビルド + 2日クールダウン** = 約1.5週間が一つの心拍だ。
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph SHAPING["Shapingトラック(常時並列)"]
+        direction LR
         S1["問題定義<br/>Appetite設定"] --> S2["Breadboard<br/>意図の解像度調整"] --> SP["プロトタイプラウンド<br/>収束・発散 + 決定記録"] --> S3["ピッチ = コンテキスト文書<br/>Rabbit holes / No-gos"]
     end
     subgraph CYCLE["ビルドサイクル(6日)"]
+        direction LR
         B0["Day 0<br/>ベッティングテーブル<br/>並列ベット配分"] --> B1["Day 1-2<br/>One piece done<br/>垂直スライス"] --> B2["Day 3-5<br/>スコープ別の委任<br/>downhill=エージェント"] --> B3["Day 6<br/>検証ゲート<br/>Done=Deployed"]
     end
     subgraph COOL["クールダウン(2日)"]
+        direction LR
         C1["再生成検証<br/>コンテキスト負債の清算"] --> C2["次のベッティングテーブル"]
     end
-    S3 --> B0
-    B3 --> C1
-    B2 -. "収束失敗時<br/>コンテキストブレーカー" .-> S1
+    SHAPING -->|"ピッチ確定"| CYCLE
+    CYCLE -->|"Day 6 通過"| COOL
+    CYCLE -. "収束失敗時<br/>コンテキストブレーカー" .-> SHAPING
 ```
 
 ### Day別の運営ルール

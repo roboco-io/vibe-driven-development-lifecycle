@@ -21,19 +21,22 @@ Shape Up's mechanisms split three ways.
 Keeping the 6-weeks : 2-weeks = 3 : 1 ratio, we substitute days for weeks. **6 working days of build + 2 days of cool-down** = roughly 1.5 weeks is one heartbeat.
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph SHAPING["Shaping track (always parallel)"]
+        direction LR
         S1["Problem definition<br/>Set Appetite"] --> S2["Breadboard<br/>Tune intent resolution"] --> SP["Prototype round<br/>Convergent/divergent + decision record"] --> S3["Pitch = context doc<br/>Rabbit Holes / No-Gos"]
     end
     subgraph CYCLE["Build cycle (6 days)"]
+        direction LR
         B0["Day 0<br/>Betting table<br/>Allocate parallel bets"] --> B1["Day 1-2<br/>One piece done<br/>Vertical slice"] --> B2["Day 3-5<br/>Delegate by scope<br/>downhill=agent"] --> B3["Day 6<br/>Verification gate<br/>Done=Deployed"]
     end
     subgraph COOL["Cool-down (2 days)"]
+        direction LR
         C1["Regeneration verification<br/>Settle context debt"] --> C2["Next betting table"]
     end
-    S3 --> B0
-    B3 --> C1
-    B2 -. "On convergence failure<br/>context breaker" .-> S1
+    SHAPING -->|"Pitch finalized"| CYCLE
+    CYCLE -->|"Passes Day 6"| COOL
+    CYCLE -. "On convergence failure<br/>context breaker" .-> SHAPING
 ```
 
 ### Day-by-day operating rules
