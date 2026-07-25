@@ -2,6 +2,14 @@
 
 VDLC is not a finished document but a methodology that keeps evolving. Versions follow SemVer: a major bump when a premise or core proposition changes, a minor bump when a principle or structure is added, a patch for wording and typo fixes. The very trajectory of the methodology's evolution is a live example of the "feedback" and "learning asset" VDLC talks about.
 
+## v1.2 — 2026-07-25
+
+**Cycle length redefined — re-betting rhythm and a downward variant**
+
+- The cycle is redefined as a re-betting rhythm rather than an estimate of work time — the right length is a function of verification-asset maturity, information arrival rate, and understanding bandwidth
+- New downward variant (2-day build + 1-day cool-down) for teams at Compounding maturity or above with mature verification assets, and for solo or small teams
+- The calibration procedure is made concrete as variant-step rules (conditions for extending and shortening)
+
 ## v1.1 — 2026-07-25
 
 **The 6-day cycle and prototype-driven shaping**

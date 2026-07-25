@@ -49,13 +49,25 @@ flowchart LR
 
 ### Calibrating cycle length
 
-Six days is the default. In enterprise settings where shaping and consensus require organizational leadership sign-off, use a **10-day build + 3-day cool-down (a two-week variant)**. Either way there is a floor: human judgment and consensus don't compress, so never shrink the cycle below the point where shaping becomes the bottleneck.
+Six days is a default, not a floor. A cycle is a **re-betting rhythm**, not an estimate of work time. Deployment happens continuously inside the cycle, slice by slice (Done = Deployed from Day 1–2 on), so shortening the cycle buys more frequent decisions, not faster shipping. The right length is therefore a function of three variables.
+
+- **Verification-asset maturity** — as agent cross-review and automated evals absorb more of verification, the human gate takes less time and there is more room to shorten
+- **Information arrival rate** — re-betting is only as valuable as the new information (user feedback, operational data) it acts on. Re-betting more often than information arrives just means more meetings over the same facts
+- **Understanding bandwidth** — for feedback to be real, people must understand what shipped, and the speed of understanding and curation doesn't compress with compute
+
+On top of that, every cycle carries fixed costs — the betting table, the verification gate, regeneration verification — so over-shortening only raises the overhead-to-output ratio.
+
+| Variant | Shape | For |
+|---|---|---|
+| Default | 6-day build + 2-day cool-down | Teams at the Practicing maturity level |
+| Upward | 10-day build + 3-day cool-down | Enterprises where shaping and consensus need leadership sign-off |
+| Downward | 2-day build + 1-day cool-down | Teams at Compounding maturity or above with mature verification assets; solo and small teams |
 
 The floor isn't fixed as a number; it's managed through a calibration procedure.
 
 1. Each cool-down, record the time spent on shaping and the context-breaker trigger rate
-2. If breakers fire frequently for two consecutive cycles, it signals too little shaping time — extend the cycle
-3. Conversely, if cool-downs are consistently quiet, consider shortening it
+2. If breakers fire frequently for two consecutive cycles, it signals too little shaping time — move up one variant
+3. If cool-downs stay quiet and the verification gate keeps passing first-try, move down one variant
 
 ## The mechanisms whose meaning inverts
 
@@ -198,7 +210,7 @@ The first task of cool-down is settling not technical debt but **context debt** 
 
 | Shape Up | VDLC 6-day cycle | Gist of the change |
 |---|---|---|
-| Cycle (6 weeks) | Build cycle (6 days) | Weeks → days. Enterprise variant is 10 days |
+| Cycle (6 weeks) | Build cycle (6 days) | Weeks → days. Upward variant 10 days, downward variant 2 days |
 | Cool-down (2 weeks) | Cool-down (2 days) | Regeneration verification is the first task |
 | Pitch | Context document | Persuasion doc → primary artifact the agent consumes |
 | Shaping (senior tacit knowledge) | Prototype-driven shaping | Sketches/prose → judging from working prototypes. Curation is the human's skill |
