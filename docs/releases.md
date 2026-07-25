@@ -2,6 +2,14 @@
 
 VDLC is not a finished document but a methodology that keeps evolving. Versions follow SemVer: a major bump when a premise or core proposition changes, a minor bump when a principle or structure is added, a patch for wording and typo fixes. The very trajectory of the methodology's evolution is a live example of the "feedback" and "learning asset" VDLC talks about.
 
+## v1.2 — 2026-07-25
+
+**Detailed lifecycle diagram — a circular view of actors and harness**
+
+- Replaced the plain P1–P6 diagram on the manifesto and landing pages with a circular ring diagram that surfaces, in one view, each stage's human/AI work, who leads, the human gates (plan approval, final review, ship approval), and the automated guardrails
+- Implemented as a single Vue component driven by locale string data, supporting all three locales (English, Korean, Japanese)
+- Reflows into a vertical 1→6 card stack on narrow screens (<960px) for mobile readability
+
 ## v1.1 — 2026-07-25
 
 **The Weekly Cycle and prototype-driven shaping**
