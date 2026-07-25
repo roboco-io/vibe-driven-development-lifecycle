@@ -43,6 +43,8 @@ VDLC는 이 네 문제를 정면으로 다룬다. 병목이 된 구간(의도 �
 
 ## 4. 라이프사이클: 여섯 단계
 
+<LifecycleDiagram />
+
 ```mermaid
 flowchart LR
     subgraph H["인간 주도 · AI 보조"]
