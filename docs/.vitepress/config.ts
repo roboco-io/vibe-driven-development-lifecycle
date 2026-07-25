@@ -1,7 +1,7 @@
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { defineConfig } from "vitepress";
 
-const VERSION = "v1.2";
+const VERSION = "v1.3";
 
 interface LocaleStrings {
   manifesto: string;
@@ -57,7 +57,7 @@ function localeThemeConfig(prefix: string, t: LocaleStrings) {
 const en = localeThemeConfig("", {
   manifesto: "Manifesto",
   guide: "Guide",
-  cycle: "6-Day Cycle",
+  cycle: "Weekly Cycle",
   templates: "Templates",
   adoption: "Adoption",
   slides: "Slides (KO)",
@@ -70,7 +70,7 @@ const en = localeThemeConfig("", {
 const ko = localeThemeConfig("ko", {
   manifesto: "매니페스토",
   guide: "가이드",
-  cycle: "6일 사이클",
+  cycle: "주간 사이클",
   templates: "템플릿",
   adoption: "도입",
   slides: "슬라이드",
@@ -83,7 +83,7 @@ const ko = localeThemeConfig("ko", {
 const ja = localeThemeConfig("ja", {
   manifesto: "マニフェスト",
   guide: "ガイド",
-  cycle: "6日サイクル",
+  cycle: "週間サイクル",
   templates: "テンプレート",
   adoption: "導入",
   slides: "スライド (韓国語)",

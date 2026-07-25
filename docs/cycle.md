@@ -1,4 +1,4 @@
-# The 6-Day Cycle — Shape Up Reinterpreted for Vibe Coding
+# The Weekly Cycle — Shape Up Reinterpreted for Vibe Coding
 
 An operating rhythm that redefines the six-week timeboxed cycle of Basecamp's [Shape Up](https://basecamp.com/shapeup) (Ryan Singer) on top of VDLC's premises. It turns Principle 5 of the [Manifesto](/manifesto) ("Run Small Cycles, Feed Back Often") into a concrete team-level heartbeat.
 
@@ -13,20 +13,20 @@ Shape Up's mechanisms split three ways.
 | Category | The mechanism | Its fate in VDLC |
 |---|---|---|
 | Survives (reinforced) | Fixed time · variable scope, Shaping, Appetite, No-Gos | As implementation cost converges to zero, scope inflates faster, making the timebox and shaping matter even more |
-| Time unit changes | 6-week cycle, 2-week cool-down | Compressed from weeks to days (6-day build + 2-day cool-down) |
+| Time unit changes | 6-week cycle, 2-week cool-down | Compressed from weeks to days (4-day build + 1-day cool-down, one week is one heartbeat) |
 | Meaning inverts | Circuit breaker, Betting, Hill chart, "QA is for the edges", "Shaping is senior tacit knowledge" | Detailed below |
 
 ## Cycle structure
 
-Keeping the 6-weeks : 2-weeks = 3 : 1 ratio, we substitute days for weeks. **6 working days of build + 2 days of cool-down** = roughly 1.5 weeks is one heartbeat.
+We substitute days for weeks, but align the heartbeat to the calendar week. **4 working days of build + 1 day of cool-down = one week is one heartbeat.** Bet on Monday morning, and close the week with cool-down on Friday. The ratio moves from Shape Up's 3 : 1 to 4 : 1 — cool-down's work (regeneration verification, debt back-transfer) is also agent-executed, so one day is enough.
 
 ```mermaid
 flowchart TB
     S["<b>Shaping track (always parallel)</b><br/>Problem definition → Breadboard → Prototype round → Pitch"]
-    B["<b>Build cycle (6 days)</b><br/>Day 0 betting → Day 1-2 vertical slice → Day 3-5 delegation → Day 6 verification gate"]
-    C["<b>Cool-down (2 days)</b><br/>Regeneration verification → Next betting table"]
+    B["<b>Build cycle (4 days · Mon–Thu)</b><br/>Day 0 betting → Day 1 vertical slice → Day 2-3 delegation → Day 4 verification gate"]
+    C["<b>Cool-down (1 day · Fri)</b><br/>Regeneration verification → Next betting table"]
     S -->|"Pitch finalized"| B
-    B -->|"Passes Day 6"| C
+    B -->|"Gate passed"| C
     B -. "On convergence failure<br/>context breaker" .-> S
 ```
 
@@ -34,16 +34,15 @@ flowchart TB
 
 | Day | Activity | Completion condition |
 |---|---|---|
-| Day 0 | Betting table. Review pitches, allocate parallel bets, document the winner-selection criteria in advance | Each bet has its dual budget (human attention + compute) spelled out |
-| Day 1–2 | Get one piece done. Integrate a single vertical slice into a deployable state | One end-to-end slice working in a real environment |
-| Day 3–5 | Delegation based on the scope map. Downhill scopes are fully delegated to the agent; uphill scopes need human judgment | Every must-have scope has crossed into downhill |
-| Day 6 | Verification gate. No coding, verification only | A Done = Deployed verdict |
-| Cool-down, day 1 | Regeneration-verification ritual | Regeneration succeeds from the context docs alone, or debt is back-transferred |
-| Cool-down, day 2 | Ad-hoc work, bug fixes, preparing the next betting table | — |
+| Day 0 (Mon morning) | Betting table. Review pitches, allocate parallel bets, document the winner-selection criteria in advance | Each bet has its dual budget (human attention + compute) spelled out |
+| Day 1 (Mon) | Get one piece done. Integrate a single vertical slice into a deployable state | One end-to-end slice working in a real environment |
+| Day 2–3 (Tue–Wed) | Delegation based on the scope map. Downhill scopes are fully delegated to the agent; uphill scopes need human judgment | Every must-have scope has crossed into downhill |
+| Day 4 (Thu) | Verification gate. No coding, verification only | A Done = Deployed verdict |
+| Day 5 (Fri) | Cool-down. Regeneration-verification ritual, debt back-transfer, ad-hoc work, preparing the next betting table | Regeneration succeeds from the context docs alone, or debt is back-transferred |
 
 ### Calibrating cycle length
 
-Six days is a default, not a floor. A cycle is a **re-betting rhythm**, not an estimate of work time. Deployment happens continuously inside the cycle, slice by slice (Done = Deployed from Day 1–2 on), so shortening the cycle buys more frequent decisions, not faster shipping. The right length is therefore a function of three variables.
+A week (4 + 1) is a default, not a floor. A cycle is a **re-betting rhythm**, not an estimate of work time. Deployment happens continuously inside the cycle, slice by slice (Done = Deployed from Day 1 on), so shortening the cycle buys more frequent decisions, not faster shipping. The right length is therefore a function of three variables.
 
 - **Verification-asset maturity** — as agent cross-review and automated evals absorb more of verification, the human gate takes less time and there is more room to shorten
 - **Information arrival rate** — re-betting is only as valuable as the new information (user feedback, operational data) it acts on. Re-betting more often than information arrives just means more meetings over the same facts
@@ -53,8 +52,8 @@ On top of that, every cycle carries fixed costs — the betting table, the verif
 
 | Variant | Shape | For |
 |---|---|---|
-| Default | 6-day build + 2-day cool-down | Teams at the Practicing maturity level |
-| Upward | 10-day build + 3-day cool-down | Enterprises where shaping and consensus need leadership sign-off |
+| Default | 4-day build + 1-day cool-down (one week) | Teams at the Practicing maturity level |
+| Upward | 8-day build + 2-day cool-down (two weeks) | Enterprises where shaping and consensus need leadership sign-off |
 | Downward | 2-day build + 1-day cool-down | Teams at Compounding maturity or above with mature verification assets; solo and small teams |
 
 The floor isn't fixed as a number; it's managed through a calibration procedure.
@@ -69,9 +68,9 @@ The floor isn't fixed as a number; it's managed through a calibration procedure.
 
 In Shape Up, a project not finished within the cycle is cancelled by default. In VDLC, when the agent fails to converge it isn't an implementation problem but a **failure of shaping**. The default action isn't cancellation but a **return to the shaping track**.
 
-Trigger conditions (any one fires it immediately — don't wait until Day 6):
+Trigger conditions (any one fires it immediately — don't wait until Day 4):
 
-1. At the end of Day 2 there is no deployable vertical slice
+1. At the end of Day 1 there is no deployable vertical slice
 2. The compute budget is spent while a must-have scope is still uphill
 3. The agent repeats three or more mutually contradictory approaches on the same scope
 
@@ -95,7 +94,7 @@ Shape Up's hill chart was a progress-reporting tool. In VDLC the same chart beco
 
 ### QA is for the edges → verification gate
 
-Shape Up's QA covered only edge cases — on the premise that the human implementer had already verified the main flow. VDLC has no such premise. Verification is promoted to an explicit stage, and **all of Day 6 is allocated to it**. No new coding is allowed on Day 6 (only fixing defects found during verification).
+Shape Up's QA covered only edge cases — on the premise that the human implementer had already verified the main flow. VDLC has no such premise. Verification is promoted to an explicit stage, and **all of Day 4 is allocated to it**. No new coding is allowed on Day 4 (only fixing defects found during verification).
 
 Verification-gate checklist:
 
@@ -157,7 +156,7 @@ In Shape Up the pitch was a document for persuading people at the betting table.
 ## 2. Appetite (dual-currency)
 - Human attention budget: shaping {N} hours + verification {N} hours
 - Compute budget: {token/session ceiling}
-- Batch size: Small (half a day to a day) | Big (the full 6 days)
+- Batch size: Small (half a day to a day) | Big (the full 4-day build)
 
 ## 3. Solution
 {A breadboard- or fat-marker-level solution. No wireframes (over-specific), no one-line summary (over-abstract).
@@ -202,19 +201,19 @@ The first task of cool-down is settling not technical debt but **context debt** 
 
 ## Terminology mapping
 
-| Shape Up | VDLC 6-day cycle | Gist of the change |
+| Shape Up | VDLC Weekly Cycle | Gist of the change |
 |---|---|---|
-| Cycle (6 weeks) | Build cycle (6 days) | Weeks → days. Upward variant 10 days, downward variant 2 days |
-| Cool-down (2 weeks) | Cool-down (2 days) | Regeneration verification is the first task |
+| Cycle (6 weeks) | Build cycle (4 days) | Weeks → days, one week is one heartbeat. Upward variant 8 days, downward variant 2 days |
+| Cool-down (2 weeks) | Cool-down (1 day) | Regeneration verification is the first task |
 | Pitch | Context document | Persuasion doc → primary artifact the agent consumes |
 | Shaping (senior tacit knowledge) | Prototype-driven shaping | Sketches/prose → judging from working prototypes. Curation is the human's skill |
 | Fat marker sketch | Prototype + decision record | Drawing → the real thing. Preserve the decision context as a record before discarding |
 | Appetite | Dual-currency Appetite | Human attention budget + compute budget |
 | Bet | Parallel bet | Commitment → option purchase. Winner criteria documented in advance |
-| Circuit breaker | Context breaker | Cancellation → return to shaping. Early trigger on Day 2 |
+| Circuit breaker | Context breaker | Cancellation → return to shaping. Early trigger on Day 1 |
 | Hill chart | Delegability map | Reporting tool → human-agent work-distribution tool |
 | Scope hammering | Context hammering | Not deleting code but editing the intent doc, then regenerating |
-| QA is for the edges | Verification gate (Day 6) | Supporting activity → promoted to an explicit stage |
+| QA is for the edges | Verification gate (Day 4) | Supporting activity → promoted to an explicit stage |
 | Technical debt | Context debt | Undocumented intent that exists only in the code |
 | Done means deployed | Done = Deployed + regenerable | Adds a regenerability condition to deployment |
 

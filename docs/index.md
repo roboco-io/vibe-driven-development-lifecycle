@@ -74,6 +74,6 @@ VDLC tackles these four problems head-on: it places the bottleneck stages at the
 
 - [Manifesto](/manifesto) — the full text covering VDLC's definition, background, six principles, and relationship to existing methodologies
 - [Practical Guide](/guide/intent) — a playbook covering how to execute each of the six stages
-- [The 6-Day Cycle](/cycle) — a team operating rhythm that reinterprets Shape Up on vibe-coding premises, including prototype-driven shaping and decision records
+- [The Weekly Cycle](/cycle) — a team operating rhythm that reinterprets Shape Up on vibe-coding premises, including prototype-driven shaping and decision records
 - [Templates](/templates/) — reusable document formats such as intent documents, PR-FAQs, and risk matrices
 - [Adoption](/adoption/) — documents for designing an organizational adoption path with a maturity model, roadmap, and metrics

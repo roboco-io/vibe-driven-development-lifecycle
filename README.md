@@ -12,7 +12,7 @@ VDLC rebuilds the entire development process around vibe coding instead of bolti
 
 - **Six principles** — Intent as Source; Humans Judge, AI Executes; Verification Sets the Pace; Context as Asset; Run Small Cycles, Feed Back Often; Understanding as Ownership
 - **A six-stage lifecycle** — Intent → Context → Co-Construction → Verification → Ship & Observe → Evolve. Stages 1·2·6 are human-led with AI support; stages 3·4·5 are AI-led with human gates (plan approval, final review, deploy approval)
-- **The 6-Day Cycle** — Shape Up reinterpreted for vibe coding as a team operating rhythm, including prototype-driven shaping and decision records
+- **The Weekly Cycle** — Shape Up reinterpreted for vibe coding as a team operating rhythm (4-day build + 1-day cool-down), including prototype-driven shaping and decision records
 - **Practical assets** — stage-by-stage playbooks, document templates, a maturity model, an adoption roadmap, and metrics
 
 ## Repository layout

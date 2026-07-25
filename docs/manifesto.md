@@ -156,11 +156,11 @@ Organizational adoption proceeds in four steps: pilot → context asset-building
 
 The goal, the work, and the completion signal for each step are covered in detail in the [Adoption Roadmap](/adoption/roadmap).
 
-## 10. Operating Rhythm: The 6-Day Cycle
+## 10. Operating Rhythm: The Weekly Cycle
 
-As a team-level operating rhythm, we recommend the **6-day cycle**, a reinterpretation of Basecamp Shape Up's six-week cycle on top of VDLC's premises. In an era when implementation finishes in minutes and hours, the variable that sets cycle length is not build time but the human time spent on shaping (defining intent) and verification, so we substitute days for weeks and run 6 days of build + 2 days of cool-down as one heartbeat. Shaping becomes not a documentation activity but an experimental activity with prototype rounds built in — because making it and judging has become cheaper than discussing and judging. A decision record auto-generated at each prototype round preserves the context of "why it was settled in this form" as a context asset.
+As a team-level operating rhythm, we recommend the **weekly cycle**, a reinterpretation of Basecamp Shape Up's six-week cycle on top of VDLC's premises. In an era when implementation finishes in minutes and hours, the variable that sets cycle length is not build time but the human time spent on shaping (defining intent) and verification, so we substitute days for weeks but align the heartbeat to the calendar week: 4 days of build + 1 day of cool-down — one full week, cool-down included, as a single heartbeat. Shaping becomes not a documentation activity but an experimental activity with prototype rounds built in — because making it and judging has become cheaper than discussing and judging. A decision record auto-generated at each prototype round preserves the context of "why it was settled in this form" as a context asset.
 
-The full definitions of the cycle structure, the context breaker, parallel bets, the pitch template, and regeneration verification are covered in the [6-Day Cycle](/cycle).
+The full definitions of the cycle structure, the context breaker, parallel bets, the pitch template, and regeneration verification are covered in the [Weekly Cycle](/cycle).
 
 ## Closing
 

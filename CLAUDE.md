@@ -34,6 +34,17 @@ vdlc.md (한국어 매니페스토 원문 = source of truth)
 
 `vdlc.md`만 고치고 끝내면 안 된다. 원칙 개수("여섯 가지 원칙"), 문제 개수("네 가지 문제"), 진단 문항 수("18문항") 같은 개수 표현은 여러 파일에 흩어져 있으므로, 변경 시 넓은 패턴으로 전수 grep 한다(예: `grep -r "여섯 가지\|네 가지\|18문항" docs`).
 
+주간 사이클(구 6일 사이클)은 별도 사슬을 따른다:
+
+```
+specs/VDLC-weekly-cycle.md (사이클 방법론 원문)
+  → docs/ko/cycle.md → docs/cycle.md (영문), docs/ja/cycle.md
+  → 매니페스토 "10. 운영 리듬" 섹션(vdlc.md 포함 4벌), 랜딩·README 링크
+  → slides/slides.md의 "운영 리듬" 섹션
+```
+
+버전 표기는 SemVer(전제 변경 major / 구조 추가 minor / 표현 patch). 릴리즈 시 `docs/.vitepress/config.ts`의 `VERSION` 상수, `slides/slides.md` 표지 버전, 릴리즈 노트 3벌(`docs/{,ko/,ja/}releases.md`)을 함께 갱신한다.
+
 ## i18n 구조
 
 - **영문이 루트 로케일**: `docs/*.md`. 한국어는 `docs/ko/`, 일본어는 `docs/ja/`.
