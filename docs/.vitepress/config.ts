@@ -100,6 +100,15 @@ export default withMermaid(
       ["link", { rel: "icon", href: "/favicon.ico", sizes: "48x48" }],
       ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
       ["link", { rel: "apple-touch-icon", href: "/apple-touch-icon.png" }],
+      // SNS 공유 섬네일 — 원본은 docs/public/og.svg, 렌더본은 og.png (1200×630)
+      ["meta", { property: "og:type", content: "website" }],
+      ["meta", { property: "og:site_name", content: "VDLC" }],
+      ["meta", { property: "og:image", content: "https://vdlc.roboco.io/og.png" }],
+      ["meta", { property: "og:image:width", content: "1200" }],
+      ["meta", { property: "og:image:height", content: "630" }],
+      ["meta", { property: "og:image:alt", content: "VDLC — Vibe-Driven Development Lifecycle" }],
+      ["meta", { name: "twitter:card", content: "summary_large_image" }],
+      ["meta", { name: "twitter:image", content: "https://vdlc.roboco.io/og.png" }],
     ],
     locales: {
       root: {

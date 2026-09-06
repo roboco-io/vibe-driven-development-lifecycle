@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b449a"/>
+      <stop offset="100%" stop-color="#5672cd"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3451b2"/>
+      <stop offset="100%" stop-color="#5672cd"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- 배경 장식: 로고의 호를 크게 반복 -->
+  <path d="M 700 -80 A 520 520 0 1 1 900 760" stroke="#a8c1ff" stroke-width="4" fill="none" opacity="0.22"/>
+  <path d="M 760 -20 A 440 440 0 1 1 940 700" stroke="#a8c1ff" stroke-width="2.5" fill="none" opacity="0.14"/>
+
+  <!-- 로고 마크 (logo.svg 64→ 4.2배) -->
+  <g transform="translate(96 181) scale(4.2)">
+    <rect width="64" height="64" rx="14" fill="url(#mark)" stroke="#ffffff" stroke-opacity="0.25" stroke-width="0.6"/>
+    <path d="M14 30 A 18 18 0 1 1 21 44" stroke="#a8c1ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M15.5 39.7 L23.4 40.8 L18.6 47.2 Z" fill="#a8c1ff"/>
+    <path d="M22 22 L32 42 L42 22" stroke="#ffffff" stroke-width="6.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 텍스트 -->
+  <g font-family="Pretendard, Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#ffffff">
+    <text x="424" y="318" font-size="150" font-weight="700" letter-spacing="-4">VDLC</text>
+    <text x="428" y="378" font-size="38" font-weight="500" fill="#dbe4ff">Vibe-Driven Development Lifecycle</text>
+    <text x="428" y="436" font-size="26" font-weight="500" fill="#a8c1ff">Intent is the source.</text>
+  </g>
+
+  <!-- 하단 URL -->
+  <text x="428" y="556" font-family="Pretendard, Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="500" fill="#a8c1ff" opacity="0.9">vdlc.roboco.io</text>
+</svg>
